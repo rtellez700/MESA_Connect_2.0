@@ -40,7 +40,6 @@ var currentUser = users[0];
 
 class Profile extends React.Component {
 	render() {
-		console.log(faker.);
 		var full_name = currentUser.f_name + ' ' + currentUser.l_name;
 		return (
 			<div className="container-fluid Profile bg--redish">
