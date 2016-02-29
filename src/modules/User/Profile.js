@@ -5,6 +5,7 @@ import Interests from './Interests';
 import BioInfoCardList from './BioInfoCardList';
 import faker from 'faker';
 
+// sample data
 var users = [
 	{
 		"id": 1456729877142,

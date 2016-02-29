@@ -18,7 +18,7 @@ Run the application by simply running `npm run start:dev`.
 - [x] Continue adding npm packages for initial setup.
 - [ ] Work on HTML/CSS layout for designs.
 - [ ] Develop sprint plans.
+- [ ] Re-implement linting rules.
 - [ ] Finalize file structure.
 - [ ] Implement user authentication system.
 - [ ] Implement Flux architecture with SQL database.
-
