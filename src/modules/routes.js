@@ -3,13 +3,13 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
 import App from './App'
-import Home from './Views/Home'
-import Showcase from './Views/Showcase'
-import Donate from './Views/Donate'
-import About from './Views/About'
-import Contact from './Views/Contact'
-import Join from './Views/Join'
-import Profile from './User/Profile'
+import Home from './Components/Views/Home'
+import Showcase from './Components/Views/Showcase'
+import Donate from './Components/Views/Donate'
+import About from './Components/Views/About'
+import Contact from './Components/Views/Contact'
+import Join from './Components/Views/Join'
+import Profile from './Components/User/Profile'
 
 
 module.exports = (
