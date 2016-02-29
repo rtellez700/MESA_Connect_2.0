@@ -3,12 +3,12 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
 import App from './App'
-import Home from './Home'
-import Showcase from './Showcase'
-import Donate from './Donate'
-import About from './About'
-import Contact from './Contact'
-import Join from './Join'
+import Home from './Views/Home'
+import Showcase from './Views/Showcase'
+import Donate from './Views/Donate'
+import About from './Views/About'
+import Contact from './Views/Contact'
+import Join from './Views/Join'
 import Profile from './User/Profile'
 
 

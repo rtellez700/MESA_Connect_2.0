@@ -22,3 +22,4 @@ Run the application by simply running `npm run start:dev`.
 - [ ] Finalize file structure.
 - [ ] Implement user authentication system.
 - [ ] Implement Flux architecture with SQL database.
+- [ ] Fix gulpfile in order to remove Webpack

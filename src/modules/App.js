@@ -1,8 +1,8 @@
 import React from 'react'
 
 
-import NavBar from './NavBar'
-import Footer from './Footer'
+import NavBar from './Views/NavBar'
+import Footer from './Views/Footer'
 
 export default React.createClass({
   render() {
