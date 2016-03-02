@@ -21,5 +21,6 @@ Run the application by simply running `npm run start:dev`.
 - [ ] Re-implement linting rules.
 - [ ] Finalize file structure.
 - [ ] Implement user authentication system.
-- [ ] Implement Flux architecture with SQL database.
-- [ ] Fix gulpfile in order to remove Webpack
+- [ ] Implement Flux architecture.
+- [ ] Add SQL (or other) database in lieu of localStorage.
+- [ ] Fix gulpfile in order to remove Webpack.
