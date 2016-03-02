@@ -8,7 +8,6 @@ require('./styles/app.scss')
 
 import routes from './modules/routes'
 
-
 render (
 	<Router routes={routes} history={browserHistory}/>,
 	document.getElementById('App')

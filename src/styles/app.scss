@@ -1,7 +1,8 @@
 @import './vendor/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+@import './SideBar.scss';
 
 body{
-	padding-top: $navbar-height;
+	// padding-top: $navbar-height;
 }
 
 img{

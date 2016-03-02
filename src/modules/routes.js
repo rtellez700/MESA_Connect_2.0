@@ -9,7 +9,10 @@ import Donate from './Components/Views/Donate'
 import About from './Components/Views/About'
 import Contact from './Components/Views/Contact'
 import Join from './Components/Views/Join'
+
+import User from './Components/User/User'
 import Profile from './Components/User/Profile'
+import Dashboard from './Components/User/Dashboard'
 
 
 module.exports = (
@@ -21,5 +24,9 @@ module.exports = (
     <Route path="/contact" component={Contact}/>
     <Route path="/join" component={Join}/>
     <Route path="/profile" component={Profile}/>
+    <Route path="/user" component={User}>
+    	<IndexRoute component={Dashboard} />
+    	<Route path="dashboard" component={Dashboard} />
+    </Route>
   </Route>
 )

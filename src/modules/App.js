@@ -1,8 +1,13 @@
 import React from 'react'
 
+import NavBar from './Components/Views/NavBar';
+import Footer from './Components/Views/Footer';
 
-import NavBar from './Views/NavBar'
-import Footer from './Views/Footer'
+var UserExampleData = require('./UserDataSimple');
+var UserAPIUtils = require('./Utils/UserAPIUtils');
+
+UserExampleData.init();
+UserAPIUtils.getAllUsers();
 
 export default React.createClass({
   render() {
@@ -17,4 +22,6 @@ export default React.createClass({
 	);
   }
 })
+
+
 

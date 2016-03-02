@@ -1,12 +1,13 @@
 import React from 'react';
-import FormBox from '../Form/FormBox';
+import SignUpBox from '../Form/SignUpBox';
+import SignUpContainer from '../Containers/SignUpContainer';
 
 class Join extends React.Component {
 	render() {
 		return (
 			<div className="container-fluid Join">
 				<div className="grid__wrapper"> 
-					<FormBox />
+					<SignUpContainer />
 				</div>
 			</div>
 		);

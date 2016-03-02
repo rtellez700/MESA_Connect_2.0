@@ -1,8 +1,12 @@
 {
-  "name": "mesa_connect",
+  "name": "mesa_connect_2.0",
   "version": "0.0.1",
   "description": "MESA_Connect Application",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rtellez700/MESA_Connect_2.0"
+  },
   "scripts": {
     "start": "if-env cross-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:dev": "gulp && webpack-dev-server -d --colors --port 3030 --inline --content-base public/ --history-api-fallback",
@@ -23,11 +27,15 @@
     "bootstrap": "^3.3.6",
     "bootstrap-webpack": "0.0.5",
     "compression": "^1.6.1",
+    "events": "^1.1.0",
     "express": "^4.13.4",
+    "flux": "^2.1.1",
     "grunt": "^0.4.5",
     "imports-loader": "^0.6.5",
     "jquery": "^2.2.1",
+    "keymirror": "^0.1.1",
     "node-jsx": "^0.13.3",
+    "object-assign": "^4.0.1",
     "react": "^0.14.7",
     "react-avatar": "^0.7.1",
     "react-dom": "^0.14.7",
