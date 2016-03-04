@@ -33,7 +33,7 @@ app.get('*', (req, res) => {
 
 function renderPage(appHtml) {
   return `
-    <!doctype html public="storage">
+    <!doctype html>
     <html>
     <meta charset=utf-8/>
     <title>MESA Connect App</title>
