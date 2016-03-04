@@ -3,10 +3,10 @@ import React from 'react'
 import NavBar from './Components/Views/NavBar';
 import Footer from './Components/Views/Footer';
 
-var UserExampleData = require('./UserDataSimple');
+// var UserExampleData = require('./UserDataSimple');
 var UserAPIUtils = require('./Utils/UserAPIUtils');
 
-UserExampleData.init();
+// UserExampleData.init();
 UserAPIUtils.getAllUsers();
 
 class App extends React.Component{
