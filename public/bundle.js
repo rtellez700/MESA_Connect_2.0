@@ -60,9 +60,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	window.jQuery = window.$ = __webpack_require__(273);
-	__webpack_require__(274);
-	__webpack_require__(275);
+	window.jQuery = window.$ = __webpack_require__(276);
+	__webpack_require__(277);
+	__webpack_require__(278);
 
 	(0, _reactDom.render)(_react2.default.createElement(_reactRouter.Router, { routes: _routes2.default, history: _reactRouter.browserHistory }), document.getElementById('App'));
 
@@ -24773,9 +24773,7 @@
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
@@ -24791,24 +24789,48 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var UserExampleData = __webpack_require__(221);
-	var UserAPIUtils = __webpack_require__(235);
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	UserExampleData.init();
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// var UserExampleData = require('./UserDataSimple');
+	var UserAPIUtils = __webpack_require__(221);
+
+	// UserExampleData.init();
 	UserAPIUtils.getAllUsers();
 
-	exports.default = _react2.default.createClass({
-	  displayName: 'App',
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      { className: 'container-fluid' },
-	      _react2.default.createElement(_NavBar2.default, null),
-	      this.props.children,
-	      _react2.default.createElement(_Footer2.default, null)
-	    );
-	  }
-	});
+	var App = function (_React$Component) {
+		_inherits(App, _React$Component);
+
+		function App() {
+			_classCallCheck(this, App);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+		}
+
+		_createClass(App, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ id: 'App_Wrapper', className: 'toggled container-fluid' },
+						_react2.default.createElement(_NavBar2.default, null),
+						this.props.children,
+						_react2.default.createElement(_Footer2.default, null)
+					)
+				);
+			}
+		}]);
+
+		return App;
+	}(_react2.default.Component);
+
+	module.exports = App;
 
 /***/ },
 /* 218 */
@@ -24851,7 +24873,7 @@
 					{ className: 'container-fluid' },
 					_react2.default.createElement(
 						'nav',
-						{ className: 'navbar navbar-default' },
+						{ className: 'navbar navbar-default', role: 'navigation' },
 						_react2.default.createElement(
 							'div',
 							{ className: 'container' },
@@ -24998,7 +25020,7 @@
 /* 220 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -25024,18 +25046,34 @@
 		}
 
 		_createClass(Footer, [{
-			key: "render",
+			key: '_onClick',
+			value: function _onClick(e) {
+				e.preventDefault();
+				$('#App_Wrapper').toggleClass("toggled");
+			}
+		}, {
+			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					"div",
-					{ className: "Footer" },
+					'div',
+					{ className: 'Footer' },
 					_react2.default.createElement(
-						"div",
-						{ className: "container" },
+						'div',
+						{ className: 'container' },
 						_react2.default.createElement(
-							"h1",
-							null,
-							"Footer Goes Here"
+							'h1',
+							{ className: 'text-center', style: { color: 'whitesmoke' } },
+							'Footer Goes Here'
+						),
+						_react2.default.createElement('br', null),
+						_react2.default.createElement(
+							'div',
+							{ id: 'page-content-wrapper', className: 'well text-center bg--terracotta' },
+							_react2.default.createElement(
+								'a',
+								{ href: '#sidebar-menu-toggle', className: 'btn btn-primary', id: 'sidebar-menu-toggle', onClick: this._onClick.bind(this) },
+								'Toggle Menu'
+							)
 						)
 					)
 				);
@@ -25053,27 +25091,507 @@
 
 	'use strict';
 
-	var faker = __webpack_require__(222);
+	var UserServerActionCreators = __webpack_require__(222);
+	var USER_DATA = __webpack_require__(229);
+
+	// window.USER_DATA = USER_DATA;
+	// TODO: finish create user function
 
 	module.exports = {
+		getAllUsers: function getAllUsers() {
+			// simulate retrieving data from a database
+			var rawUsers = JSON.parse(USER_DATA.init());
 
-		init: function init() {
-			localStorage.clear();
-			localStorage.setItem('users', JSON.stringify([{
-				id: "u_1",
-				f_name: "Rodrigo"
-			}, {
-				id: "u_2",
-				f_name: "Gabriella"
-			}, {
-				id: "u_3",
-				f_name: "Chris"
-			}]));
+			// simulate success callback
+			UserServerActionCreators.receiveAll(rawUsers);
+		},
+		createUser: function createUser(user) {
+			// simulate writing to a database
+			var rawUsers = JSON.parse(USER_DATA.init());
+			var timestamp = Date.now();
+			var id = 'u_' + timestamp;
+			var createdUser = {
+				id: id,
+				f_name: user.f_name
+			};
+			rawUsers.push(createdUser);
+
+			// localStorage.setItem('users',JSON.stringify(rawUsers));
+
+			// simulate success callback
+			setTimeout(function () {
+				UserServerActionCreators.receiveCreatedUser(createdUser);
+			});
 		}
 	};
 
 /***/ },
 /* 222 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var UserDispatcher = __webpack_require__(223);
+	var UserConstants = __webpack_require__(227);
+
+	var ActionTypes = UserConstants.ActionTypes;
+
+	module.exports = {
+		receiveAll: function receiveAll(rawUsers) {
+			UserDispatcher.dispatch({
+				type: ActionTypes.RECEIVE_RAW_USERS,
+				rawUsers: rawUsers
+			});
+		},
+		receiveCreatedUser: function receiveCreatedUser(createdUser) {
+			UserDispatcher.dispatch({
+				type: ActionTypes.RECEIVE_RAW_CREATED_USER,
+				rawUser: createdUser
+			});
+		}
+	};
+
+/***/ },
+/* 223 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var Dispatcher = __webpack_require__(224).Dispatcher;
+
+	module.exports = new Dispatcher();
+
+/***/ },
+/* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright (c) 2014-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 */
+
+	module.exports.Dispatcher = __webpack_require__(225);
+
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright (c) 2014-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule Dispatcher
+	 * 
+	 * @preventMunge
+	 */
+
+	'use strict';
+
+	exports.__esModule = true;
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	var invariant = __webpack_require__(226);
+
+	var _prefix = 'ID_';
+
+	/**
+	 * Dispatcher is used to broadcast payloads to registered callbacks. This is
+	 * different from generic pub-sub systems in two ways:
+	 *
+	 *   1) Callbacks are not subscribed to particular events. Every payload is
+	 *      dispatched to every registered callback.
+	 *   2) Callbacks can be deferred in whole or part until other callbacks have
+	 *      been executed.
+	 *
+	 * For example, consider this hypothetical flight destination form, which
+	 * selects a default city when a country is selected:
+	 *
+	 *   var flightDispatcher = new Dispatcher();
+	 *
+	 *   // Keeps track of which country is selected
+	 *   var CountryStore = {country: null};
+	 *
+	 *   // Keeps track of which city is selected
+	 *   var CityStore = {city: null};
+	 *
+	 *   // Keeps track of the base flight price of the selected city
+	 *   var FlightPriceStore = {price: null}
+	 *
+	 * When a user changes the selected city, we dispatch the payload:
+	 *
+	 *   flightDispatcher.dispatch({
+	 *     actionType: 'city-update',
+	 *     selectedCity: 'paris'
+	 *   });
+	 *
+	 * This payload is digested by `CityStore`:
+	 *
+	 *   flightDispatcher.register(function(payload) {
+	 *     if (payload.actionType === 'city-update') {
+	 *       CityStore.city = payload.selectedCity;
+	 *     }
+	 *   });
+	 *
+	 * When the user selects a country, we dispatch the payload:
+	 *
+	 *   flightDispatcher.dispatch({
+	 *     actionType: 'country-update',
+	 *     selectedCountry: 'australia'
+	 *   });
+	 *
+	 * This payload is digested by both stores:
+	 *
+	 *   CountryStore.dispatchToken = flightDispatcher.register(function(payload) {
+	 *     if (payload.actionType === 'country-update') {
+	 *       CountryStore.country = payload.selectedCountry;
+	 *     }
+	 *   });
+	 *
+	 * When the callback to update `CountryStore` is registered, we save a reference
+	 * to the returned token. Using this token with `waitFor()`, we can guarantee
+	 * that `CountryStore` is updated before the callback that updates `CityStore`
+	 * needs to query its data.
+	 *
+	 *   CityStore.dispatchToken = flightDispatcher.register(function(payload) {
+	 *     if (payload.actionType === 'country-update') {
+	 *       // `CountryStore.country` may not be updated.
+	 *       flightDispatcher.waitFor([CountryStore.dispatchToken]);
+	 *       // `CountryStore.country` is now guaranteed to be updated.
+	 *
+	 *       // Select the default city for the new country
+	 *       CityStore.city = getDefaultCityForCountry(CountryStore.country);
+	 *     }
+	 *   });
+	 *
+	 * The usage of `waitFor()` can be chained, for example:
+	 *
+	 *   FlightPriceStore.dispatchToken =
+	 *     flightDispatcher.register(function(payload) {
+	 *       switch (payload.actionType) {
+	 *         case 'country-update':
+	 *         case 'city-update':
+	 *           flightDispatcher.waitFor([CityStore.dispatchToken]);
+	 *           FlightPriceStore.price =
+	 *             getFlightPriceStore(CountryStore.country, CityStore.city);
+	 *           break;
+	 *     }
+	 *   });
+	 *
+	 * The `country-update` payload will be guaranteed to invoke the stores'
+	 * registered callbacks in order: `CountryStore`, `CityStore`, then
+	 * `FlightPriceStore`.
+	 */
+
+	var Dispatcher = (function () {
+	  function Dispatcher() {
+	    _classCallCheck(this, Dispatcher);
+
+	    this._callbacks = {};
+	    this._isDispatching = false;
+	    this._isHandled = {};
+	    this._isPending = {};
+	    this._lastID = 1;
+	  }
+
+	  /**
+	   * Registers a callback to be invoked with every dispatched payload. Returns
+	   * a token that can be used with `waitFor()`.
+	   */
+
+	  Dispatcher.prototype.register = function register(callback) {
+	    var id = _prefix + this._lastID++;
+	    this._callbacks[id] = callback;
+	    return id;
+	  };
+
+	  /**
+	   * Removes a callback based on its token.
+	   */
+
+	  Dispatcher.prototype.unregister = function unregister(id) {
+	    !this._callbacks[id] ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatcher.unregister(...): `%s` does not map to a registered callback.', id) : invariant(false) : undefined;
+	    delete this._callbacks[id];
+	  };
+
+	  /**
+	   * Waits for the callbacks specified to be invoked before continuing execution
+	   * of the current callback. This method should only be used by a callback in
+	   * response to a dispatched payload.
+	   */
+
+	  Dispatcher.prototype.waitFor = function waitFor(ids) {
+	    !this._isDispatching ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatcher.waitFor(...): Must be invoked while dispatching.') : invariant(false) : undefined;
+	    for (var ii = 0; ii < ids.length; ii++) {
+	      var id = ids[ii];
+	      if (this._isPending[id]) {
+	        !this._isHandled[id] ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatcher.waitFor(...): Circular dependency detected while ' + 'waiting for `%s`.', id) : invariant(false) : undefined;
+	        continue;
+	      }
+	      !this._callbacks[id] ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatcher.waitFor(...): `%s` does not map to a registered callback.', id) : invariant(false) : undefined;
+	      this._invokeCallback(id);
+	    }
+	  };
+
+	  /**
+	   * Dispatches a payload to all registered callbacks.
+	   */
+
+	  Dispatcher.prototype.dispatch = function dispatch(payload) {
+	    !!this._isDispatching ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatch.dispatch(...): Cannot dispatch in the middle of a dispatch.') : invariant(false) : undefined;
+	    this._startDispatching(payload);
+	    try {
+	      for (var id in this._callbacks) {
+	        if (this._isPending[id]) {
+	          continue;
+	        }
+	        this._invokeCallback(id);
+	      }
+	    } finally {
+	      this._stopDispatching();
+	    }
+	  };
+
+	  /**
+	   * Is this Dispatcher currently dispatching.
+	   */
+
+	  Dispatcher.prototype.isDispatching = function isDispatching() {
+	    return this._isDispatching;
+	  };
+
+	  /**
+	   * Call the callback stored with the given id. Also do some internal
+	   * bookkeeping.
+	   *
+	   * @internal
+	   */
+
+	  Dispatcher.prototype._invokeCallback = function _invokeCallback(id) {
+	    this._isPending[id] = true;
+	    this._callbacks[id](this._pendingPayload);
+	    this._isHandled[id] = true;
+	  };
+
+	  /**
+	   * Set up bookkeeping needed when dispatching.
+	   *
+	   * @internal
+	   */
+
+	  Dispatcher.prototype._startDispatching = function _startDispatching(payload) {
+	    for (var id in this._callbacks) {
+	      this._isPending[id] = false;
+	      this._isHandled[id] = false;
+	    }
+	    this._pendingPayload = payload;
+	    this._isDispatching = true;
+	  };
+
+	  /**
+	   * Clear bookkeeping used for dispatching.
+	   *
+	   * @internal
+	   */
+
+	  Dispatcher.prototype._stopDispatching = function _stopDispatching() {
+	    delete this._pendingPayload;
+	    this._isDispatching = false;
+	  };
+
+	  return Dispatcher;
+	})();
+
+	module.exports = Dispatcher;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 226 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule invariant
+	 */
+
+	"use strict";
+
+	/**
+	 * Use invariant() to assert state which your program assumes to be true.
+	 *
+	 * Provide sprintf-style format (only %s is supported) and arguments
+	 * to provide information about what broke and what you were
+	 * expecting.
+	 *
+	 * The invariant message will be stripped in production, but the invariant
+	 * will remain to ensure logic does not differ in production.
+	 */
+
+	var invariant = function (condition, format, a, b, c, d, e, f) {
+	  if (process.env.NODE_ENV !== 'production') {
+	    if (format === undefined) {
+	      throw new Error('invariant requires an error message argument');
+	    }
+	  }
+
+	  if (!condition) {
+	    var error;
+	    if (format === undefined) {
+	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
+	    } else {
+	      var args = [a, b, c, d, e, f];
+	      var argIndex = 0;
+	      error = new Error('Invariant Violation: ' + format.replace(/%s/g, function () {
+	        return args[argIndex++];
+	      }));
+	    }
+
+	    error.framesToPop = 1; // we don't care about invariant's own frame
+	    throw error;
+	  }
+	};
+
+	module.exports = invariant;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+
+/***/ },
+/* 227 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _keymirror = __webpack_require__(228);
+
+	var _keymirror2 = _interopRequireDefault(_keymirror);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	module.exports = {
+
+		ActionTypes: (0, _keymirror2.default)({
+			USER_CREATE: null,
+			USER_DESTROY: null,
+			RECEIVE_RAW_CREATED_USER: null,
+			RECEIVE_RAW_USERS: null
+		})
+
+	};
+
+/***/ },
+/* 228 */
+/***/ function(module, exports) {
+
+	/**
+	 * Copyright 2013-2014 Facebook, Inc.
+	 *
+	 * Licensed under the Apache License, Version 2.0 (the "License");
+	 * you may not use this file except in compliance with the License.
+	 * You may obtain a copy of the License at
+	 *
+	 * http://www.apache.org/licenses/LICENSE-2.0
+	 *
+	 * Unless required by applicable law or agreed to in writing, software
+	 * distributed under the License is distributed on an "AS IS" BASIS,
+	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	 * See the License for the specific language governing permissions and
+	 * limitations under the License.
+	 *
+	 */
+
+	"use strict";
+
+	/**
+	 * Constructs an enumeration with keys equal to their value.
+	 *
+	 * For example:
+	 *
+	 *   var COLORS = keyMirror({blue: null, red: null});
+	 *   var myColor = COLORS.blue;
+	 *   var isColorValid = !!COLORS[myColor];
+	 *
+	 * The last line could not be performed if the values of the generated enum were
+	 * not equal to their keys.
+	 *
+	 *   Input:  {key1: val1, key2: val2}
+	 *   Output: {key1: key1, key2: key2}
+	 *
+	 * @param {object} obj
+	 * @return {object}
+	 */
+	var keyMirror = function(obj) {
+	  var ret = {};
+	  var key;
+	  if (!(obj instanceof Object && !Array.isArray(obj))) {
+	    throw new Error('keyMirror(...): Argument must be an object.');
+	  }
+	  for (key in obj) {
+	    if (!obj.hasOwnProperty(key)) {
+	      continue;
+	    }
+	    ret[key] = key;
+	  }
+	  return ret;
+	};
+
+	module.exports = keyMirror;
+
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var faker = __webpack_require__(230);
+
+	module.exports = {
+
+		init: function init() {
+			return JSON.stringify([{
+				id: "u_1",
+				f_name: "Rodrigo",
+				l_name: "Tellez",
+				school: "UC Berkeley",
+				major: "Chemical Engineering",
+				title: "Undergraduate",
+				bio: faker.Lorem.paragraphs()
+			}, {
+				id: "u_2",
+				f_name: "Gabriella",
+				l_name: "Herrera",
+				school: "Harvard",
+				major: "Neuoscience",
+				title: "Undergraduate",
+				bio: faker.Lorem.paragraphs()
+			}, {
+				id: "u_3",
+				f_name: "Chris",
+				l_name: "Augmon",
+				school: "UC Berkeley",
+				major: "EECS",
+				title: "Undergraduate",
+				bio: faker.Lorem.paragraphs()
+			}]);
+		}
+	};
+
+/***/ },
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -25095,25 +25613,25 @@
 
 	*/
 
-	exports.Name = __webpack_require__(223);
-	exports.Address = __webpack_require__(224);
-	exports.PhoneNumber = __webpack_require__(227);
-	exports.Internet = __webpack_require__(228);
-	exports.Company = __webpack_require__(229);
-	exports.Image = __webpack_require__(230);
-	exports.Lorem = __webpack_require__(231);
-	exports.Helpers =  __webpack_require__(225);
-	exports.Tree = __webpack_require__(232);
-	exports.Date = __webpack_require__(233);
-	exports.random = __webpack_require__(234);
-	exports.definitions = __webpack_require__(226);
+	exports.Name = __webpack_require__(231);
+	exports.Address = __webpack_require__(232);
+	exports.PhoneNumber = __webpack_require__(235);
+	exports.Internet = __webpack_require__(236);
+	exports.Company = __webpack_require__(237);
+	exports.Image = __webpack_require__(238);
+	exports.Lorem = __webpack_require__(239);
+	exports.Helpers =  __webpack_require__(233);
+	exports.Tree = __webpack_require__(240);
+	exports.Date = __webpack_require__(241);
+	exports.random = __webpack_require__(242);
+	exports.definitions = __webpack_require__(234);
 
 
 /***/ },
-/* 223 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Faker = __webpack_require__(222);
+	var Faker = __webpack_require__(230);
 
 	var _name = {
 	    firstName: function () {
@@ -25150,12 +25668,12 @@
 
 
 /***/ },
-/* 224 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Helpers = __webpack_require__(225);
-	var Faker = __webpack_require__(222);
-	var definitions = __webpack_require__(226);
+	var Helpers = __webpack_require__(233);
+	var Faker = __webpack_require__(230);
+	var definitions = __webpack_require__(234);
 
 	var address = {
 	    zipCode: function () {
@@ -25256,10 +25774,10 @@
 
 
 /***/ },
-/* 225 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Faker = __webpack_require__(222);
+	var Faker = __webpack_require__(230);
 
 	// backword-compatibility
 	exports.randomNumber = function (range) {
@@ -25386,7 +25904,7 @@
 
 
 /***/ },
-/* 226 */
+/* 234 */
 /***/ function(module, exports) {
 
 	// name.js definitions
@@ -26790,12 +27308,12 @@
 
 
 /***/ },
-/* 227 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Faker = __webpack_require__(222);
-	var Helpers = __webpack_require__(225);
-	var definitions = __webpack_require__(226);
+	var Faker = __webpack_require__(230);
+	var Helpers = __webpack_require__(233);
+	var definitions = __webpack_require__(234);
 
 	var phone = {
 	    phoneNumber: function () {
@@ -26812,10 +27330,10 @@
 
 
 /***/ },
-/* 228 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Faker = __webpack_require__(222);
+	var Faker = __webpack_require__(230);
 
 	var internet = {
 	    email: function () {
@@ -26871,10 +27389,10 @@
 
 
 /***/ },
-/* 229 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Faker = __webpack_require__(222);
+	var Faker = __webpack_require__(230);
 
 	var company = {
 	    suffixes: function () {
@@ -26913,10 +27431,10 @@
 
 
 /***/ },
-/* 230 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Faker = __webpack_require__(222);
+	var Faker = __webpack_require__(230);
 
 	var image = {
 	  avatar: function () {
@@ -26977,12 +27495,12 @@
 
 
 /***/ },
-/* 231 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Faker = __webpack_require__(222);
-	var Helpers = __webpack_require__(225);
-	var definitions = __webpack_require__(226);
+	var Faker = __webpack_require__(230);
+	var Helpers = __webpack_require__(233);
+	var definitions = __webpack_require__(234);
 
 	var lorem = {
 	    words: function (num) {
@@ -27028,10 +27546,10 @@
 
 
 /***/ },
-/* 232 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Faker = __webpack_require__(222);
+	var Faker = __webpack_require__(230);
 
 	var tree = {
 
@@ -27103,10 +27621,10 @@
 
 
 /***/ },
-/* 233 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Faker = __webpack_require__(222);
+	var Faker = __webpack_require__(230);
 
 	var date = {
 
@@ -27151,10 +27669,10 @@
 
 
 /***/ },
-/* 234 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var definitions = __webpack_require__(226);
+	var definitions = __webpack_require__(234);
 
 	var random = {
 	    // returns a single random number based on a range
@@ -27260,467 +27778,6 @@
 	};
 
 	module.exports = random;
-
-
-/***/ },
-/* 235 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var UserServerActionCreators = __webpack_require__(236);
-
-	module.exports = {
-		getAllUsers: function getAllUsers() {
-			// simulate retrieving data from a database
-			var rawUsers = JSON.parse(localStorage.getItem('users'));
-
-			// simulate success callback
-			UserServerActionCreators.receiveAll(rawUsers);
-		},
-		createUser: function createUser(user) {
-			// simulate writing to a database
-			var rawUsers = JSON.parse(localStorage.getItem('users'));
-			var timestamp = Date.now();
-			var id = 'u_' + timestamp;
-			var createdUser = {
-				id: id,
-				f_name: user.f_name
-			};
-			rawUsers.push(createdUser);
-			localStorage.setItem('users', JSON.stringify(rawUsers));
-
-			// simulate success callback
-			setTimeout(function () {
-				UserServerActionCreators.receiveCreatedUser(createdUser);
-			});
-		}
-	};
-
-/***/ },
-/* 236 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var UserDispatcher = __webpack_require__(237);
-	var UserConstants = __webpack_require__(241);
-
-	var ActionTypes = UserConstants.ActionTypes;
-
-	module.exports = {
-		receiveAll: function receiveAll(rawUsers) {
-			UserDispatcher.dispatch({
-				type: ActionTypes.RECEIVE_RAW_USERS,
-				rawUsers: rawUsers
-			});
-		},
-		receiveCreatedUser: function receiveCreatedUser(createdUser) {
-			UserDispatcher.dispatch({
-				type: ActionTypes.RECEIVE_RAW_CREATED_USER,
-				rawUser: createdUser
-			});
-		}
-	};
-
-/***/ },
-/* 237 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var Dispatcher = __webpack_require__(238).Dispatcher;
-
-	module.exports = new Dispatcher();
-
-/***/ },
-/* 238 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright (c) 2014-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-
-	module.exports.Dispatcher = __webpack_require__(239);
-
-
-/***/ },
-/* 239 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright (c) 2014-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule Dispatcher
-	 * 
-	 * @preventMunge
-	 */
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
-
-	var invariant = __webpack_require__(240);
-
-	var _prefix = 'ID_';
-
-	/**
-	 * Dispatcher is used to broadcast payloads to registered callbacks. This is
-	 * different from generic pub-sub systems in two ways:
-	 *
-	 *   1) Callbacks are not subscribed to particular events. Every payload is
-	 *      dispatched to every registered callback.
-	 *   2) Callbacks can be deferred in whole or part until other callbacks have
-	 *      been executed.
-	 *
-	 * For example, consider this hypothetical flight destination form, which
-	 * selects a default city when a country is selected:
-	 *
-	 *   var flightDispatcher = new Dispatcher();
-	 *
-	 *   // Keeps track of which country is selected
-	 *   var CountryStore = {country: null};
-	 *
-	 *   // Keeps track of which city is selected
-	 *   var CityStore = {city: null};
-	 *
-	 *   // Keeps track of the base flight price of the selected city
-	 *   var FlightPriceStore = {price: null}
-	 *
-	 * When a user changes the selected city, we dispatch the payload:
-	 *
-	 *   flightDispatcher.dispatch({
-	 *     actionType: 'city-update',
-	 *     selectedCity: 'paris'
-	 *   });
-	 *
-	 * This payload is digested by `CityStore`:
-	 *
-	 *   flightDispatcher.register(function(payload) {
-	 *     if (payload.actionType === 'city-update') {
-	 *       CityStore.city = payload.selectedCity;
-	 *     }
-	 *   });
-	 *
-	 * When the user selects a country, we dispatch the payload:
-	 *
-	 *   flightDispatcher.dispatch({
-	 *     actionType: 'country-update',
-	 *     selectedCountry: 'australia'
-	 *   });
-	 *
-	 * This payload is digested by both stores:
-	 *
-	 *   CountryStore.dispatchToken = flightDispatcher.register(function(payload) {
-	 *     if (payload.actionType === 'country-update') {
-	 *       CountryStore.country = payload.selectedCountry;
-	 *     }
-	 *   });
-	 *
-	 * When the callback to update `CountryStore` is registered, we save a reference
-	 * to the returned token. Using this token with `waitFor()`, we can guarantee
-	 * that `CountryStore` is updated before the callback that updates `CityStore`
-	 * needs to query its data.
-	 *
-	 *   CityStore.dispatchToken = flightDispatcher.register(function(payload) {
-	 *     if (payload.actionType === 'country-update') {
-	 *       // `CountryStore.country` may not be updated.
-	 *       flightDispatcher.waitFor([CountryStore.dispatchToken]);
-	 *       // `CountryStore.country` is now guaranteed to be updated.
-	 *
-	 *       // Select the default city for the new country
-	 *       CityStore.city = getDefaultCityForCountry(CountryStore.country);
-	 *     }
-	 *   });
-	 *
-	 * The usage of `waitFor()` can be chained, for example:
-	 *
-	 *   FlightPriceStore.dispatchToken =
-	 *     flightDispatcher.register(function(payload) {
-	 *       switch (payload.actionType) {
-	 *         case 'country-update':
-	 *         case 'city-update':
-	 *           flightDispatcher.waitFor([CityStore.dispatchToken]);
-	 *           FlightPriceStore.price =
-	 *             getFlightPriceStore(CountryStore.country, CityStore.city);
-	 *           break;
-	 *     }
-	 *   });
-	 *
-	 * The `country-update` payload will be guaranteed to invoke the stores'
-	 * registered callbacks in order: `CountryStore`, `CityStore`, then
-	 * `FlightPriceStore`.
-	 */
-
-	var Dispatcher = (function () {
-	  function Dispatcher() {
-	    _classCallCheck(this, Dispatcher);
-
-	    this._callbacks = {};
-	    this._isDispatching = false;
-	    this._isHandled = {};
-	    this._isPending = {};
-	    this._lastID = 1;
-	  }
-
-	  /**
-	   * Registers a callback to be invoked with every dispatched payload. Returns
-	   * a token that can be used with `waitFor()`.
-	   */
-
-	  Dispatcher.prototype.register = function register(callback) {
-	    var id = _prefix + this._lastID++;
-	    this._callbacks[id] = callback;
-	    return id;
-	  };
-
-	  /**
-	   * Removes a callback based on its token.
-	   */
-
-	  Dispatcher.prototype.unregister = function unregister(id) {
-	    !this._callbacks[id] ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatcher.unregister(...): `%s` does not map to a registered callback.', id) : invariant(false) : undefined;
-	    delete this._callbacks[id];
-	  };
-
-	  /**
-	   * Waits for the callbacks specified to be invoked before continuing execution
-	   * of the current callback. This method should only be used by a callback in
-	   * response to a dispatched payload.
-	   */
-
-	  Dispatcher.prototype.waitFor = function waitFor(ids) {
-	    !this._isDispatching ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatcher.waitFor(...): Must be invoked while dispatching.') : invariant(false) : undefined;
-	    for (var ii = 0; ii < ids.length; ii++) {
-	      var id = ids[ii];
-	      if (this._isPending[id]) {
-	        !this._isHandled[id] ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatcher.waitFor(...): Circular dependency detected while ' + 'waiting for `%s`.', id) : invariant(false) : undefined;
-	        continue;
-	      }
-	      !this._callbacks[id] ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatcher.waitFor(...): `%s` does not map to a registered callback.', id) : invariant(false) : undefined;
-	      this._invokeCallback(id);
-	    }
-	  };
-
-	  /**
-	   * Dispatches a payload to all registered callbacks.
-	   */
-
-	  Dispatcher.prototype.dispatch = function dispatch(payload) {
-	    !!this._isDispatching ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatch.dispatch(...): Cannot dispatch in the middle of a dispatch.') : invariant(false) : undefined;
-	    this._startDispatching(payload);
-	    try {
-	      for (var id in this._callbacks) {
-	        if (this._isPending[id]) {
-	          continue;
-	        }
-	        this._invokeCallback(id);
-	      }
-	    } finally {
-	      this._stopDispatching();
-	    }
-	  };
-
-	  /**
-	   * Is this Dispatcher currently dispatching.
-	   */
-
-	  Dispatcher.prototype.isDispatching = function isDispatching() {
-	    return this._isDispatching;
-	  };
-
-	  /**
-	   * Call the callback stored with the given id. Also do some internal
-	   * bookkeeping.
-	   *
-	   * @internal
-	   */
-
-	  Dispatcher.prototype._invokeCallback = function _invokeCallback(id) {
-	    this._isPending[id] = true;
-	    this._callbacks[id](this._pendingPayload);
-	    this._isHandled[id] = true;
-	  };
-
-	  /**
-	   * Set up bookkeeping needed when dispatching.
-	   *
-	   * @internal
-	   */
-
-	  Dispatcher.prototype._startDispatching = function _startDispatching(payload) {
-	    for (var id in this._callbacks) {
-	      this._isPending[id] = false;
-	      this._isHandled[id] = false;
-	    }
-	    this._pendingPayload = payload;
-	    this._isDispatching = true;
-	  };
-
-	  /**
-	   * Clear bookkeeping used for dispatching.
-	   *
-	   * @internal
-	   */
-
-	  Dispatcher.prototype._stopDispatching = function _stopDispatching() {
-	    delete this._pendingPayload;
-	    this._isDispatching = false;
-	  };
-
-	  return Dispatcher;
-	})();
-
-	module.exports = Dispatcher;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-/* 240 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule invariant
-	 */
-
-	"use strict";
-
-	/**
-	 * Use invariant() to assert state which your program assumes to be true.
-	 *
-	 * Provide sprintf-style format (only %s is supported) and arguments
-	 * to provide information about what broke and what you were
-	 * expecting.
-	 *
-	 * The invariant message will be stripped in production, but the invariant
-	 * will remain to ensure logic does not differ in production.
-	 */
-
-	var invariant = function (condition, format, a, b, c, d, e, f) {
-	  if (process.env.NODE_ENV !== 'production') {
-	    if (format === undefined) {
-	      throw new Error('invariant requires an error message argument');
-	    }
-	  }
-
-	  if (!condition) {
-	    var error;
-	    if (format === undefined) {
-	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-	    } else {
-	      var args = [a, b, c, d, e, f];
-	      var argIndex = 0;
-	      error = new Error('Invariant Violation: ' + format.replace(/%s/g, function () {
-	        return args[argIndex++];
-	      }));
-	    }
-
-	    error.framesToPop = 1; // we don't care about invariant's own frame
-	    throw error;
-	  }
-	};
-
-	module.exports = invariant;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-/* 241 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _keymirror = __webpack_require__(242);
-
-	var _keymirror2 = _interopRequireDefault(_keymirror);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	module.exports = {
-
-		ActionTypes: (0, _keymirror2.default)({
-			USER_CREATE: null,
-			USER_DESTROY: null,
-			RECEIVE_RAW_CREATED_USER: null,
-			RECEIVE_RAW_USERS: null
-		})
-
-	};
-
-/***/ },
-/* 242 */
-/***/ function(module, exports) {
-
-	/**
-	 * Copyright 2013-2014 Facebook, Inc.
-	 *
-	 * Licensed under the Apache License, Version 2.0 (the "License");
-	 * you may not use this file except in compliance with the License.
-	 * You may obtain a copy of the License at
-	 *
-	 * http://www.apache.org/licenses/LICENSE-2.0
-	 *
-	 * Unless required by applicable law or agreed to in writing, software
-	 * distributed under the License is distributed on an "AS IS" BASIS,
-	 * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 * See the License for the specific language governing permissions and
-	 * limitations under the License.
-	 *
-	 */
-
-	"use strict";
-
-	/**
-	 * Constructs an enumeration with keys equal to their value.
-	 *
-	 * For example:
-	 *
-	 *   var COLORS = keyMirror({blue: null, red: null});
-	 *   var myColor = COLORS.blue;
-	 *   var isColorValid = !!COLORS[myColor];
-	 *
-	 * The last line could not be performed if the values of the generated enum were
-	 * not equal to their keys.
-	 *
-	 *   Input:  {key1: val1, key2: val2}
-	 *   Output: {key1: key1, key2: key2}
-	 *
-	 * @param {object} obj
-	 * @return {object}
-	 */
-	var keyMirror = function(obj) {
-	  var ret = {};
-	  var key;
-	  if (!(obj instanceof Object && !Array.isArray(obj))) {
-	    throw new Error('keyMirror(...): Argument must be an object.');
-	  }
-	  for (key in obj) {
-	    if (!obj.hasOwnProperty(key)) {
-	      continue;
-	    }
-	    ret[key] = key;
-	  }
-	  return ret;
-	};
-
-	module.exports = keyMirror;
 
 
 /***/ },
@@ -28072,7 +28129,7 @@
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					{ className: 'container-fluid Join' },
+					{ className: 'container-fluid bg--grey-dark' },
 					_react2.default.createElement(
 						'div',
 						{ className: 'grid__wrapper' },
@@ -28581,9 +28638,9 @@
 
 	'use strict';
 
-	var UserDispatcher = __webpack_require__(237);
-	var UserConstants = __webpack_require__(241);
-	var UserAPIUtils = __webpack_require__(235);
+	var UserDispatcher = __webpack_require__(223);
+	var UserConstants = __webpack_require__(227);
+	var UserAPIUtils = __webpack_require__(221);
 
 	var ActionTypes = UserConstants.ActionTypes;
 
@@ -28682,7 +28739,7 @@
 
 	var _BioInfoCardList2 = _interopRequireDefault(_BioInfoCardList);
 
-	var _faker = __webpack_require__(222);
+	var _faker = __webpack_require__(230);
 
 	var _faker2 = _interopRequireDefault(_faker);
 
@@ -28815,6 +28872,8 @@
 
 	'use strict';
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
@@ -28845,11 +28904,12 @@
 		_createClass(ProfileAvatar, [{
 			key: 'render',
 			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(_reactAvatar2.default, { size: 150, name: this.props.name, color: '#4285F4', round: true })
-				);
+				return _react2.default.createElement(_reactAvatar2.default, _extends({
+					size: 150,
+					name: this.props.name,
+					color: '#4285F4',
+					round: true
+				}, this.props));
 			}
 		}]);
 
@@ -29939,6 +29999,10 @@
 
 	var _SideBar2 = _interopRequireDefault(_SideBar);
 
+	var _MailBox = __webpack_require__(274);
+
+	var _MailBox2 = _interopRequireDefault(_MailBox);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29965,11 +30029,7 @@
 					'div',
 					null,
 					_react2.default.createElement(_SideBar2.default, null),
-					_react2.default.createElement(
-						'a',
-						{ href: '#', className: 'btn btn-default', id: 'menu-toggle' },
-						'Toggle Menu'
-					)
+					_react2.default.createElement(_MailBox2.default, null)
 				);
 			}
 		}]);
@@ -29983,13 +30043,21 @@
 /* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _NavLinkList = __webpack_require__(273);
+
+	var _NavLinkList2 = _interopRequireDefault(_NavLinkList);
+
+	var _ProfileAvatar = __webpack_require__(258);
+
+	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29998,6 +30066,30 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var SideBarLinks = [{
+	    url: "profile",
+	    title: "Rodrigo Tellez",
+	    class: "SideBar-brand"
+	}, {
+	    url: "profile",
+	    title: "Profile"
+	}, {
+	    url: "mail",
+	    title: "Mail"
+	}, {
+	    url: "resources",
+	    title: "Resources"
+	}, {
+	    url: "events",
+	    title: "Events"
+	}, {
+	    url: "settings",
+	    title: "Settings"
+	}, {
+	    url: "log_out",
+	    title: "Log Out"
+	}];
 
 	var SideBar = function (_React$Component) {
 	    _inherits(SideBar, _React$Component);
@@ -30009,87 +30101,13 @@
 	    }
 
 	    _createClass(SideBar, [{
-	        key: "render",
+	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
-	                "div",
-	                { id: "SideBar-wrapper" },
-	                _react2.default.createElement(
-	                    "ul",
-	                    { className: "SideBar-nav" },
-	                    _react2.default.createElement(
-	                        "li",
-	                        { className: "SideBar-brand" },
-	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "#" },
-	                            "Rodrigo Tellez"
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        "li",
-	                        null,
-	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "#" },
-	                            "Dashboard"
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        "li",
-	                        null,
-	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "#" },
-	                            "Shortcuts"
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        "li",
-	                        null,
-	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "#" },
-	                            "Overview"
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        "li",
-	                        null,
-	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "#" },
-	                            "Events"
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        "li",
-	                        null,
-	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "#" },
-	                            "About"
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        "li",
-	                        null,
-	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "#" },
-	                            "Services"
-	                        )
-	                    ),
-	                    _react2.default.createElement(
-	                        "li",
-	                        null,
-	                        _react2.default.createElement(
-	                            "a",
-	                            { href: "#" },
-	                            "Contact"
-	                        )
-	                    )
-	                )
+	                'div',
+	                { id: 'SideBar-wrapper' },
+	                _react2.default.createElement(_ProfileAvatar2.default, { name: 'Rodrigo Tellez', className: 'CENTER-NOW' }),
+	                _react2.default.createElement(_NavLinkList2.default, { links: SideBarLinks })
 	            );
 	        }
 	    }]);
@@ -30103,8 +30121,237 @@
 /* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _NavLink = __webpack_require__(219);
+
+	var _NavLink2 = _interopRequireDefault(_NavLink);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var NavLinkList = function (_Component) {
+		_inherits(NavLinkList, _Component);
+
+		function NavLinkList() {
+			_classCallCheck(this, NavLinkList);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(NavLinkList).apply(this, arguments));
+		}
+
+		_createClass(NavLinkList, [{
+			key: 'render',
+			value: function render() {
+				var linkNodes = this.props.links.map(function (link, idx) {
+					return _react2.default.createElement(
+						'li',
+						{ key: 'li_' + link.title, className: link.class || "" },
+						_react2.default.createElement(
+							_NavLink2.default,
+							{
+								to: link.url,
+								key: link.title },
+							link.title
+						)
+					);
+				});
+				return _react2.default.createElement(
+					'ul',
+					{ className: 'SideBar-nav' },
+					linkNodes
+				);
+			}
+		}]);
+
+		return NavLinkList;
+	}(_react.Component);
+
+	module.exports = NavLinkList;
+
+/***/ },
+/* 274 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _MessageItem = __webpack_require__(275);
+
+	var _MessageItem2 = _interopRequireDefault(_MessageItem);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MailBox = function (_Component) {
+		_inherits(MailBox, _Component);
+
+		function MailBox() {
+			_classCallCheck(this, MailBox);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(MailBox).apply(this, arguments));
+		}
+
+		_createClass(MailBox, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					{ className: 'container-fluid' },
+					_react2.default.createElement(
+						'div',
+						{ className: 'container' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'MailBox bg--grey', style: { "padding": 10 + "px" } },
+							_react2.default.createElement(
+								'a',
+								{ href: 'inbox' },
+								'New Messages ',
+								_react2.default.createElement(
+									'span',
+									{ className: 'badge' },
+									'42'
+								)
+							),
+							_react2.default.createElement(_MessageItem2.default, null),
+							_react2.default.createElement(_MessageItem2.default, null),
+							_react2.default.createElement(_MessageItem2.default, null)
+						)
+					)
+				);
+			}
+		}]);
+
+		return MailBox;
+	}(_react.Component);
+
+	module.exports = MailBox;
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _ProfileAvatar = __webpack_require__(258);
+
+	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
+
+	var _faker = __webpack_require__(230);
+
+	var _faker2 = _interopRequireDefault(_faker);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var MessageItem = function (_Component) {
+		_inherits(MessageItem, _Component);
+
+		function MessageItem(props) {
+			_classCallCheck(this, MessageItem);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(MessageItem).call(this, props));
+
+			_this.state = { flag: true };
+			return _this;
+		}
+
+		_createClass(MessageItem, [{
+			key: 'render',
+			value: function render() {
+
+				var h = Math.floor(Math.random() * 12) + 1;
+				var m = Math.floor(Math.random() * 59) + 10;
+				var ampm = !this.state.flag ? "am" : "pm";
+				var time = h + ':' + m + ' ' + ampm;
+				var Name = _faker2.default.Name.firstName() + ' ' + _faker2.default.Name.lastName()[0];
+				return _react2.default.createElement(
+					'div',
+					_extends({ className: 'MessageItem Media' }, this.props),
+					_react2.default.createElement(
+						'div',
+						{ className: 'Media__figure' },
+						_react2.default.createElement(_ProfileAvatar2.default, { name: 'Rodrigo Tellez', size: 80, round: true, src: _faker2.default.Image.avatar() })
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'Media__body' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'MessageBubble' },
+							_react2.default.createElement('div', { className: 'MessageBubble--arrow' }),
+							_react2.default.createElement(
+								'div',
+								{ className: 'MessageBubble--content' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'MessageBubble--content-heading' },
+									_react2.default.createElement(
+										'b',
+										null,
+										Name,
+										' '
+									),
+									_react2.default.createElement(
+										'small',
+										null,
+										' ',
+										time
+									)
+								),
+								_faker2.default.Lorem.paragraph()
+							)
+						)
+					)
+				);
+			}
+		}]);
+
+		return MessageItem;
+	}(_react.Component);
+
+	module.exports = MessageItem;
+
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*** IMPORTS FROM imports-loader ***/
-	var jQuery = __webpack_require__(273);
+	var jQuery = __webpack_require__(276);
 
 	/*!
 	 * jQuery JavaScript Library v2.2.1
@@ -39941,7 +40188,7 @@
 
 
 /***/ },
-/* 274 */
+/* 277 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -40530,7 +40777,7 @@
 	}(jQuery);
 
 /***/ },
-/* 275 */
+/* 278 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

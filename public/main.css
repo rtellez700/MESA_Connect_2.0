@@ -1086,7 +1086,7 @@ figure {
 img {
   vertical-align: middle; }
 
-.img-responsive, img {
+.img-responsive, .MailBox .MessageItem img, img {
   display: block;
   max-width: 100%;
   height: auto; }
@@ -1238,7 +1238,7 @@ mark,
 .text-right {
   text-align: right; }
 
-.text-center {
+.text-center, .SideBar-nav > .SideBar-brand {
   text-align: center; }
 
 .text-justify {
@@ -5823,14 +5823,14 @@ button.close {
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 /* Toggle Styles */
-#wrapper {
+#App_Wrapper {
   padding-left: 0;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease; }
 
-#wrapper.toggled {
+#App_Wrapper.toggled {
   padding-left: 250px; }
 
 #SideBar-wrapper {
@@ -5840,6 +5840,7 @@ button.close {
   width: 0;
   height: 100%;
   margin-left: -250px;
+  margin-top: -112px;
   overflow-y: auto;
   background: #000;
   -webkit-transition: all 0.5s ease;
@@ -5847,7 +5848,7 @@ button.close {
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease; }
 
-#wrapper.toggled #SideBar-wrapper {
+#App_Wrapper.toggled #SideBar-wrapper {
   width: 250px; }
 
 #page-content-wrapper {
@@ -5855,13 +5856,12 @@ button.close {
   position: absolute;
   padding: 15px; }
 
-#wrapper.toggled #page-content-wrapper {
+#App_Wrapper.toggled #page-content-wrapper {
   position: absolute;
   margin-right: -250px; }
 
 /* SideBar Styles */
 .SideBar-nav {
-  position: absolute;
   top: 0;
   width: 250px;
   margin: 0;
@@ -5899,36 +5899,102 @@ button.close {
   background: none; }
 
 @media (min-width: 768px) {
-  #wrapper {
+  #App_Wrapper {
     padding-left: 250px; }
-  #wrapper.toggled {
+  #App_Wrapper.toggled {
     padding-left: 0; }
   #SideBar-wrapper {
     width: 250px; }
-  #wrapper.toggled #SideBar-wrapper {
+  #App_Wrapper.toggled #SideBar-wrapper {
     width: 0; }
   #page-content-wrapper {
     padding: 20px;
     position: relative; }
-  #wrapper.toggled #page-content-wrapper {
+  #App_Wrapper.toggled #page-content-wrapper {
     position: relative;
     margin-right: 0; } }
+
+.MailBox {
+  margin-bottom: 50px;
+  width: 500px; }
+  .MailBox .badge {
+    background-color: #B53B24;
+    color: whitesmoke; }
+  .MailBox .MessageItem {
+    padding: 20px; }
+    .MailBox .MessageItem p {
+      padding-top: 5px;
+      padding-right: 5px;
+      text-align: justify; }
+    .MailBox .MessageItem .Media__figure {
+      display: flex;
+      align-items: center; }
+    .MailBox .MessageItem .Media__body {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    .MailBox .MessageItem .MessageBubble {
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 1060;
+      padding: 1px;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: start;
+      text-decoration: none;
+      text-shadow: none;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      border-radius: 6px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); }
+      .MailBox .MessageItem .MessageBubble--arrow {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+        border-width: 11px;
+        top: 50%;
+        left: -22px;
+        margin-top: -11px;
+        border-right-color: rgba(0, 0, 0, 0.4); }
+        .MailBox .MessageItem .MessageBubble--arrow:after {
+          position: absolute;
+          display: block;
+          width: 0;
+          height: 0;
+          border-color: transparent;
+          border-style: solid;
+          content: "";
+          border-width: 10px;
+          bottom: -10px;
+          left: 2px;
+          content: " ";
+          border-right-color: #FFF;
+          border-left-width: 0; }
+      .MailBox .MessageItem .MessageBubble--content {
+        padding: 9px 14px; }
+        .MailBox .MessageItem .MessageBubble--content-heading small {
+          color: #a6a6a6; }
 
 .container-fluid {
   padding-left: 0;
   padding-right: 0; }
 
-.navbar-brand {
-  padding: 0;
-  margin: 0; }
-
-.navbar-default .navbar-toggle {
-  border-color: black;
-  font-weight: bold; }
-
-.navbar ul a {
-  font-size: 1.4em;
-  font-weight: 400; }
+.navbar {
+  margin-bottom: 20px; }
+  .navbar-brand {
+    padding: 0;
+    margin: 0; }
+  .navbar-default .navbar-toggle {
+    border-color: black;
+    font-weight: bold; }
+  .navbar ul a {
+    font-size: 1.4em;
+    font-weight: 400; }
 
 .grid__container--hr-btm {
   border-bottom: 1px solid #d2d2d2;
@@ -5971,16 +6037,6 @@ button.close {
   border: 1px solid black;
   padding-top: 6em 3em;
   max-width: 650px; }
-  .FormBox:after {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    font-size: 12px;
-    font-weight: 700;
-    color: red;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    content: "Example"; }
   .FormBox__btn--full-width {
     width: 100%; }
   .FormBox__btn--submit {
@@ -5998,20 +6054,16 @@ button.close {
   .BioInfoCard .btn:first-child {
     margin-right: 10px; }
 
-.Join {
-  background-color: #222222; }
-
 .display--flex {
   display: flex; }
 
 .Footer {
+  width: 100%;
   height: 200px;
-  background-color: #323A45;
-  margin-top: 50px; }
+  background-color: #323A45; }
 
 .Media {
   display: flex;
-  background-color: #dedede;
   padding: 20px;
   border-radius: 0px; }
   .Media__figure {
@@ -6019,8 +6071,37 @@ button.close {
   .Media__body p:first-child {
     margin-top: 0; }
 
+.bg--white {
+  background-color: #ffffff; }
+
+.bg--grey {
+  background-color: #cccccc; }
+
+.bg--terracotta {
+  background-color: #B53B24; }
+
+.bg--grey-dark {
+  background-color: #222222; }
+
 .bg--redish {
   background-color: #A94442; }
 
-.bg--white {
-  background-color: #FFFFFF; }
+.no--padding {
+  padding: 0 0 0 0; }
+
+.no--padding-top {
+  padding-top: 0; }
+
+.no--padding-right {
+  padding-right: 0; }
+
+.no--padding-bottom {
+  padding-bottom: 0; }
+
+.no--padding-left {
+  padding-left: 0; }
+
+.CENTER-NOW {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important; }
