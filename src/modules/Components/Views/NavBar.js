@@ -2,11 +2,13 @@ import React from 'react';
 import NavLink from './NavLink'
 
 class NavBar extends React.Component {
+	
+
 	render() {
 		return (
 			
 				<div className="container-fluid">
-				<nav className="navbar navbar-default">
+				<nav className="navbar navbar-default" role="navigation">
 				<div className="container">
 				<div className="navbar-header">
 				<button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#MainNavbar" aria-expanded="false">

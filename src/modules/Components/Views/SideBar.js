@@ -1,41 +1,47 @@
 import React from 'react';
+import NavLinkList from './NavLinkList';
+import ProfileAvatar from '../User/ProfileAvatar';
+
+var SideBarLinks = [
+    {
+        url: "profile",
+        title: "Rodrigo Tellez",
+        class: "SideBar-brand"
+    },
+    {
+        url: "profile",
+        title: "Profile"
+    },
+    {
+        url: "mail",
+        title: "Mail"
+    },
+    {
+        url: "resources",
+        title: "Resources"
+    }
+    ,
+    {
+        url: "events",
+        title: "Events"
+    },
+    {
+        url: "settings",
+        title: "Settings"
+    },
+    {
+        url: "log_out",
+        title: "Log Out"
+    }
+];
 
 class SideBar extends React.Component {
 	render() {
 		return (
-    <div>
         <div id="SideBar-wrapper">
-            <ul className="SideBar-nav">
-                <li className="SideBar-brand">
-                    <a href="#">
-                        Rodrigo Tellez
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Dashboard</a>
-                </li>
-                <li>
-                    <a href="#">Shortcuts</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
+            <ProfileAvatar name="Rodrigo Tellez" className="CENTER-NOW"/>
+            <NavLinkList links={ SideBarLinks }/>
         </div>
-        <a href="#" className="btn btn-default" id="menu-toggle">Toggle Menu</a>
-    </div>
 		);
 	}
 }

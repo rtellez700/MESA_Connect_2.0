@@ -6,7 +6,7 @@
 
 /* Toggle Styles */
 
-#wrapper {
+#App_Wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -14,7 +14,7 @@
     transition: all 0.5s ease;
 }
 
-#wrapper.toggled {
+#App_Wrapper.toggled {
     padding-left: 250px;
 }
 
@@ -25,6 +25,7 @@
     width: 0;
     height: 100%;
     margin-left: -250px;
+    margin-top: -( $navbar-margin-bottom + 2px + $navbar-height ); 
     overflow-y: auto;
     background: #000;
     -webkit-transition: all 0.5s ease;
@@ -33,7 +34,7 @@
     transition: all 0.5s ease;
 }
 
-#wrapper.toggled #SideBar-wrapper {
+#App_Wrapper.toggled #SideBar-wrapper {
     width: 250px;
 }
 
@@ -43,7 +44,7 @@
     padding: 15px;
 }
 
-#wrapper.toggled #page-content-wrapper {
+#App_Wrapper.toggled #page-content-wrapper {
     position: absolute;
     margin-right: -250px;
 }
@@ -51,7 +52,7 @@
 /* SideBar Styles */
 
 .SideBar-nav {
-    position: absolute;
+    // position: absolute;
     top: 0;
     width: 250px;
     margin: 0;
@@ -82,6 +83,7 @@
 }
 
 .SideBar-nav > .SideBar-brand {
+    @extend .text-center;
     height: 65px;
     font-size: 18px;
     line-height: 60px;
@@ -97,11 +99,11 @@
 }
 
 @media(min-width:768px) {
-    #wrapper {
+    #App_Wrapper {
         padding-left: 250px;
     }
 
-    #wrapper.toggled {
+    #App_Wrapper.toggled {
         padding-left: 0;
     }
 
@@ -109,7 +111,7 @@
         width: 250px;
     }
 
-    #wrapper.toggled #SideBar-wrapper {
+    #App_Wrapper.toggled #SideBar-wrapper {
         width: 0;
     }
 
@@ -118,7 +120,7 @@
         position: relative;
     }
 
-    #wrapper.toggled #page-content-wrapper {
+    #App_Wrapper.toggled #page-content-wrapper {
         position: relative;
         margin-right: 0;
     }

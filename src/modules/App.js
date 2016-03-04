@@ -9,19 +9,29 @@ var UserAPIUtils = require('./Utils/UserAPIUtils');
 UserExampleData.init();
 UserAPIUtils.getAllUsers();
 
-export default React.createClass({
-  render() {
-    return (
-    	<div className="container-fluid">
-    		<NavBar />
+class App extends React.Component{
 
-    		{ this.props.children }
+	render() {
+		return (
+			<div>
+				<div id="App_Wrapper" className="toggled container-fluid">
+					<NavBar />
 
-    		<Footer />
-    	</div>
-	);
-  }
-})
+					{ this.props.children }
+
+					<Footer />
+					
+				</div>
+
+
+
+			</div>
+			
+		);
+	}
+}
+
+module.exports = App;
 
 
 
