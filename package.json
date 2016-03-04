@@ -41,8 +41,6 @@
     "react-dom": "^0.14.7",
     "react-router": "^2.0.0",
     "webpack": "^1.12.14"
-  },
-  "devDependencies": {
     "Faker": "^0.7.2",
     "babel-loader": "^6.2.3",
     "babelify": "^7.2.0",
