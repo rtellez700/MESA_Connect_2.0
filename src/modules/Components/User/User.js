@@ -1,9 +1,11 @@
 import React from 'react';
-import NavBar from '../Views/NavBar'
+import SideBar from '../Views/SideBar'
+
 class User extends React.Component {
 	render() {
 		return (
 			<div>
+				<SideBar />
 				{ this.props.children }
 			</div>
 		);

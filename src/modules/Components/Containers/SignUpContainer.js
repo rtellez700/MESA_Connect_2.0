@@ -47,13 +47,14 @@ class SignUpContainer extends React.Component {
 		var rawUser = {
 			f_name: document.getElementById("f_name").value.trim()
 		};
+		
 		UserActions.create(rawUser);
 
 		// show successful login notification
 		alert('Sign-up successful. Will now redirect . . .');
 
 		// redirect to dashboard page
-		browserHistory.push('/user/dashboard');
+		browserHistory.push('/dashboard');
 	}
 
 	render() {

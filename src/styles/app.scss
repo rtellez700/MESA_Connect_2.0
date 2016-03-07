@@ -3,6 +3,9 @@
 @import './CustomVariables.scss';
 @import './SideBar.scss';
 @import './MailBox.scss';
+@import './Inbox.scss';
+@import './Network.scss';
+
 
 body{
 	// padding-top: $navbar-height;
@@ -200,6 +203,21 @@ img{
 	}
 }
 
+// Scrollable
+.Scrollable{
+	&__list{
+		height: auto;
+		max-height: 500px;
+		overflow-x: hidden;
+	}
+	&__area{
+		direction: ltr;
+		height: 100%;
+		overflow: hidden;
+		position:relative;
+	}
+}
+
 // MEDIA QUERIES
 @media (max-width: $grid-float-breakpoint) {
 
@@ -208,9 +226,12 @@ img{
 // Helpers
 .bg{
 	&--white{background-color: #ffffff;}
-	&--grey{background-color: #cccccc;}
+	&--grey{
+		background-color: #cccccc;
+		&-dark{background-color: #222222;}
+		&-google{background-color: #CFD8DC;}
+	}
 	&--terracotta{background-color: #B53B24;}
-	&--grey-dark{background-color: #222222;}
 	&--redish{background-color: #A94442;}
 }
 .no{
@@ -220,7 +241,11 @@ img{
 	&--padding-bottom{padding-bottom: 0;}
 	&--padding-left{padding-left: 0;}
 }
-
+.full{
+	&--width{
+		width: 100%;
+	}
+}
 .CENTER-NOW{
 	display: block !important;
 	margin-left: auto !important;

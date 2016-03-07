@@ -5611,7 +5611,7 @@ button.close {
 .clearfix:after {
   clear: both; }
 
-.center-block {
+.center-block, .Network .BioInfoCard {
   display: block;
   margin-left: auto;
   margin-right: auto; }
@@ -5980,6 +5980,20 @@ button.close {
         .MailBox .MessageItem .MessageBubble--content-heading small {
           color: #a6a6a6; }
 
+.Inbox .MailBox {
+  width: 100%;
+  border: 1px solid #b3b3b3;
+  margin-bottom: 0; }
+
+.Inbox .MessageInputBox textarea {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 2px; }
+
+.Inbox .leftSection li {
+  background-color: #ccc;
+  margin: 5px 0; }
+
 .container-fluid {
   padding-left: 0;
   padding-right: 0; }
@@ -6071,17 +6085,29 @@ button.close {
   .Media__body p:first-child {
     margin-top: 0; }
 
+.Scrollable__list {
+  height: auto;
+  max-height: 500px;
+  overflow-x: hidden; }
+
+.Scrollable__area {
+  direction: ltr;
+  height: 100%;
+  overflow: hidden;
+  position: relative; }
+
 .bg--white {
   background-color: #ffffff; }
 
 .bg--grey {
   background-color: #cccccc; }
+  .bg--grey-dark {
+    background-color: #222222; }
+  .bg--grey-google {
+    background-color: #CFD8DC; }
 
 .bg--terracotta {
   background-color: #B53B24; }
-
-.bg--grey-dark {
-  background-color: #222222; }
 
 .bg--redish {
   background-color: #A94442; }
@@ -6100,6 +6126,9 @@ button.close {
 
 .no--padding-left {
   padding-left: 0; }
+
+.full--width {
+  width: 100%; }
 
 .CENTER-NOW {
   display: block !important;

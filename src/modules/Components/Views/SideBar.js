@@ -13,7 +13,7 @@ var SideBarLinks = [
         title: "Profile"
     },
     {
-        url: "mail",
+        url: "inbox",
         title: "Mail"
     },
     {
