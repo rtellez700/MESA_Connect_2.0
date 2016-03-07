@@ -10,7 +10,7 @@ var CHANGE_EVENT = 'change';
 var _users = {};
 
 /**
- * Update a TODO item.
+ * Update a USER item.
  * @param  {string} id
  * @param {object} updates An object literal containing only the data to be
  *     updated.
@@ -40,6 +40,15 @@ function destroy(id) {
 	delete _users[id];
 }
 
+function findById(id){
+	return _users[id];
+}
+
+function getAll(){
+	return _users;
+	// todo
+}
+
 var UserStore = assign({}, EventEmitter.prototype, {
 	/**
    * Get the entire collection of USERS.
@@ -60,7 +69,6 @@ var UserStore = assign({}, EventEmitter.prototype, {
 });
 
 UserDispatcher.register(function(action){
-	console.log(action);
 	var f_name;
 
 	switch(action.actionType){

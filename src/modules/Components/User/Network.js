@@ -69,7 +69,7 @@ var users = [
 
 				<hr />
 
-				<div className="center-block">
+				<div className="well bg--grey-google center-block">
 					<BioInfoCardList users={ this.state.searchResults } />
 				</div>
 			</div>

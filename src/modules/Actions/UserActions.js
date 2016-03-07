@@ -17,6 +17,12 @@ var UserActions = {
 			actionType: UserConstants.USER_DESTROY,
 			id: id
 		});
+	},
+	getAll: function(){
+		UserDispatcher.dispatch({
+			actionType: UserConstants.USER_GET_ALL,
+			// todo
+		});
 	}
 };
 

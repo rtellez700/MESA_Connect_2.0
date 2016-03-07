@@ -60,9 +60,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	window.jQuery = window.$ = __webpack_require__(283);
-	__webpack_require__(284);
+	window.jQuery = window.$ = __webpack_require__(284);
 	__webpack_require__(285);
+	__webpack_require__(286);
 
 	(0, _reactDom.render)(_react2.default.createElement(_reactRouter.Router, { routes: _routes2.default, history: _reactRouter.browserHistory }), document.getElementById('App'));
 
@@ -24748,19 +24748,19 @@
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-	var _Network = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./Components/User/Network\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _Network = __webpack_require__(277);
 
 	var _Network2 = _interopRequireDefault(_Network);
 
-	var _Resources = __webpack_require__(278);
+	var _Resources = __webpack_require__(279);
 
 	var _Resources2 = _interopRequireDefault(_Resources);
 
-	var _ListResources = __webpack_require__(279);
+	var _ListResources = __webpack_require__(280);
 
 	var _ListResources2 = _interopRequireDefault(_ListResources);
 
-	var _Inbox = __webpack_require__(280);
+	var _Inbox = __webpack_require__(281);
 
 	var _Inbox2 = _interopRequireDefault(_Inbox);
 
@@ -28770,9 +28770,15 @@
 				actionType: UserConstants.USER_DESTROY,
 				id: id
 			});
+		},
+		getAll: function getAll() {
+			UserDispatcher.dispatch({
+				actionType: UserConstants.USER_GET_ALL
+			});
 		}
 	};
 
+	// todo
 	module.exports = UserActions;
 
 /***/ },
@@ -30488,8 +30494,193 @@
 	module.exports = MessageItem;
 
 /***/ },
-/* 277 */,
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _faker = __webpack_require__(230);
+
+	var _faker2 = _interopRequireDefault(_faker);
+
+	var _SearchBox = __webpack_require__(278);
+
+	var _SearchBox2 = _interopRequireDefault(_SearchBox);
+
+	var _BioInfoCardList = __webpack_require__(272);
+
+	var _BioInfoCardList2 = _interopRequireDefault(_BioInfoCardList);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	// sample data
+	var users = [{
+		"id": 1456729877142,
+		"f_name": "Rodrigo",
+		"l_name": "Tellez",
+		"school": "UC Berkeley",
+		"major": "Chemical Engineering",
+		"title": "Undergraduate",
+		"bio": _faker2.default.Lorem.paragraphs()
+	}, {
+		"id": 1456729886559,
+		"f_name": "Gabriella",
+		"l_name": "Herrera",
+		"school": "Harvard",
+		"major": "Neuoscience",
+		"title": "Undergraduate",
+		"bio": _faker2.default.Lorem.paragraphs()
+	}, {
+		"id": 1456729893306,
+		"f_name": "Chris",
+		"l_name": "Augmon",
+		"school": "UC Berkeley",
+		"major": "EECS",
+		"title": "Undergraduate",
+		"bio": _faker2.default.Lorem.paragraphs()
+	}];
+
+	var Network = function (_Component) {
+		_inherits(Network, _Component);
+
+		function Network(props) {
+			_classCallCheck(this, Network);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Network).call(this, props));
+
+			_this.state = {
+				value: '',
+				searchResults: []
+			};
+			return _this;
+		}
+
+		_createClass(Network, [{
+			key: '_fetchData',
+			value: function _fetchData() {
+				console.log('fetching . . .');
+				this.setState({ searchResults: users });
+			}
+		}, {
+			key: '_onChange',
+			value: function _onChange(e) {
+				this.setState({ value: e.target.value });
+			}
+		}, {
+			key: '_onClick',
+			value: function _onClick(e) {
+				// retrieve data from server
+				this._fetchData();
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					{ className: 'Network container' },
+					_react2.default.createElement(_SearchBox2.default, {
+						value: this.state.value,
+						onChange: this._onChange.bind(this),
+						onClick: this._onClick.bind(this)
+					}),
+					_react2.default.createElement('hr', null),
+					_react2.default.createElement(
+						'div',
+						{ className: 'well bg--grey-google center-block' },
+						_react2.default.createElement(_BioInfoCardList2.default, { users: this.state.searchResults })
+					)
+				);
+			}
+		}]);
+
+		return Network;
+	}(_react.Component);
+
+	module.exports = Network;
+
+/***/ },
 /* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var SearchBox = function (_Component) {
+		_inherits(SearchBox, _Component);
+
+		function SearchBox() {
+			_classCallCheck(this, SearchBox);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(SearchBox).apply(this, arguments));
+		}
+
+		_createClass(SearchBox, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"div",
+					{ className: "container" },
+					_react2.default.createElement(
+						"div",
+						{ className: "row" },
+						_react2.default.createElement(
+							"div",
+							{ className: "col-md-12" },
+							_react2.default.createElement("input", {
+								type: "text",
+								className: "form-control input-lg",
+								placeholder: "Search . . .",
+								value: this.props.value,
+								onChange: this.props.onChange.bind(this)
+							}),
+							_react2.default.createElement("br", null),
+							_react2.default.createElement(
+								"button",
+								{
+									className: "btn btn-primary full--width",
+									role: "button",
+									onClick: this.props.onClick.bind(this)
+								},
+								"Search"
+							)
+						)
+					)
+				);
+			}
+		}]);
+
+		return SearchBox;
+	}(_react.Component);
+
+	module.exports = SearchBox;
+
+/***/ },
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -30534,7 +30725,7 @@
 	module.exports = Resources;
 
 /***/ },
-/* 279 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30595,7 +30786,7 @@
 	module.exports = ListResources;
 
 /***/ },
-/* 280 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30610,11 +30801,11 @@
 
 	var _MessageItem2 = _interopRequireDefault(_MessageItem);
 
-	var _MessageInput = __webpack_require__(281);
+	var _MessageInput = __webpack_require__(282);
 
 	var _MessageInput2 = _interopRequireDefault(_MessageInput);
 
-	var _MessageItemList = __webpack_require__(282);
+	var _MessageItemList = __webpack_require__(283);
 
 	var _MessageItemList2 = _interopRequireDefault(_MessageItemList);
 
@@ -30706,7 +30897,7 @@
 	module.exports = Inbox;
 
 /***/ },
-/* 281 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -30751,7 +30942,7 @@
 	module.exports = MessageInput;
 
 /***/ },
-/* 282 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30808,11 +30999,11 @@
 	module.exports = MessageItemList;
 
 /***/ },
-/* 283 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*** IMPORTS FROM imports-loader ***/
-	var jQuery = __webpack_require__(283);
+	var jQuery = __webpack_require__(284);
 
 	/*!
 	 * jQuery JavaScript Library v2.2.1
@@ -40649,7 +40840,7 @@
 
 
 /***/ },
-/* 284 */
+/* 285 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -41238,7 +41429,7 @@
 	}(jQuery);
 
 /***/ },
-/* 285 */
+/* 286 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

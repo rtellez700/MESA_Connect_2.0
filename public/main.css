@@ -6064,7 +6064,8 @@ button.close {
   width: 800px;
   box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
   border-color: #dedede;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  background-color: #FFFFFF; }
   .BioInfoCard .btn:first-child {
     margin-right: 10px; }
 
