@@ -5,12 +5,13 @@ import React from 'react' // react import for server-side rendering
 import { renderToString } from 'react-dom/server' // Use this to render our app to an HTML string
 import { match, RouterContext } from 'react-router' // use to match URL to routes and then render
 import routes from './src/modules/routes'
+import bodyParser from 'body-parser'
 
 var app = express()
 
-app.use(compression())
 
-app.use(express.static(path.join(__dirname,'public')))
+app.use(compression());
+app.use(express.static(path.join(__dirname,'public')));
 
 // send all requests to index.html so browserHistory works
 app.get('*', (req, res) => {

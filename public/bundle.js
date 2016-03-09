@@ -27857,10 +27857,10 @@
 					{ className: "container well text-center" },
 					_react2.default.createElement(
 						"div",
-						{ "class": "row" },
+						{ className: "row" },
 						_react2.default.createElement(
 							"div",
-							{ "class": "col-md-12" },
+							{ className: "col-md-12" },
 							_react2.default.createElement(
 								"h3",
 								null,
@@ -27880,8 +27880,8 @@
 					),
 					_react2.default.createElement(
 						"div",
-						{ "class": "row" },
-						_react2.default.createElement("i", { "class": "fa fa-flask fa-5x flask" })
+						{ className: "row" },
+						_react2.default.createElement("i", { className: "fa fa-flask fa-5x flask" })
 					)
 				);
 			}
@@ -28094,12 +28094,36 @@
 		}
 
 		_createClass(Donate, [{
+			key: '_onClick',
+			value: function _onClick(e) {
+				e.preventDefault();
+				$.ajax({
+					url: '/api/json',
+					type: 'GET',
+					success: function (data) {
+						console.log(data);
+					}.bind(this),
+					error: function (xhr, status, err) {
+						console.error('/api', status, err.toString());
+					}.bind(this)
+				});
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					null,
-					'Hello from donate.js'
+					{ className: 'container' },
+					_react2.default.createElement(
+						'h2',
+						null,
+						'Hello from donate.js'
+					),
+					_react2.default.createElement(
+						'button',
+						{ className: 'btn btn-primary block-center', onClick: this._onClick.bind(this) },
+						'AJAX POST'
+					)
 				);
 			}
 		}]);

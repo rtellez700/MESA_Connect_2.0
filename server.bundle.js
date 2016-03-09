@@ -70,17 +70,20 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
+	var _bodyParser = __webpack_require__(66);
+
+	var _bodyParser2 = _interopRequireDefault(_bodyParser);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// Use this to render our app to an HTML string
-
-
-	var app = (0, _express2.default)(); // use to match URL to routes and then render
+	// use to match URL to routes and then render
 	// react import for server-side rendering
 
 
-	app.use((0, _compression2.default)());
+	var app = (0, _express2.default)(); // Use this to render our app to an HTML string
 
+
+	app.use((0, _compression2.default)());
 	app.use(_express2.default.static(_path2.default.join(__dirname, 'public')));
 
 	// send all requests to index.html so browserHistory works
@@ -2958,10 +2961,10 @@
 					{ className: "container well text-center" },
 					_react2.default.createElement(
 						"div",
-						{ "class": "row" },
+						{ className: "row" },
 						_react2.default.createElement(
 							"div",
-							{ "class": "col-md-12" },
+							{ className: "col-md-12" },
 							_react2.default.createElement(
 								"h3",
 								null,
@@ -2981,8 +2984,8 @@
 					),
 					_react2.default.createElement(
 						"div",
-						{ "class": "row" },
-						_react2.default.createElement("i", { "class": "fa fa-flask fa-5x flask" })
+						{ className: "row" },
+						_react2.default.createElement("i", { className: "fa fa-flask fa-5x flask" })
 					)
 				);
 			}
@@ -3195,12 +3198,36 @@
 		}
 
 		_createClass(Donate, [{
+			key: '_onClick',
+			value: function _onClick(e) {
+				e.preventDefault();
+				$.ajax({
+					url: '/api/json',
+					type: 'GET',
+					success: function (data) {
+						console.log(data);
+					}.bind(this),
+					error: function (xhr, status, err) {
+						console.error('/api', status, err.toString());
+					}.bind(this)
+				});
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					null,
-					'Hello from donate.js'
+					{ className: 'container' },
+					_react2.default.createElement(
+						'h2',
+						null,
+						'Hello from donate.js'
+					),
+					_react2.default.createElement(
+						'button',
+						{ className: 'btn btn-primary block-center', onClick: this._onClick.bind(this) },
+						'AJAX POST'
+					)
 				);
 			}
 		}]);
@@ -5362,6 +5389,12 @@
 	}(_react.Component);
 
 	module.exports = MessageItemList;
+
+/***/ },
+/* 66 */
+/***/ function(module, exports) {
+
+	module.exports = require("body-parser");
 
 /***/ }
 /******/ ]);
