@@ -24902,12 +24902,27 @@
 		function NavBar() {
 			_classCallCheck(this, NavBar);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(NavBar).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(NavBar).call(this));
+
+			_this.state = {
+				collapsed: true
+			};
+			return _this;
 		}
 
 		_createClass(NavBar, [{
+			key: 'toggleCollapse',
+			value: function toggleCollapse() {
+				var collapsed = !this.state.collapsed;
+				this.setState({ collapsed: collapsed });
+				console.log(this.state.collapsed);
+			}
+		}, {
 			key: 'render',
 			value: function render() {
+				var collapsed = this.state.collapsed;
+
+				var navClass = collapsed ? "collapse" : "";
 				return _react2.default.createElement(
 					'div',
 					{ className: 'container-fluid' },
@@ -24922,7 +24937,7 @@
 								{ className: 'navbar-header' },
 								_react2.default.createElement(
 									'button',
-									{ type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#MainNavbar', 'aria-expanded': 'false' },
+									{ type: 'button', className: 'navbar-toggle', 'aria-expanded': 'false', onClick: this.toggleCollapse.bind(this) },
 									_react2.default.createElement(
 										'span',
 										{ className: 'sr-only' },
@@ -24940,7 +24955,7 @@
 							),
 							_react2.default.createElement(
 								'div',
-								{ className: 'collapse navbar-collapse main-navbar', id: 'MainNavbar' },
+								{ className: "navbar-collapse main-navbar " + navClass, id: 'MainNavbar' },
 								_react2.default.createElement(
 									'ul',
 									{ className: 'nav navbar-nav' },

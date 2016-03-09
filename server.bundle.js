@@ -74,17 +74,31 @@
 
 	var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
+	var _mysql = __webpack_require__(67);
+
+	var _mysql2 = _interopRequireDefault(_mysql);
+
+	var _config = __webpack_require__(68);
+
+	var _config2 = _interopRequireDefault(_config);
+
+	var _API = __webpack_require__(69);
+
+	var _API2 = _interopRequireDefault(_API);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// use to match URL to routes and then render
+	// Use this to render our app to an HTML string
+
+
+	var app = (0, _express2.default)(); // use to match URL to routes and then render
 	// react import for server-side rendering
-
-
-	var app = (0, _express2.default)(); // Use this to render our app to an HTML string
 
 
 	app.use((0, _compression2.default)());
 	app.use(_express2.default.static(_path2.default.join(__dirname, 'public')));
+
+	app.use('/api/', _API2.default);
 
 	// send all requests to index.html so browserHistory works
 	app.get('*', function (req, res) {
@@ -361,12 +375,27 @@
 		function NavBar() {
 			_classCallCheck(this, NavBar);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(NavBar).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(NavBar).call(this));
+
+			_this.state = {
+				collapsed: true
+			};
+			return _this;
 		}
 
 		_createClass(NavBar, [{
+			key: 'toggleCollapse',
+			value: function toggleCollapse() {
+				var collapsed = !this.state.collapsed;
+				this.setState({ collapsed: collapsed });
+				console.log(this.state.collapsed);
+			}
+		}, {
 			key: 'render',
 			value: function render() {
+				var collapsed = this.state.collapsed;
+
+				var navClass = collapsed ? "collapse" : "";
 				return _react2.default.createElement(
 					'div',
 					{ className: 'container-fluid' },
@@ -381,7 +410,7 @@
 								{ className: 'navbar-header' },
 								_react2.default.createElement(
 									'button',
-									{ type: 'button', className: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#MainNavbar', 'aria-expanded': 'false' },
+									{ type: 'button', className: 'navbar-toggle', 'aria-expanded': 'false', onClick: this.toggleCollapse.bind(this) },
 									_react2.default.createElement(
 										'span',
 										{ className: 'sr-only' },
@@ -399,7 +428,7 @@
 							),
 							_react2.default.createElement(
 								'div',
-								{ className: 'collapse navbar-collapse main-navbar', id: 'MainNavbar' },
+								{ className: "navbar-collapse main-navbar " + navClass, id: 'MainNavbar' },
 								_react2.default.createElement(
 									'ul',
 									{ className: 'nav navbar-nav' },
@@ -5395,6 +5424,87 @@
 /***/ function(module, exports) {
 
 	module.exports = require("body-parser");
+
+/***/ },
+/* 67 */
+/***/ function(module, exports) {
+
+	module.exports = require("mysql");
+
+/***/ },
+/* 68 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var config = {
+		host: 'localhost',
+		database: 'SampleDB',
+		user: 'test',
+		password: 'test',
+		port: 3030
+	};
+
+	module.exports = config;
+
+/***/ },
+/* 69 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _express = __webpack_require__(1);
+
+	var _express2 = _interopRequireDefault(_express);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var app = (0, _express2.default)();
+
+	/*
+		USERS
+	 */
+
+	var USERS = [{
+		id: 123,
+		name: 'Rodrigo'
+	}];
+
+	// SIGNING UP USERS
+	// app.post('/users',(req,res)=>{});
+	// LOGGING IN
+	// app.get('/login',(req,res)=>{});
+	// LOGGING OUT
+	// app.post('/logout',(req,res)=>{});
+	// RETRIEVING USERS
+	// app.get('/users/:id',(req,res)=>{});
+	// VALIDATING SESSION TOKENS, RETRIEVING CURRENT USER
+	// app.get('/users/me',(req,res)=>{});
+	// UPDATING USERS, LINKING USERS, VERIFYING EMAILS
+	// app.put('/users/:id',(req,res)=>{});
+	// QUERYING USERS
+	app.get('/users', function (req, res) {
+		res.json(USERS);
+	});
+	// DELETING USERS
+	// app.delete('/users/:id',(req,res)=>{});
+	// REQUESTING A PASSWORD RESET
+	// app.post('/requestPasswordReset',(req,res)=>{});
+
+	// // CREATING RESTRICTED SESSIONS
+	// app.post('/sessions',(req,res)=>{});
+	// // RETRIEVING SESSIONS
+	// app.get('/sessions/:id',(req,res)=>{});
+	// // RETRIEVING CURRENT SESSION
+	// app.get('/sessions/me',(req,res)=>{});
+	// // UPDATING SESSIONS
+	// app.put('/sessions/:id',(req,res)=>{});
+	// // QUERYING SESSIONS
+	// app.get('/sessions',(req,res)=>{});
+	// // DELETING SESSIONS
+	// app.delete('/sessions/:id',(req,res)=>{});
+
+	module.exports = app;
 
 /***/ }
 /******/ ]);

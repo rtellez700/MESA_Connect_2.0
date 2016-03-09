@@ -35,6 +35,9 @@ module.exports = {
       path.resolve('./src/styles/vendor')
     ]
   },
+  devServer: {
+    historyApiFallback: true
+  },
   plugins: process.env.NODE_ENV === 'production' ? [
     new webpack.optimize.CommonsChunkPlugin('common.js'),
     new webpack.optimize.DedupePlugin(),

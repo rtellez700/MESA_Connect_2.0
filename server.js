@@ -7,11 +7,17 @@ import { match, RouterContext } from 'react-router' // use to match URL to route
 import routes from './src/modules/routes'
 import bodyParser from 'body-parser'
 
-var app = express()
+import mysql from 'mysql'
 
+import config from './config'
+import API from './api/API'
+
+var app = express()
 
 app.use(compression());
 app.use(express.static(path.join(__dirname,'public')));
+
+app.use('/api/', API);
 
 // send all requests to index.html so browserHistory works
 app.get('*', (req, res) => {
