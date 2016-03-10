@@ -28524,7 +28524,7 @@
 /* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -28543,42 +28543,31 @@
 	var Input = function (_React$Component) {
 		_inherits(Input, _React$Component);
 
-		function Input(props) {
+		function Input() {
 			_classCallCheck(this, Input);
 
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Input).call(this, props));
-
-			_this.state = {
-				value: ''
-			};
-
-			return _this;
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Input).call(this));
 		}
 
 		_createClass(Input, [{
-			key: '_onChange',
-			value: function _onChange(e) {
-				this.setState({ value: e.target.value });
-			}
-		}, {
-			key: 'render',
+			key: "render",
 			value: function render() {
 				return _react2.default.createElement(
-					'div',
-					{ className: 'form-group' },
+					"div",
+					{ className: "form-group" },
 					_react2.default.createElement(
-						'label',
+						"label",
 						{ htmlFor: this.props.itemId },
 						this.props.title
 					),
-					_react2.default.createElement('input', {
+					_react2.default.createElement("input", {
 						type: this.props.type,
-						className: 'form-control input-lg',
+						className: "form-control input-lg",
 						id: this.props.id,
 						placeholder: this.props.placeholder,
 						ref: this.props.ref || '',
-						value: this.state.value,
-						onChange: this._onChange.bind(this)
+						value: this.props.value,
+						onChange: this.props.onChange.bind(this)
 					})
 				);
 			}
@@ -28680,6 +28669,10 @@
 
 	var _Select2 = _interopRequireDefault(_Select);
 
+	var _UserActions = __webpack_require__(256);
+
+	var _UserActions2 = _interopRequireDefault(_UserActions);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28688,12 +28681,24 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var UserActions = __webpack_require__(256);
-
 	// TODO:
 	// [ ] Add value attribute and handler for each input
+	//
+	// OUTLINE
+	// - USER FILLS OUT FORM
+	// - UPON SUBMISSION
+	// -- VALIDATE DATA
+	// -- CREATE USER OBJECT
+	// -- SEND USER OBJECT TO SERVER
+	// -- EMIT STATUS WHERE NEEDED
 
-	var data = [{ id: 'f_name', title: 'First Name', placeholder: 'First Name' }, { id: 'l_name', title: 'Last Name', placeholder: 'Last Name' }, { id: 'e_mail', title: 'Email', placeholder: 'E.g., email@gmail.com' }, { id: "delta_id", title: 'Delta ID *(optional)', placeholder: '98-XXX-XXX' }, { id: 'dob', title: 'Date of Birth', placeholder: '' }, { id: 'years_in_mesa', title: 'Years In MESA', placeholder: '' }];
+	var INPUT = {
+		F_NAME: 'f_name',
+		M_NAME: 'm_name',
+		L_NAME: 'l_name',
+		EMAIL: 'e_email',
+		DELTA_ID: 'delta_id'
+	};
 	var startYear = 2000;
 	var currentYear = 2016;
 	var years = ['- Select -'];
@@ -28713,7 +28718,19 @@
 		function SignUpContainer() {
 			_classCallCheck(this, SignUpContainer);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(SignUpContainer).apply(this, arguments));
+			// TODO
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SignUpContainer).call(this));
+
+			_this.state = {
+				f_name: '',
+				m_name: '',
+				l_name: '',
+				e_email: '',
+				delta_id: '',
+				errors: false
+			};
+			return _this;
 		}
 
 		_createClass(SignUpContainer, [{
@@ -28722,35 +28739,88 @@
 
 				e.preventDefault();
 
-				// createUser
-				var rawUser = {
-					f_name: document.getElementById("f_name").value.trim()
-				};
+				// vALIDATE SUBMISSION
 
-				UserActions.create(rawUser);
+				// CREATE USER OBJECT
+				var rawUser = this._getUserInput();
+				// window.rawUser = rawUser;
+				_UserActions2.default.create(rawUser);
 
 				// show successful login notification
 				alert('Sign-up successful. Will now redirect . . .');
 
 				// redirect to dashboard page
-				_reactRouter.browserHistory.push('/dashboard');
+				// browserHistory.push('/dashboard');
+			}
+		}, {
+			key: '_onInputChange',
+			value: function _onInputChange(e) {
+				var input_id = e.target.id.trim();
+				window.IN_ID = input_id;
+				console.log(input_id);
+				// validate -- check if input_id is in INPUT constant
+
+				// update state
+				this.setState({ f_name: e.target.value });
+				// this.state[input_id] = e.target.value;
+				// console.log(this.state.f_name)
+				console.log(this);
+				// console.log(e.target);
+			}
+		}, {
+			key: '_getUserInput',
+			value: function _getUserInput() {
+				return {
+					f_name: document.getElementById('f_name').value.trim(),
+					m_name: document.getElementById('m_name').value.trim(),
+					l_name: document.getElementById('l_name').value.trim(),
+					name_suffix: document.getElementById('name_suffix').value.trim(),
+					email: document.getElementById('e_email').value.trim(),
+					delta_id: document.getElementById('delta_id').value.trim(),
+					dob: {
+						month: document.getElementById('dob_month').value.trim(),
+						day: document.getElementById('dob_day').value.trim(),
+						year: document.getElementById('dob_year').value.trim()
+					},
+					start_year_in_mesa: document.getElementById('start_year_in_mesa').value.trim(),
+					end_year_in_mesa: document.getElementById('end_year_in_mesa').value.trim()
+				};
 			}
 		}, {
 			key: 'render',
 			value: function render() {
+				var errors = this.state.errors;
+				var errorClass = !errors ? "display--none" : "";
 
 				return _react2.default.createElement(
 					'div',
-					{ className: 'container well FormBox' },
+					{ className: 'container well FormBox ' },
+					_react2.default.createElement(
+						'div',
+						{ className: "alert alert-danger " + errorClass, role: 'alert' },
+						_react2.default.createElement('span', { className: 'glyphicon glyphicon-exclamation-sign', 'aria-hidden': 'true' }),
+						_react2.default.createElement(
+							'span',
+							{ className: 'sr-only' },
+							'Error:'
+						),
+						errors
+					),
 					_react2.default.createElement(
 						'form',
-						{ role: 'form', onSubmit: this.handleSubmit },
-						_react2.default.createElement(_Input2.default, { type: 'text', id: 'f_name', title: 'First Name', placeholder: 'First Name' }),
-						_react2.default.createElement(_Input2.default, { type: 'text', id: 'm_name', title: 'Middle Name', placeholder: 'Middle Name' }),
-						_react2.default.createElement(_Input2.default, { type: 'text', id: 'l_name', title: 'Last Name', placeholder: 'Last Name' }),
+						{ role: 'form', onSubmit: this.handleSubmit.bind(this) },
+						_react2.default.createElement(_Input2.default, { type: 'text', id: 'f_name', title: 'First Name', placeholder: 'First Name', onChange: this._onInputChange.bind(this), value: this.state.f_name }),
+						_react2.default.createElement(_Input2.default, { type: 'text', id: 'm_name', title: 'Middle Name', placeholder: 'Middle Name', onChange: this._onInputChange.bind(this), value: this.state.m_name }),
+						_react2.default.createElement(_Input2.default, { type: 'text', id: 'l_name', title: 'Last Name', placeholder: 'Last Name', onChange: this._onInputChange.bind(this), value: this.state.l_name }),
 						_react2.default.createElement(_Select2.default, { id: 'name_suffix', title: 'Individual Suffix', options: suffixes }),
-						_react2.default.createElement(_Input2.default, { type: 'email', id: 'e_email', title: 'Email', placeholder: 'example@gmail.com' }),
-						_react2.default.createElement(_Input2.default, { type: 'text', id: 'delta_id', title: 'Delta ID (*optional)', placeholder: '98-XXX-XXX' }),
+						_react2.default.createElement(_Input2.default, { type: 'email', id: 'e_email', title: 'Email', placeholder: 'example@gmail.com', onChange: this._onInputChange.bind(this), value: this.state.e_email }),
+						_react2.default.createElement(_Input2.default, { type: 'text', id: 'delta_id', title: 'Delta ID (*optional)', placeholder: '98-XXX-XXX', onChange: this._onInputChange.bind(this), value: this.state.delta_id }),
+						_react2.default.createElement('hr', null),
+						_react2.default.createElement(
+							'h4',
+							null,
+							'Date of Birth'
+						),
 						_react2.default.createElement(
 							'div',
 							{ className: 'display--flex' },
@@ -28798,6 +28868,7 @@
 
 	var UserActions = {
 		create: function create(user) {
+			console.log('yo yo yo . . .', user);
 			UserDispatcher.dispatch({
 				actionType: ActionTypes.USER_CREATE,
 				user: user
@@ -30294,10 +30365,6 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _SideBar = __webpack_require__(258);
-
-	var _SideBar2 = _interopRequireDefault(_SideBar);
-
 	var _MailBox = __webpack_require__(275);
 
 	var _MailBox2 = _interopRequireDefault(_MailBox);
@@ -30309,8 +30376,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	// TODO: add onToggle option for sidebar
 
 	var Dashboard = function (_React$Component) {
 		_inherits(Dashboard, _React$Component);

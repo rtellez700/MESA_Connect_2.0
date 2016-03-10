@@ -165,15 +165,6 @@ img{
 	}
 }
 
-// Join
-
-
-.display{
-	&--flex{
-		display: flex;
-	}
-}
-
 // Footer
 .Footer{
 	// position: absolute;
@@ -246,6 +237,10 @@ img{
 	&--width{
 		width: 100%;
 	}
+}
+.display{
+	&--flex{display: flex;}
+	&--none{display: none;}
 }
 .CENTER-NOW{
 	display: block !important;

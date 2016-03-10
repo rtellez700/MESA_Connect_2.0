@@ -1,16 +1,8 @@
 import React from 'react';
 
 class Input extends React.Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			value: ''
-		};
-		
-	}
-
-	_onChange(e){
-		this.setState({ value: e.target.value });
+	constructor(){
+		super();		
 	}
 
 	render() {
@@ -23,8 +15,8 @@ class Input extends React.Component {
 					id={this.props.id} 
 					placeholder={this.props.placeholder} 
 					ref={this.props.ref || ''}
-					value={this.state.value}
-					onChange={this._onChange.bind(this)}
+					value={this.props.value}
+					onChange={this.props.onChange.bind(this)}
 				/>
 			</div>
 		);

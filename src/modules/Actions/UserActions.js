@@ -6,6 +6,7 @@ var ActionTypes = UserConstants.ActionTypes;
 
 var UserActions = {
 	create: function (user) {
+		console.log('yo yo yo . . .',user);
 		UserDispatcher.dispatch({
 			actionType: ActionTypes.USER_CREATE,
 			user: user
