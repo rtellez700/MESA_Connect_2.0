@@ -7,7 +7,13 @@ import FormList from '../Form/FormList';
 import Input from '../Form/Item/Input';
 import Select from '../Form/Item/Select';
 
-import UserActions from '../../Actions/UserActions'
+import UserActions from '../../Actions/UserActions';
+
+// TODO:
+// [ ] Add validation onChange
+// [ ] Add validation onSubmit
+// [ ] Add redirect to login page
+
 
 var INPUT = {
 	NAME:{

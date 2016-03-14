@@ -1,0 +1,77 @@
+// COLORS
+// 45454A -- BLACKISH
+// 00CDB1 -- TURQUIOUSISH
+// ADCBD9 -- ON HOVER (BLUISH)
+// ACADAF -- GREYISH
+// 9A7E6C -- BROWNISH
+
+// $border-color: #CACACA;
+$border-color: #ACADAF;
+$border-size: 1px;
+$border-radius: 1em;
+
+.Tile{
+	&__Container{
+		// background-color: #0D4D7F;
+	}
+	&__Wrapper{
+		// padding: 10px;
+
+	}
+	&__Row{
+		display: flex;
+
+		// TOP ROW
+		&:first-child{
+			& .Tile__Content{
+				border-top: $border-size solid $border-color;
+
+				// TOP LEFT TILE BOX
+				&:first-child{
+					border-top-left-radius: $border-radius;
+				}
+				// TOP RIGHT TILE BOX
+				&:last-child{
+					border-top-right-radius: $border-radius;
+				}
+			}
+		}
+		// LAST ROW
+		&:last-child{
+			& .Tile__Content{
+				// BOTTOM LEFT TILE BOX
+				&:first-child{
+					border-bottom-left-radius: $border-radius;
+				}
+				// BOTTOM RIGHT TILE BOX
+				&:last-child{
+					border-bottom-right-radius: $border-radius;
+				}
+			}
+		}
+	}
+	&__Content{
+		flex:1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+
+		border-right: $border-size solid $border-color;
+		border-bottom: $border-size solid $border-color;
+	
+		min-height: 150px;
+		background-color: #F3F5F6;
+		
+		&:first-child{border-left: $border-size solid $border-color;}
+		&:hover{background-color: #ADCBD9;}
+		&--Icon{
+			margin-bottom: 1em;
+		}
+		&--Label{
+			font-size: 18px;
+			font-weight: 600;
+		}
+	}
+}
+

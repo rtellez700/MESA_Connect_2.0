@@ -27,7 +27,7 @@
     margin-left: -250px;
     margin-top: -( $navbar-margin-bottom + 2px + $navbar-height ); 
     overflow-y: auto;
-    background: #000;
+    background: #414146;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -63,18 +63,21 @@
 .SideBar-nav li {
     text-indent: 20px;
     line-height: 40px;
+
+    & i{margin-right: 20px;}
 }
 
 .SideBar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    color: #CACACB;
+    font-size: 15px;
 }
 
 .SideBar-nav li a:hover {
     text-decoration: none;
     color: #fff;
-    background: rgba(255,255,255,0.2);
+    background: #5C5C63;
 }
 
 .SideBar-nav li a:active,
@@ -85,12 +88,12 @@
 .SideBar-nav > .SideBar-brand {
     @extend .text-center;
     height: 65px;
-    font-size: 18px;
     line-height: 60px;
 }
 
 .SideBar-nav > .SideBar-brand a {
-    color: #999999;
+    font-size: 20px;
+    color: #CACACB;
 }
 
 .SideBar-nav > .SideBar-brand a:hover {

@@ -2,13 +2,23 @@ import React, { Component } from 'react';
 import NavLink from './NavLink';
 
 class NavLinkList extends Component {
+	showIcon(icon){
+		if (icon) {
+			return (
+				<i className={ icon }></i>
+			);
+		}
+	}
+
 	render() {
 		var linkNodes = this.props.links.map((link,idx) => {
 			return (
 				<li key={ 'li_' + link.title } className={link.class || ""}>
 					<NavLink 
 						to={ link.url } 
-						key={ link.title }>
+						key={ link.title }
+					>
+						{  this.showIcon(link.icon) }
 						{ link.title }
 					</NavLink>
 				</li>

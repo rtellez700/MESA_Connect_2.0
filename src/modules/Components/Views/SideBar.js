@@ -6,32 +6,37 @@ var SideBarLinks = [
     {
         url: "profile",
         title: "Rodrigo Tellez",
-        class: "SideBar-brand"
+        class: "SideBar-brand",
     },
     {
         url: "profile",
-        title: "Profile"
+        title: "Profile",
+        icon: "fa fa-user"
     },
     {
         url: "inbox",
-        title: "Mail"
+        title: "Mail",
+        icon: "fa fa-envelope"
     },
     {
         url: "resources",
-        title: "Resources"
-    }
-    ,
+        title: "Resources",
+        icon: "fa fa-book"
+    },
     {
         url: "events",
-        title: "Events"
+        title: "Events",
+        icon: "fa fa-calendar"
     },
     {
         url: "settings",
-        title: "Settings"
+        title: "Settings",
+        icon: "fa fa-cogs"
     },
     {
         url: "log_out",
-        title: "Log Out"
+        title: "Log Out",
+        icon: "fa fa-sign-out"
     }
 ];
 

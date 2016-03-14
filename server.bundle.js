@@ -70,19 +70,19 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _bodyParser = __webpack_require__(66);
+	var _bodyParser = __webpack_require__(67);
 
 	var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
-	var _mysql = __webpack_require__(67);
+	var _mysql = __webpack_require__(68);
 
 	var _mysql2 = _interopRequireDefault(_mysql);
 
-	var _config = __webpack_require__(68);
+	var _config = __webpack_require__(69);
 
 	var _config2 = _interopRequireDefault(_config);
 
-	var _API = __webpack_require__(69);
+	var _API = __webpack_require__(70);
 
 	var _API2 = _interopRequireDefault(_API);
 
@@ -209,31 +209,31 @@
 
 	var _Join2 = _interopRequireDefault(_Join);
 
-	var _User = __webpack_require__(46);
+	var _User = __webpack_require__(47);
 
 	var _User2 = _interopRequireDefault(_User);
 
-	var _Profile = __webpack_require__(51);
+	var _Profile = __webpack_require__(52);
 
 	var _Profile2 = _interopRequireDefault(_Profile);
 
-	var _Dashboard = __webpack_require__(56);
+	var _Dashboard = __webpack_require__(57);
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-	var _Network = __webpack_require__(59);
+	var _Network = __webpack_require__(60);
 
 	var _Network2 = _interopRequireDefault(_Network);
 
-	var _Resources = __webpack_require__(61);
+	var _Resources = __webpack_require__(62);
 
 	var _Resources2 = _interopRequireDefault(_Resources);
 
-	var _ListResources = __webpack_require__(62);
+	var _ListResources = __webpack_require__(63);
 
 	var _ListResources2 = _interopRequireDefault(_ListResources);
 
-	var _Inbox = __webpack_require__(63);
+	var _Inbox = __webpack_require__(64);
 
 	var _Inbox2 = _interopRequireDefault(_Inbox);
 
@@ -3728,10 +3728,14 @@
 		_createClass(Select, [{
 			key: "render",
 			value: function render() {
-				var optionNodes = this.props.options.map(function (option) {
+				var VALUE = this.props.value;
+				var optionNodes = this.props.options.map(function (option, idx) {
 					return _react2.default.createElement(
 						"option",
-						{ key: option },
+						{
+							value: VALUE ? VALUE[idx] : option,
+							key: option
+						},
 						option
 					);
 				});
@@ -3748,7 +3752,12 @@
 						),
 						_react2.default.createElement(
 							"select",
-							{ className: "form-control input-lg", id: this.props.id },
+							{
+								className: "form-control input-lg",
+								id: this.props.id,
+								onChange: this.props.onChange.bind(this)
+
+							},
 							optionNodes
 						)
 					)
@@ -3775,6 +3784,10 @@
 
 	var _reactRouter = __webpack_require__(6);
 
+	var _underscore = __webpack_require__(45);
+
+	var _underscore2 = _interopRequireDefault(_underscore);
+
 	var _FormList = __webpack_require__(40);
 
 	var _FormList2 = _interopRequireDefault(_FormList);
@@ -3787,7 +3800,7 @@
 
 	var _Select2 = _interopRequireDefault(_Select);
 
-	var _UserActions = __webpack_require__(45);
+	var _UserActions = __webpack_require__(46);
 
 	var _UserActions2 = _interopRequireDefault(_UserActions);
 
@@ -3800,35 +3813,40 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	// TODO:
-	// [ ] Add value attribute and handler for each input
-	//
-	// OUTLINE
-	// - USER FILLS OUT FORM
-	// - UPON SUBMISSION
-	// -- VALIDATE DATA
-	// -- CREATE USER OBJECT
-	// -- SEND USER OBJECT TO SERVER
-	// -- EMIT STATUS WHERE NEEDED
+	// [ ] Add validation onChange
+	// [ ] Add validation onSubmit
+	// [ ] Add redirect to login page
 
 	var INPUT = {
-		F_NAME: 'f_name',
-		M_NAME: 'm_name',
-		L_NAME: 'l_name',
+		NAME: {
+			FIRST: 'f_name',
+			MIDDLE: 'm_name',
+			LAST: 'l_name',
+			SUFFIX: 'name_suffix'
+		},
 		EMAIL: 'e_email',
-		DELTA_ID: 'delta_id'
+		DELTA_ID: 'delta_id',
+		DOB: {
+			MONTH: 'dob_month',
+			DAY: 'dob_day',
+			YEAR: 'dob_year'
+		},
+		MESA: {
+			START_YEAR: 'mesa_start_year',
+			END_YEAR: 'mesa_end_year'
+		}
 	};
-	var startYear = 2000;
-	var currentYear = 2016;
-	var years = ['- Select -'];
 
-	for (var i = startYear; i <= currentYear; i++) {
-		years.push(i + 1);
-	}var suffixes = ['- Select -', 'Jr', 'Sr', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
-	var dob_months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-	var dob_days = [];
-	for (var i = 0; i <= 31; i++) {
-		dob_days.push(i + 1);
-	}var dob_years = [1992, 1993];
+	var DEFAULT_VALUE = '- Select -';
+	var today = new Date();
+	var currentYear = today.getFullYear();
+
+	var SUFFIXES = [DEFAULT_VALUE, 'Jr', 'Sr', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
+	var MESA_YEARS = _underscore2.default.range(currentYear, 1999, -1);
+	var DOB_MONTH_VALUES = _underscore2.default.range(1, 13);
+	var DOB_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+	var DOB_DAYS = _underscore2.default.range(1, 32);
+	var DOB_YEARS = _underscore2.default.range(currentYear, currentYear - 100, -1);
 
 	var SignUpContainer = function (_React$Component) {
 		_inherits(SignUpContainer, _React$Component);
@@ -3844,55 +3862,94 @@
 				f_name: '',
 				m_name: '',
 				l_name: '',
-				e_email: '',
+				name_suffix: '',
+				email: '',
 				delta_id: '',
+				dob_month: '',
+				dob_day: '',
+				dob_year: '',
+				mesa_start_year: '',
+				mesa_end_year: '',
 				errors: false
 			};
 			return _this;
 		}
 
 		_createClass(SignUpContainer, [{
-			key: 'handleSubmit',
-			value: function handleSubmit(e) {
+			key: '_handleSubmit',
+			value: function _handleSubmit(e) {
 
 				e.preventDefault();
 
 				// vALIDATE SUBMISSION
+				if (!this._validated(3, 3)) {
+					this.setState({ errors: 'Testing Error Message' });
+				} else {
+					// CREATE USER OBJECT
+					var rawUser = this._getUserInput();
+					// window.rawUser = rawUser;
+					_UserActions2.default.create(rawUser);
 
-				// CREATE USER OBJECT
-				var rawUser = this._getUserInput();
-				// window.rawUser = rawUser;
-				_UserActions2.default.create(rawUser);
-
-				// show successful login notification
-				alert('Sign-up successful. Will now redirect . . .');
-
-				// redirect to dashboard page
-				// browserHistory.push('/dashboard');
+					// show successful login notification
+					alert('Sign-up successful. Will now redirect . . .');
+					// redirect to dashboard page
+					// browserHistory.push('/dashboard');
+				}
 			}
 		}, {
 			key: '_onInputChange',
 			value: function _onInputChange(e) {
 				var input_id = e.target.id.trim();
-				window.IN_ID = input_id;
-				console.log(input_id);
 				// validate -- check if input_id is in INPUT constant
 
 				// update state
-				this.setState({ f_name: e.target.value });
-				// this.state[input_id] = e.target.value;
-				// console.log(this.state.f_name)
-				console.log(this);
-				// console.log(e.target);
+				switch (input_id) {
+					case INPUT.NAME.FIRST:
+						this.setState({ f_name: e.target.value });
+						break;
+					case INPUT.NAME.MIDDLE:
+						this.setState({ m_name: e.target.value });
+						break;
+					case INPUT.NAME.LAST:
+						this.setState({ l_name: e.target.value });
+						break;
+					case INPUT.EMAIL:
+						this.setState({ email: e.target.value });
+						break;
+					case INPUT.DELTA_ID:
+						this.setState({ delta_id: e.target.value });
+						break;
+					// SELECT OPTIONS
+					case INPUT.NAME.SUFFIX:
+						this.setState({ name_suffix: e.target.value });
+						break;
+					case INPUT.DOB.MONTH:
+						this.setState({ dob_month: e.target.value });
+						break;
+					case INPUT.DOB.DAY:
+						this.setState({ dob_day: e.target.value });
+						break;
+					case INPUT.DOB.YEAR:
+						this.setState({ dob_year: e.target.value });
+						break;
+					case INPUT.MESA.START_YEAR:
+						this.setState({ mesa_start_year: e.target.value });
+						break;
+					case INPUT.MESA.END_YEAR:
+						this.setState({ mesa_end_year: e.target.value });
+						break;
+				}
 			}
 		}, {
 			key: '_getUserInput',
 			value: function _getUserInput() {
 				return {
-					f_name: document.getElementById('f_name').value.trim(),
-					m_name: document.getElementById('m_name').value.trim(),
-					l_name: document.getElementById('l_name').value.trim(),
-					name_suffix: document.getElementById('name_suffix').value.trim(),
+					name: {
+						first: this.state.f_name,
+						middle: this.state.m_name,
+						last: this.state.l_name,
+						suffix: this.state.suffix
+					},
 					email: document.getElementById('e_email').value.trim(),
 					delta_id: document.getElementById('delta_id').value.trim(),
 					dob: {
@@ -3900,9 +3957,29 @@
 						day: document.getElementById('dob_day').value.trim(),
 						year: document.getElementById('dob_year').value.trim()
 					},
-					start_year_in_mesa: document.getElementById('start_year_in_mesa').value.trim(),
-					end_year_in_mesa: document.getElementById('end_year_in_mesa').value.trim()
+					mesa: {
+						start_year: document.getElementById('start_year_in_mesa').value.trim(),
+						end_year: document.getElementById('end_year_in_mesa').value.trim()
+					}
 				};
+			}
+		}, {
+			key: '_validated',
+			value: function _validated(value, type) {
+				switch (type) {
+					case INPUT.F_NAME:
+						return false;
+					case INPUT.M_NAME:
+						return false;
+					case INPUT.L_NAME:
+						return false;
+					case INPUT.EMAIL:
+						return false;
+					case INPUT.DELTA_ID:
+						return false;
+					default:
+						return false;
+				}
 			}
 		}, {
 			key: 'render',
@@ -3926,12 +4003,12 @@
 					),
 					_react2.default.createElement(
 						'form',
-						{ role: 'form', onSubmit: this.handleSubmit.bind(this) },
-						_react2.default.createElement(_Input2.default, { type: 'text', id: 'f_name', title: 'First Name', placeholder: 'First Name', onChange: this._onInputChange.bind(this), value: this.state.f_name }),
-						_react2.default.createElement(_Input2.default, { type: 'text', id: 'm_name', title: 'Middle Name', placeholder: 'Middle Name', onChange: this._onInputChange.bind(this), value: this.state.m_name }),
-						_react2.default.createElement(_Input2.default, { type: 'text', id: 'l_name', title: 'Last Name', placeholder: 'Last Name', onChange: this._onInputChange.bind(this), value: this.state.l_name }),
-						_react2.default.createElement(_Select2.default, { id: 'name_suffix', title: 'Individual Suffix', options: suffixes }),
-						_react2.default.createElement(_Input2.default, { type: 'email', id: 'e_email', title: 'Email', placeholder: 'example@gmail.com', onChange: this._onInputChange.bind(this), value: this.state.e_email }),
+						{ role: 'form', onSubmit: this._handleSubmit.bind(this) },
+						_react2.default.createElement(_Input2.default, { type: 'text', id: 'f_name', title: 'First Name', placeholder: 'First Name', onChange: this._onInputChange.bind(this), value: this.state.first }),
+						_react2.default.createElement(_Input2.default, { type: 'text', id: 'm_name', title: 'Middle Name', placeholder: 'Middle Name', onChange: this._onInputChange.bind(this), value: this.state.middle }),
+						_react2.default.createElement(_Input2.default, { type: 'text', id: 'l_name', title: 'Last Name', placeholder: 'Last Name', onChange: this._onInputChange.bind(this), value: this.state.last }),
+						_react2.default.createElement(_Select2.default, { id: 'name_suffix', title: 'Suffix', options: SUFFIXES, onChange: this._onInputChange.bind(this) }),
+						_react2.default.createElement(_Input2.default, { type: 'email', id: 'e_email', title: 'Email', placeholder: 'example@gmail.com', onChange: this._onInputChange.bind(this), value: this.state.email }),
 						_react2.default.createElement(_Input2.default, { type: 'text', id: 'delta_id', title: 'Delta ID (*optional)', placeholder: '98-XXX-XXX', onChange: this._onInputChange.bind(this), value: this.state.delta_id }),
 						_react2.default.createElement('hr', null),
 						_react2.default.createElement(
@@ -3942,16 +4019,46 @@
 						_react2.default.createElement(
 							'div',
 							{ className: 'display--flex' },
-							_react2.default.createElement(_Select2.default, { id: 'dob_month', title: 'Month', options: dob_months }),
-							_react2.default.createElement(_Select2.default, { id: 'dob_day', title: 'Day', options: dob_days }),
-							_react2.default.createElement(_Select2.default, { id: 'dob_year', title: 'Day', options: dob_years })
+							_react2.default.createElement(_Select2.default, {
+								id: 'dob_month',
+								title: 'Month',
+								options: DOB_MONTHS,
+								value: DOB_MONTH_VALUES,
+								onChange: this._onInputChange.bind(this)
+							}),
+							_react2.default.createElement(_Select2.default, {
+								id: 'dob_day',
+								title: 'Day',
+								options: DOB_DAYS,
+								onChange: this._onInputChange.bind(this)
+							}),
+							_react2.default.createElement(_Select2.default, {
+								id: 'dob_year',
+								title: 'Year',
+								options: DOB_YEARS,
+								onChange: this._onInputChange.bind(this)
+							})
+						),
+						_react2.default.createElement(
+							'h4',
+							null,
+							'Years In MESA'
 						),
 						_react2.default.createElement(
 							'div',
 							{ className: 'display--flex' },
-							_react2.default.createElement(_Select2.default, { id: 'start_year_in_mesa', title: 'Start Year In MESA', options: years }),
-							'   ',
-							_react2.default.createElement(_Select2.default, { id: 'end_year_in_mesa', title: 'Final Year In MESA', options: years })
+							_react2.default.createElement(_Select2.default, {
+								id: 'mesa_start_year',
+								title: 'Start',
+								options: MESA_YEARS,
+								onChange: this._onInputChange.bind(this)
+							}),
+							_react2.default.createElement(_Select2.default, {
+								id: 'mesa_end_year',
+								title: 'End',
+								options: MESA_YEARS,
+								onChange: this._onInputChange.bind(this)
+							})
 						),
 						_react2.default.createElement(
 							'div',
@@ -3974,6 +4081,12 @@
 
 /***/ },
 /* 45 */
+/***/ function(module, exports) {
+
+	module.exports = require("underscore");
+
+/***/ },
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4010,7 +4123,7 @@
 	module.exports = UserActions;
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4021,7 +4134,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _SideBar = __webpack_require__(47);
+	var _SideBar = __webpack_require__(48);
 
 	var _SideBar2 = _interopRequireDefault(_SideBar);
 
@@ -4060,7 +4173,7 @@
 	module.exports = User;
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4071,11 +4184,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _NavLinkList = __webpack_require__(48);
+	var _NavLinkList = __webpack_require__(49);
 
 	var _NavLinkList2 = _interopRequireDefault(_NavLinkList);
 
-	var _ProfileAvatar = __webpack_require__(49);
+	var _ProfileAvatar = __webpack_require__(50);
 
 	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
 
@@ -4138,7 +4251,7 @@
 	module.exports = SideBar;
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4200,7 +4313,7 @@
 	module.exports = NavLinkList;
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4213,7 +4326,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactAvatar = __webpack_require__(50);
+	var _reactAvatar = __webpack_require__(51);
 
 	var _reactAvatar2 = _interopRequireDefault(_reactAvatar);
 
@@ -4252,13 +4365,13 @@
 	module.exports = ProfileAvatar;
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports) {
 
 	module.exports = require("react-avatar");
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4269,19 +4382,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ProfileAvatar = __webpack_require__(49);
+	var _ProfileAvatar = __webpack_require__(50);
 
 	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
 
-	var _BioInfo = __webpack_require__(52);
+	var _BioInfo = __webpack_require__(53);
 
 	var _BioInfo2 = _interopRequireDefault(_BioInfo);
 
-	var _Interests = __webpack_require__(53);
+	var _Interests = __webpack_require__(54);
 
 	var _Interests2 = _interopRequireDefault(_Interests);
 
-	var _BioInfoCardList = __webpack_require__(54);
+	var _BioInfoCardList = __webpack_require__(55);
 
 	var _BioInfoCardList2 = _interopRequireDefault(_BioInfoCardList);
 
@@ -4413,7 +4526,7 @@
 	module.exports = Profile;
 
 /***/ },
-/* 52 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4468,7 +4581,7 @@
 	module.exports = Bio;
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -4577,7 +4690,7 @@
 	module.exports = Interests;
 
 /***/ },
-/* 54 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4588,7 +4701,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _BioInfoCard = __webpack_require__(55);
+	var _BioInfoCard = __webpack_require__(56);
 
 	var _BioInfoCard2 = _interopRequireDefault(_BioInfoCard);
 
@@ -4629,7 +4742,7 @@
 	module.exports = BioInfoCardList;
 
 /***/ },
-/* 55 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4640,7 +4753,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ProfileAvatar = __webpack_require__(49);
+	var _ProfileAvatar = __webpack_require__(50);
 
 	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
 
@@ -4736,7 +4849,7 @@
 	module.exports = BioInfoCard;
 
 /***/ },
-/* 56 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4747,7 +4860,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MailBox = __webpack_require__(57);
+	var _MailBox = __webpack_require__(58);
 
 	var _MailBox2 = _interopRequireDefault(_MailBox);
 
@@ -4813,7 +4926,7 @@
 	module.exports = Dashboard;
 
 /***/ },
-/* 57 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4824,7 +4937,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MessageItem = __webpack_require__(58);
+	var _MessageItem = __webpack_require__(59);
 
 	var _MessageItem2 = _interopRequireDefault(_MessageItem);
 
@@ -4882,7 +4995,7 @@
 	module.exports = MailBox;
 
 /***/ },
-/* 58 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4895,7 +5008,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ProfileAvatar = __webpack_require__(49);
+	var _ProfileAvatar = __webpack_require__(50);
 
 	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
 
@@ -4980,7 +5093,7 @@
 	module.exports = MessageItem;
 
 /***/ },
-/* 59 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4995,11 +5108,11 @@
 
 	var _faker2 = _interopRequireDefault(_faker);
 
-	var _SearchBox = __webpack_require__(60);
+	var _SearchBox = __webpack_require__(61);
 
 	var _SearchBox2 = _interopRequireDefault(_SearchBox);
 
-	var _BioInfoCardList = __webpack_require__(54);
+	var _BioInfoCardList = __webpack_require__(55);
 
 	var _BioInfoCardList2 = _interopRequireDefault(_BioInfoCardList);
 
@@ -5097,7 +5210,7 @@
 	module.exports = Network;
 
 /***/ },
-/* 60 */
+/* 61 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -5166,7 +5279,7 @@
 	module.exports = SearchBox;
 
 /***/ },
-/* 61 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -5211,7 +5324,7 @@
 	module.exports = Resources;
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5246,21 +5359,79 @@
 			value: function render() {
 				return _react2.default.createElement(
 					'div',
-					{ className: 'list-group' },
+					null,
 					_react2.default.createElement(
-						_reactRouter.Link,
-						{ to: '/resources/network', className: 'list-group-item' },
-						'Network'
+						'div',
+						{ className: 'list-group' },
+						_react2.default.createElement(
+							_reactRouter.Link,
+							{ to: '/resources/network', className: 'list-group-item' },
+							'Network'
+						),
+						_react2.default.createElement(
+							_reactRouter.Link,
+							{ to: '/resources/scholarships', className: 'list-group-item' },
+							'Scholarships'
+						),
+						_react2.default.createElement(
+							_reactRouter.Link,
+							{ to: '/resources/internships', className: 'list-group-item' },
+							'Internships'
+						)
 					),
 					_react2.default.createElement(
-						_reactRouter.Link,
-						{ to: '/resources/scholarships', className: 'list-group-item' },
-						'Scholarships'
-					),
-					_react2.default.createElement(
-						_reactRouter.Link,
-						{ to: '/resources/internships', className: 'list-group-item' },
-						'Internships'
+						'div',
+						{ className: 'Tile__Container' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'Tile__Wrapper' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'Tile__Row' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'Tile__Content' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'Tile__Content--Icon' },
+										_react2.default.createElement('i', { className: 'fa-search fa-5x' })
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'Tile__Content--Label' },
+										'Network'
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'Tile__Content' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'Tile__Content--Icon' },
+										_react2.default.createElement('i', { className: 'fa-search fa-5x' })
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'Tile__Content--Label' },
+										'Scholarships'
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'Tile__Content' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'Tile__Content--Icon' },
+										_react2.default.createElement('i', { className: 'fa-search fa-5x' })
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'Tile__Content--Label' },
+										'Internships'
+									)
+								)
+							)
+						)
 					)
 				);
 			}
@@ -5272,7 +5443,7 @@
 	module.exports = ListResources;
 
 /***/ },
-/* 63 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5283,15 +5454,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MessageItem = __webpack_require__(58);
+	var _MessageItem = __webpack_require__(59);
 
 	var _MessageItem2 = _interopRequireDefault(_MessageItem);
 
-	var _MessageInput = __webpack_require__(64);
+	var _MessageInput = __webpack_require__(65);
 
 	var _MessageInput2 = _interopRequireDefault(_MessageInput);
 
-	var _MessageItemList = __webpack_require__(65);
+	var _MessageItemList = __webpack_require__(66);
 
 	var _MessageItemList2 = _interopRequireDefault(_MessageItemList);
 
@@ -5383,7 +5554,7 @@
 	module.exports = Inbox;
 
 /***/ },
-/* 64 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -5428,7 +5599,7 @@
 	module.exports = MessageInput;
 
 /***/ },
-/* 65 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5439,7 +5610,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MessageItem = __webpack_require__(58);
+	var _MessageItem = __webpack_require__(59);
 
 	var _MessageItem2 = _interopRequireDefault(_MessageItem);
 
@@ -5485,19 +5656,19 @@
 	module.exports = MessageItemList;
 
 /***/ },
-/* 66 */
+/* 67 */
 /***/ function(module, exports) {
 
 	module.exports = require("body-parser");
 
 /***/ },
-/* 67 */
+/* 68 */
 /***/ function(module, exports) {
 
 	module.exports = require("mysql");
 
 /***/ },
-/* 68 */
+/* 69 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5513,7 +5684,7 @@
 	module.exports = config;
 
 /***/ },
-/* 69 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
