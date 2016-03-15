@@ -120,7 +120,7 @@
 	});
 
 	function renderPage(appHtml) {
-	  return '\n    <!doctype html>\n    <html>\n    <meta charset=utf-8/>\n    <title>MESA Connect App</title>\n    <link rel="stylesheet" type="text/css" href="/main.css">\n    <div id=app>' + appHtml + '</div>\n    <script src="/bundle.js"></script>\n   ';
+	  return '\n      <!DOCTYPE html>\n        <html lang="en">\n\n        <head>\n        <meta charset="utf-8" />\n        <meta http-equiv="X-UA-Compatible" content="IE=edge" />\n        <meta name="viewport" content="width=device-width, initial-scale=1" />\n\n        <title>MESA Connect</title>\n\n        <link href=\'https://fonts.googleapis.com/css?family=Lato:300\' rel=\'stylesheet\' type=\'text/css\'>\n        <link rel="stylesheet" href="/main.css" />\n        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">\n        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">\n\n        </head>\n          <body>\n            <div id="App">' + appHtml + '</div>\n\n            <script src="/bundle.js" defer></script>\n          </body>\n      </html>\n   ';
 	}
 
 	var PORT = process.env.PORT || 3030;

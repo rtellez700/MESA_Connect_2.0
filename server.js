@@ -39,15 +39,31 @@ app.get('*', (req, res) => {
 })
 
 function renderPage(appHtml) {
-  return `
-    <!doctype html>
-    <html>
-    <meta charset=utf-8/>
-    <title>MESA Connect App</title>
-    <link rel="stylesheet" type="text/css" href="/main.css">
-    <div id=app>${appHtml}</div>
-    <script src="/bundle.js"></script>
-   `
+   return `
+      <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>MESA Connect</title>
+
+        <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/main.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        </head>
+          <body>
+            <div id="App">${appHtml}</div>
+
+            <script src="/bundle.js" defer></script>
+          </body>
+      </html>
+   `;
+
 }
 
 
