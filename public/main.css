@@ -5842,7 +5842,7 @@ button.close {
   margin-left: -250px;
   margin-top: -112px;
   overflow-y: auto;
-  background: #000;
+  background: #414146;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -5871,16 +5871,19 @@ button.close {
 .SideBar-nav li {
   text-indent: 20px;
   line-height: 40px; }
+  .SideBar-nav li i {
+    margin-right: 20px; }
 
 .SideBar-nav li a {
   display: block;
   text-decoration: none;
-  color: #999999; }
+  color: #CACACB;
+  font-size: 15px; }
 
 .SideBar-nav li a:hover {
   text-decoration: none;
   color: #fff;
-  background: rgba(255, 255, 255, 0.2); }
+  background: #5C5C63; }
 
 .SideBar-nav li a:active,
 .SideBar-nav li a:focus {
@@ -5888,11 +5891,11 @@ button.close {
 
 .SideBar-nav > .SideBar-brand {
   height: 65px;
-  font-size: 18px;
   line-height: 60px; }
 
 .SideBar-nav > .SideBar-brand a {
-  color: #999999; }
+  font-size: 20px;
+  color: #CACACB; }
 
 .SideBar-nav > .SideBar-brand a:hover {
   color: #fff;
@@ -5995,22 +5998,40 @@ button.close {
   margin: 5px 0; }
 
 .Tile__Row {
-  background-color: red;
   display: flex; }
+  .Tile__Row:first-child .Tile__Content {
+    border-top: 1px solid #ACADAF; }
+    .Tile__Row:first-child .Tile__Content:first-child {
+      border-top-left-radius: 1em; }
+    .Tile__Row:first-child .Tile__Content:last-child {
+      border-top-right-radius: 1em; }
+  .Tile__Row:last-child .Tile__Content:first-child {
+    border-bottom-left-radius: 1em; }
+  .Tile__Row:last-child .Tile__Content:last-child {
+    border-bottom-right-radius: 1em; }
 
 .Tile__Content {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  border-right: 1px solid #ACADAF;
+  border-bottom: 1px solid #ACADAF;
   min-height: 150px;
-  min-width: 150px;
   background-color: #F3F5F6; }
+  .Tile__Content:first-child {
+    border-left: 1px solid #ACADAF; }
   .Tile__Content:hover {
     background-color: #ADCBD9; }
+  .Tile__Content--Icon {
+    margin-bottom: 1em; }
   .Tile__Content--Label {
     font-size: 18px;
-    color: #ACADAF; }
+    font-weight: 600; }
+
+body {
+  font-family: 'Lato', sans-serif; }
 
 .container-fluid {
   padding-left: 0;

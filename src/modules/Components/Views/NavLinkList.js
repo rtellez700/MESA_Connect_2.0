@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import NavLink from './NavLink';
 
 class NavLinkList extends Component {
+	constructor(props){
+		super(props);
+	}
 	showIcon(icon){
 		if (icon) {
 			return (

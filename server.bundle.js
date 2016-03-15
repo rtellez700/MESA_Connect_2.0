@@ -526,10 +526,10 @@
 	var NavLink = function (_React$Component) {
 		_inherits(NavLink, _React$Component);
 
-		function NavLink() {
+		function NavLink(props) {
 			_classCallCheck(this, NavLink);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(NavLink).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(NavLink).call(this, props));
 		}
 
 		_createClass(NavLink, [{
@@ -567,10 +567,10 @@
 	var Footer = function (_React$Component) {
 		_inherits(Footer, _React$Component);
 
-		function Footer() {
+		function Footer(props) {
 			_classCallCheck(this, Footer);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).call(this, props));
 		}
 
 		_createClass(Footer, [{
@@ -3048,10 +3048,10 @@
 	var Home = function (_React$Component) {
 		_inherits(Home, _React$Component);
 
-		function Home() {
+		function Home(props) {
 			_classCallCheck(this, Home);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Home).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Home).call(this, props));
 		}
 
 		_createClass(Home, [{
@@ -3175,10 +3175,10 @@
 	var Showcase = function (_React$Component) {
 		_inherits(Showcase, _React$Component);
 
-		function Showcase() {
+		function Showcase(props) {
 			_classCallCheck(this, Showcase);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Showcase).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Showcase).call(this, props));
 		}
 
 		_createClass(Showcase, [{
@@ -3220,10 +3220,10 @@
 	var Donate = function (_React$Component) {
 		_inherits(Donate, _React$Component);
 
-		function Donate() {
+		function Donate(props) {
 			_classCallCheck(this, Donate);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Donate).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Donate).call(this, props));
 		}
 
 		_createClass(Donate, [{
@@ -3289,10 +3289,10 @@
 	var About = function (_React$Component) {
 		_inherits(About, _React$Component);
 
-		function About() {
+		function About(props) {
 			_classCallCheck(this, About);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(About).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(About).call(this, props));
 		}
 
 		_createClass(About, [{
@@ -3334,10 +3334,10 @@
 	var Contact = function (_React$Component) {
 		_inherits(Contact, _React$Component);
 
-		function Contact() {
+		function Contact(props) {
 			_classCallCheck(this, Contact);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Contact).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Contact).call(this, props));
 		}
 
 		_createClass(Contact, [{
@@ -3387,10 +3387,10 @@
 	var Join = function (_React$Component) {
 		_inherits(Join, _React$Component);
 
-		function Join() {
+		function Join(props) {
 			_classCallCheck(this, Join);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Join).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Join).call(this, props));
 		}
 
 		_createClass(Join, [{
@@ -4206,31 +4206,37 @@
 	    class: "SideBar-brand"
 	}, {
 	    url: "profile",
-	    title: "Profile"
+	    title: "Profile",
+	    icon: "fa fa-user"
 	}, {
 	    url: "inbox",
-	    title: "Mail"
+	    title: "Mail",
+	    icon: "fa fa-envelope"
 	}, {
 	    url: "resources",
-	    title: "Resources"
+	    title: "Resources",
+	    icon: "fa fa-book"
 	}, {
 	    url: "events",
-	    title: "Events"
+	    title: "Events",
+	    icon: "fa fa-calendar"
 	}, {
 	    url: "settings",
-	    title: "Settings"
+	    title: "Settings",
+	    icon: "fa fa-cogs"
 	}, {
 	    url: "log_out",
-	    title: "Log Out"
+	    title: "Log Out",
+	    icon: "fa fa-sign-out"
 	}];
 
 	var SideBar = function (_React$Component) {
 	    _inherits(SideBar, _React$Component);
 
-	    function SideBar() {
+	    function SideBar(props) {
 	        _classCallCheck(this, SideBar);
 
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(SideBar).apply(this, arguments));
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(SideBar).call(this, props));
 	    }
 
 	    _createClass(SideBar, [{
@@ -4277,15 +4283,24 @@
 	var NavLinkList = function (_Component) {
 		_inherits(NavLinkList, _Component);
 
-		function NavLinkList() {
+		function NavLinkList(props) {
 			_classCallCheck(this, NavLinkList);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(NavLinkList).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(NavLinkList).call(this, props));
 		}
 
 		_createClass(NavLinkList, [{
+			key: 'showIcon',
+			value: function showIcon(icon) {
+				if (icon) {
+					return _react2.default.createElement('i', { className: icon });
+				}
+			}
+		}, {
 			key: 'render',
 			value: function render() {
+				var _this2 = this;
+
 				var linkNodes = this.props.links.map(function (link, idx) {
 					return _react2.default.createElement(
 						'li',
@@ -4294,7 +4309,9 @@
 							_NavLink2.default,
 							{
 								to: link.url,
-								key: link.title },
+								key: link.title
+							},
+							_this2.showIcon(link.icon),
 							link.title
 						)
 					);
@@ -5394,7 +5411,7 @@
 									_react2.default.createElement(
 										'div',
 										{ className: 'Tile__Content--Icon' },
-										_react2.default.createElement('i', { className: 'fa-search fa-5x' })
+										_react2.default.createElement('i', { className: 'fa fa-users fa-5x' })
 									),
 									_react2.default.createElement(
 										'div',
@@ -5408,7 +5425,7 @@
 									_react2.default.createElement(
 										'div',
 										{ className: 'Tile__Content--Icon' },
-										_react2.default.createElement('i', { className: 'fa-search fa-5x' })
+										_react2.default.createElement('i', { className: 'fa fa-usd fa-5x' })
 									),
 									_react2.default.createElement(
 										'div',
@@ -5422,12 +5439,58 @@
 									_react2.default.createElement(
 										'div',
 										{ className: 'Tile__Content--Icon' },
-										_react2.default.createElement('i', { className: 'fa-search fa-5x' })
+										_react2.default.createElement('i', { className: 'fa fa-mortar-board fa-5x' })
 									),
 									_react2.default.createElement(
 										'div',
 										{ className: 'Tile__Content--Label' },
 										'Internships'
+									)
+								)
+							),
+							_react2.default.createElement(
+								'div',
+								{ className: 'Tile__Row' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'Tile__Content' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'Tile__Content--Icon' },
+										_react2.default.createElement('i', { className: 'fa fa-calendar fa-5x' })
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'Tile__Content--Label' },
+										'Events'
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'Tile__Content' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'Tile__Content--Icon' },
+										_react2.default.createElement('i', { className: 'fa fa-5x' })
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'Tile__Content--Label' },
+										'Label'
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'Tile__Content' },
+									_react2.default.createElement(
+										'div',
+										{ className: 'Tile__Content--Icon' },
+										_react2.default.createElement('i', { className: 'fa fa-5x' })
+									),
+									_react2.default.createElement(
+										'div',
+										{ className: 'Tile__Content--Label' },
+										'Label'
 									)
 								)
 							)

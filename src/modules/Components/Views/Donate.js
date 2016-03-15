@@ -1,6 +1,9 @@
 import React from 'react';
 
 class Donate extends React.Component {
+	constructor(props){
+		super(props);
+	}
 	_onClick(e){
 		e.preventDefault();
 		$.ajax({
