@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+
+import NavBar from './Components/Views/NavBar';
+import Footer from './Components/Views/Footer';
 
 // var UserExampleData = require('./UserDataSimple');
 var UserAPIUtils = require('./Utils/UserAPIUtils');
@@ -7,14 +10,23 @@ var UserAPIUtils = require('./Utils/UserAPIUtils');
 UserAPIUtils.getAllUsers();
 
 class App extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			sidebar: false
+		}
+	}
 
 	render() {
+		const sidebarClass = this.state.sidebar ? '' : 'toggled';
 		return (
-			<div  className="container-fluid">
+			<div id="App_Wrapper" className={ "container-fluid " + sidebarClass }>
 
-			
+				<NavBar />
 
-				{ this.props.children }
+					{ this.props.children }
+					
+				<Footer />
 
 			</div>
 		);

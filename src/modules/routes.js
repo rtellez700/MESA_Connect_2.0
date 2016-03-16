@@ -37,13 +37,13 @@ import MailBox from './Components/Mail/MailBox'
 
 module.exports = (
   <Route path="/" component={App}>
-    <IndexRoute component={Home}/>
-    <Route path="showcase" component={Showcase}/>
-    <Route path="donate" component={Donate}/>
-    <Route path="about" component={About}/>
-    <Route path="contact" component={Contact}/>
-    <Route path="join" component={Join}/>
-    <Route path="user" component={User}>
+    <IndexRoute component={Home} />
+    <Route path="showcase" component={Showcase} />
+    <Route path="donate" component={Donate} />
+    <Route path="about" component={About} />
+    <Route path="contact" component={Contact} />
+    <Route path="join" component={Join} />
+    <Route path="user" component={ User} >
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/mail" component={MailBox} />
         <Route path="/resources" component={Resources}>

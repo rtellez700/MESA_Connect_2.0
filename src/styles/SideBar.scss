@@ -6,6 +6,9 @@
 
 /* Toggle Styles */
 
+$SideBar_Width: 250px;
+$SideBar_Width--small: 0;
+
 #App_Wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
@@ -15,17 +18,17 @@
 }
 
 #App_Wrapper.toggled {
-    padding-left: 250px;
+    padding-left: $SideBar_Width;
 }
 
 #SideBar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 250px;
+    left: $SideBar_Width;
     width: 0;
     height: 100%;
-    padding-top: 5px;
-    margin-left: -250px;
+    padding-top: 10px;
+    margin-left: -$SideBar_Width;
     margin-top: -(2px + $navbar-height ); 
     overflow-y: auto;
     background: #414146;
@@ -36,7 +39,7 @@
 }
 
 #App_Wrapper.toggled #SideBar-wrapper {
-    width: 250px;
+    width: $SideBar_Width;
 }
 
 #page-content-wrapper {
@@ -47,7 +50,7 @@
 
 #App_Wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -250px;
+    margin-right: -$SideBar_Width;
 }
 
 /* SideBar Styles */
@@ -55,7 +58,7 @@
 .SideBar-nav {
     // position: absolute;
     top: 0;
-    width: 250px;
+    width: $SideBar_Width;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -102,21 +105,22 @@
     background: none;
 }
 
+// i.e., NORMAL SIZE
 @media(min-width:768px) {
     #App_Wrapper {
-        padding-left: 250px;
+        padding-left: $SideBar_Width;
     }
 
     #App_Wrapper.toggled {
-        padding-left: 0;
+        padding-left: $SideBar_Width--small;
     }
 
     #SideBar-wrapper {
-        width: 250px;
+        width: $SideBar_Width;
     }
 
     #App_Wrapper.toggled #SideBar-wrapper {
-        width: 0;
+        width: $SideBar_Width--small;
     }
 
     #page-content-wrapper {
@@ -126,6 +130,6 @@
 
     #App_Wrapper.toggled #page-content-wrapper {
         position: relative;
-        margin-right: 0;
+        margin-right: $SideBar_Width--small;
     }
 }

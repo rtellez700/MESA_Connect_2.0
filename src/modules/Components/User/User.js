@@ -5,23 +5,39 @@ import SideBar from '../Views/SideBar';
 import Footer from '../Views/Footer';
 
 class User extends React.Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			sidebar: true
+		}
+	}
+
+	componentDidMount(){
+		if (this.state.sidebar){
+			this._toggleSidebar();
+		}
+	}
+
 	_onClick(e){
 		e.preventDefault();
 		$('#App_Wrapper').toggleClass("toggled");
+
 	}
+
+	_toggleSidebar(){
+		$('#App_Wrapper').toggleClass("toggled");
+	}
+
 	render() {
+
 		return (
-			<div id="App_Wrapper">
-
-				<NavBar />
-
+			<div >
+				
 				<SideBar />
 
 				<div className="page-content-wrapper">
 					{ this.props.children }
 				</div>
-
-				<Footer />
 
 				<br />
 				<br />
