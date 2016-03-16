@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
 import MessageItem from './MessageItem';
 import MessageInput from './MessageInput';
 import MessageItemList from './MessageItemList';
@@ -10,10 +12,10 @@ import MessageItemList from './MessageItemList';
 				<div className="row">
 					<div className="col-md-3 leftSection">
 						<div className="list-group">
-							<a href="#" className="list-group-item active">Label 1</a>
-							<a href="#" className="list-group-item">Label 2</a>
-							<a href="#" className="list-group-item">Label 3</a>
-							<a href="#" className="list-group-item">Label 4</a>
+							<Link to="#" className="list-group-item active">Label 1</Link>
+							<Link to="#" className="list-group-item">Label 2</Link>
+							<Link to="#" className="list-group-item">Label 3</Link>
+							<Link to="#" className="list-group-item">Label 4</Link>
 						</div>
 					</div>
 					<div className="col-md-9">
