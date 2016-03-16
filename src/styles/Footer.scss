@@ -1,0 +1,33 @@
+// Footer
+.Footer{
+	// position: absolute;
+	// left: 0;
+	// bottom: 0;
+	width: 100%;
+
+	// height: $footer-height;
+	
+	background-color: #323A45;
+	// padding-top: 20px;
+	// padding-bottom: 40px;
+	margin-top: 50px;
+	color: whitesmoke;
+
+	&__Logo{
+		padding-top: 20px;
+	}
+	&__Heading{
+		font-size: 1.1em;
+		text-transform: uppercase;
+	}
+	&__Item{
+		& p, & address {
+			font-size: 10px;
+		}
+	}
+	&__Newsletter{
+		@extend .center-block;
+		width: 500px;
+	}
+
+}

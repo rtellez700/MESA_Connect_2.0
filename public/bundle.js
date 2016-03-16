@@ -60,9 +60,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	window.jQuery = window.$ = __webpack_require__(285);
-	__webpack_require__(286);
+	window.jQuery = window.$ = __webpack_require__(286);
 	__webpack_require__(287);
+	__webpack_require__(288);
 
 	(0, _reactDom.render)(_react2.default.createElement(_reactRouter.Router, { routes: _routes2.default, history: _reactRouter.browserHistory }), document.getElementById('App'));
 
@@ -24748,19 +24748,19 @@
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-	var _Network = __webpack_require__(278);
+	var _Network = __webpack_require__(279);
 
 	var _Network2 = _interopRequireDefault(_Network);
 
-	var _Resources = __webpack_require__(280);
+	var _Resources = __webpack_require__(281);
 
 	var _Resources2 = _interopRequireDefault(_Resources);
 
-	var _ListResources = __webpack_require__(281);
+	var _ListResources = __webpack_require__(282);
 
 	var _ListResources2 = _interopRequireDefault(_ListResources);
 
-	var _Inbox = __webpack_require__(282);
+	var _Inbox = __webpack_require__(283);
 
 	var _Inbox2 = _interopRequireDefault(_Inbox);
 
@@ -31693,11 +31693,6 @@
 								_react2.default.createElement(_Interests2.default, null)
 							)
 						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'container' },
-						_react2.default.createElement(_BioInfoCardList2.default, { users: users })
 					)
 				);
 			}
@@ -32047,6 +32042,10 @@
 
 	var _MailBox2 = _interopRequireDefault(_MailBox);
 
+	var _TabsBox = __webpack_require__(278);
+
+	var _TabsBox2 = _interopRequireDefault(_TabsBox);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -32070,35 +32069,7 @@
 				return _react2.default.createElement(
 					'div',
 					{ className: 'container' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'row' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'col-md-6' },
-							_react2.default.createElement(_MailBox2.default, null),
-							_react2.default.createElement(
-								'div',
-								{ className: 'well' },
-								_react2.default.createElement('img', { src: 'http://placehold.it/600x400' })
-							)
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'col-md-6' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'well' },
-								_react2.default.createElement('img', { src: 'http://placehold.it/600x400' })
-							),
-							_react2.default.createElement('br', null),
-							_react2.default.createElement(
-								'div',
-								{ className: 'well' },
-								_react2.default.createElement('img', { src: 'http://placehold.it/600x400' })
-							)
-						)
-					)
+					_react2.default.createElement(_TabsBox2.default, null)
 				);
 			}
 		}]);
@@ -32287,11 +32258,56 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TabsBox = function (_Component) {
+		_inherits(TabsBox, _Component);
+
+		function TabsBox() {
+			_classCallCheck(this, TabsBox);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(TabsBox).apply(this, arguments));
+		}
+
+		_createClass(TabsBox, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					'Hello from TabsBox.js!'
+				);
+			}
+		}]);
+
+		return TabsBox;
+	}(_react.Component);
+
+	module.exports = TabsBox;
+
+/***/ },
+/* 279 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	var _faker = __webpack_require__(230);
 
 	var _faker2 = _interopRequireDefault(_faker);
 
-	var _SearchBox = __webpack_require__(279);
+	var _SearchBox = __webpack_require__(280);
 
 	var _SearchBox2 = _interopRequireDefault(_SearchBox);
 
@@ -32393,7 +32409,7 @@
 	module.exports = Network;
 
 /***/ },
-/* 279 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32462,7 +32478,7 @@
 	module.exports = SearchBox;
 
 /***/ },
-/* 280 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32507,7 +32523,7 @@
 	module.exports = Resources;
 
 /***/ },
-/* 281 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32672,7 +32688,7 @@
 	module.exports = ListResources;
 
 /***/ },
-/* 282 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32687,11 +32703,11 @@
 
 	var _MessageItem2 = _interopRequireDefault(_MessageItem);
 
-	var _MessageInput = __webpack_require__(283);
+	var _MessageInput = __webpack_require__(284);
 
 	var _MessageInput2 = _interopRequireDefault(_MessageInput);
 
-	var _MessageItemList = __webpack_require__(284);
+	var _MessageItemList = __webpack_require__(285);
 
 	var _MessageItemList2 = _interopRequireDefault(_MessageItemList);
 
@@ -32783,7 +32799,7 @@
 	module.exports = Inbox;
 
 /***/ },
-/* 283 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32828,7 +32844,7 @@
 	module.exports = MessageInput;
 
 /***/ },
-/* 284 */
+/* 285 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32885,11 +32901,11 @@
 	module.exports = MessageItemList;
 
 /***/ },
-/* 285 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*** IMPORTS FROM imports-loader ***/
-	var jQuery = __webpack_require__(285);
+	var jQuery = __webpack_require__(286);
 
 	/*!
 	 * jQuery JavaScript Library v2.2.1
@@ -42726,7 +42742,7 @@
 
 
 /***/ },
-/* 286 */
+/* 287 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -43315,7 +43331,7 @@
 	}(jQuery);
 
 /***/ },
-/* 287 */
+/* 288 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

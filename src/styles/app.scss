@@ -6,6 +6,7 @@
 @import './Inbox.scss';
 @import './Network.scss';
 @import './Tile.scss';
+@import './Footer.scss';
 
 
 body{
@@ -165,19 +166,6 @@ img{
 	& .btn:first-child{
 		margin-right: 10px;
 	}
-}
-
-// Footer
-.Footer{
-	// position: absolute;
-	// left: 0;
-	// bottom: 0;
-	width: 100%;
-	height: $footer-height;
-	background-color: #323A45;
-	// padding-top: 20px;
-	// padding-bottom: 40px;
-	// margin-top: 50px;
 }
 
 // MEDIA

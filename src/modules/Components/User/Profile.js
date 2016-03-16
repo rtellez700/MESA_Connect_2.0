@@ -64,10 +64,6 @@ class Profile extends React.Component {
 						</div>
 					</div>
 				</div>
-			
-			<div className="container">
-				<BioInfoCardList users={ users }/>
-			</div>
 			</div>
 		);
 	}

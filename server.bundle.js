@@ -70,19 +70,19 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _bodyParser = __webpack_require__(67);
+	var _bodyParser = __webpack_require__(68);
 
 	var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
-	var _mysql = __webpack_require__(68);
+	var _mysql = __webpack_require__(69);
 
 	var _mysql2 = _interopRequireDefault(_mysql);
 
-	var _config = __webpack_require__(69);
+	var _config = __webpack_require__(70);
 
 	var _config2 = _interopRequireDefault(_config);
 
-	var _API = __webpack_require__(70);
+	var _API = __webpack_require__(71);
 
 	var _API2 = _interopRequireDefault(_API);
 
@@ -221,19 +221,19 @@
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-	var _Network = __webpack_require__(60);
+	var _Network = __webpack_require__(61);
 
 	var _Network2 = _interopRequireDefault(_Network);
 
-	var _Resources = __webpack_require__(62);
+	var _Resources = __webpack_require__(63);
 
 	var _Resources2 = _interopRequireDefault(_Resources);
 
-	var _ListResources = __webpack_require__(63);
+	var _ListResources = __webpack_require__(64);
 
 	var _ListResources2 = _interopRequireDefault(_ListResources);
 
-	var _Inbox = __webpack_require__(64);
+	var _Inbox = __webpack_require__(65);
 
 	var _Inbox2 = _interopRequireDefault(_Inbox);
 
@@ -4527,11 +4527,6 @@
 								_react2.default.createElement(_Interests2.default, null)
 							)
 						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'container' },
-						_react2.default.createElement(_BioInfoCardList2.default, { users: users })
 					)
 				);
 			}
@@ -4881,6 +4876,10 @@
 
 	var _MailBox2 = _interopRequireDefault(_MailBox);
 
+	var _TabsBox = __webpack_require__(60);
+
+	var _TabsBox2 = _interopRequireDefault(_TabsBox);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4904,35 +4903,7 @@
 				return _react2.default.createElement(
 					'div',
 					{ className: 'container' },
-					_react2.default.createElement(
-						'div',
-						{ className: 'row' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'col-md-6' },
-							_react2.default.createElement(_MailBox2.default, null),
-							_react2.default.createElement(
-								'div',
-								{ className: 'well' },
-								_react2.default.createElement('img', { src: 'http://placehold.it/600x400' })
-							)
-						),
-						_react2.default.createElement(
-							'div',
-							{ className: 'col-md-6' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'well' },
-								_react2.default.createElement('img', { src: 'http://placehold.it/600x400' })
-							),
-							_react2.default.createElement('br', null),
-							_react2.default.createElement(
-								'div',
-								{ className: 'well' },
-								_react2.default.createElement('img', { src: 'http://placehold.it/600x400' })
-							)
-						)
-					)
+					_react2.default.createElement(_TabsBox2.default, null)
 				);
 			}
 		}]);
@@ -5121,11 +5092,56 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TabsBox = function (_Component) {
+		_inherits(TabsBox, _Component);
+
+		function TabsBox() {
+			_classCallCheck(this, TabsBox);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(TabsBox).apply(this, arguments));
+		}
+
+		_createClass(TabsBox, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					'Hello from TabsBox.js!'
+				);
+			}
+		}]);
+
+		return TabsBox;
+	}(_react.Component);
+
+	module.exports = TabsBox;
+
+/***/ },
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(4);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	var _faker = __webpack_require__(19);
 
 	var _faker2 = _interopRequireDefault(_faker);
 
-	var _SearchBox = __webpack_require__(61);
+	var _SearchBox = __webpack_require__(62);
 
 	var _SearchBox2 = _interopRequireDefault(_SearchBox);
 
@@ -5227,7 +5243,7 @@
 	module.exports = Network;
 
 /***/ },
-/* 61 */
+/* 62 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -5296,7 +5312,7 @@
 	module.exports = SearchBox;
 
 /***/ },
-/* 62 */
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -5341,7 +5357,7 @@
 	module.exports = Resources;
 
 /***/ },
-/* 63 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5506,7 +5522,7 @@
 	module.exports = ListResources;
 
 /***/ },
-/* 64 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5521,11 +5537,11 @@
 
 	var _MessageItem2 = _interopRequireDefault(_MessageItem);
 
-	var _MessageInput = __webpack_require__(65);
+	var _MessageInput = __webpack_require__(66);
 
 	var _MessageInput2 = _interopRequireDefault(_MessageInput);
 
-	var _MessageItemList = __webpack_require__(66);
+	var _MessageItemList = __webpack_require__(67);
 
 	var _MessageItemList2 = _interopRequireDefault(_MessageItemList);
 
@@ -5617,7 +5633,7 @@
 	module.exports = Inbox;
 
 /***/ },
-/* 65 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -5662,7 +5678,7 @@
 	module.exports = MessageInput;
 
 /***/ },
-/* 66 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5719,19 +5735,19 @@
 	module.exports = MessageItemList;
 
 /***/ },
-/* 67 */
+/* 68 */
 /***/ function(module, exports) {
 
 	module.exports = require("body-parser");
 
 /***/ },
-/* 68 */
+/* 69 */
 /***/ function(module, exports) {
 
 	module.exports = require("mysql");
 
 /***/ },
-/* 69 */
+/* 70 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -5747,7 +5763,7 @@
 	module.exports = config;
 
 /***/ },
-/* 70 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
