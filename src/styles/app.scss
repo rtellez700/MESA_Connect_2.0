@@ -3,7 +3,7 @@
 @import './CustomVariables.scss';
 @import './SideBar.scss';
 @import './MailBox.scss';
-@import './Inbox.scss';
+// @import './Inbox.scss';
 @import './Network.scss';
 @import './Tile.scss';
 @import './Footer.scss';
@@ -33,7 +33,7 @@ img{
 }
 
 .navbar{
-	margin-bottom: $navbar-margin-bottom;
+	margin-bottom: 0;
 	&-brand{
 		padding: 0;
 		margin: 0;
@@ -152,7 +152,6 @@ img{
 
 // BioInfo
 .BioInfo{
-
 }
 
 //BioInfoCard
@@ -177,9 +176,13 @@ img{
 
 	&__figure{
 		margin-right: 1.1em;
+
+		& img{
+			max-width: none;
+		}
 	}
 	&__body{
-		& p:first-child{
+		& *:first-child{
 			margin-top: 0;
 		}
 	}
@@ -197,6 +200,21 @@ img{
 		height: 100%;
 		overflow: hidden;
 		position:relative;
+	}
+}
+
+// Dashboard
+.Dashboard{
+	padding-top: 50px;
+	padding-bottom: 50px;
+	&__Heading{
+		font-weight: bold;
+	}
+	&__Sub-Heading{
+		font-weight: bold;
+	}
+	&__Sub-Content{
+		margin-bottom: 2em;
 	}
 }
 
@@ -230,10 +248,21 @@ img{
 }
 .display{
 	&--flex{display: flex;}
+	&--in-center{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		height: 100%;
+	}
 	&--none{display: none;}
 }
 .CENTER-NOW{
 	display: block !important;
 	margin-left: auto !important;
 	margin-right: auto !important;
+}
+.hr{
+	&--black{border-color: #000000;}
+	&--2x{border-width: 2px;}
 }

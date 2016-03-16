@@ -1,5 +1,8 @@
 import React from 'react';
-import SideBar from '../Views/SideBar'
+
+import NavBar from '../Views/NavBar';
+import SideBar from '../Views/SideBar';
+import Footer from '../Views/Footer';
 
 class User extends React.Component {
 	_onClick(e){
@@ -8,14 +11,21 @@ class User extends React.Component {
 	}
 	render() {
 		return (
-			<div>
+			<div id="App_Wrapper">
+
+				<NavBar />
+
 				<SideBar />
 
-				{ this.props.children }
-
-				<div id="page-content-wrapper" className="well text-center bg--terracotta">
-		        	<a href="#sidebar-menu-toggle" className="btn btn-primary" id="sidebar-menu-toggle" onClick={ this._onClick.bind(this) }>Toggle Menu</a>
+				<div className="page-content-wrapper">
+					{ this.props.children }
 				</div>
+
+				<Footer />
+
+				<br />
+				<br />
+				<br />
 				
 			</div>
 		);

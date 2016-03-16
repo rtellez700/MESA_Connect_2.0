@@ -7,8 +7,8 @@ class Home extends React.Component {
 	render() {
 		return (
 			<div className="conatiner-fluid">
-				<img src="http://placehold.it/2500x1000" />
-				<div className="container-fluid bg--redish">
+			<img src="https://unsplash.it/2500/1000/?random" alt=""/>
+				<div className="container-fluid bg--grey-google">
 			    <div className="container grid__wrapper">
 			      <div className="row">
 			        <div className="col-md-4">

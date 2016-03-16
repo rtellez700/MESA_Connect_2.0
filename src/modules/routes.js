@@ -26,10 +26,13 @@ import Resources from './Components/User/Views/Resources'
 import ListResources from './Components/User/Views/ListResources'
 
 // INBOX
-import Inbox from './Components/Mail/Inbox'
+import MailBox from './Components/Mail/MailBox'
 
 /*
     '/' ==> can be used without its parents' name as base url
+
+    ROUTE FOR --> sjdcmesa.com/user/:id/<-profile->
+        <Route path="/profile" component={Profile} />
  */
 
 module.exports = (
@@ -41,13 +44,12 @@ module.exports = (
     <Route path="contact" component={Contact}/>
     <Route path="join" component={Join}/>
     <Route path="user" component={User}>
-        <Route path="/inbox" component={Inbox} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/mail" component={MailBox} />
         <Route path="/resources" component={Resources}>
             <IndexRoute component={ListResources} />
             <Route path="network" component={Network} />
         </Route>
-        <Route path="/dashboard" component={Dashboard} />
     </Route>
     <Route path="*" component={NoMatch_404} />
   </Route>

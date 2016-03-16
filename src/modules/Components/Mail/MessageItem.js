@@ -10,11 +10,11 @@ import faker from 'faker';
 
 	render() {
 
-		var h = Math.floor(Math.random() * 12) + 1;
-		var m = Math.floor(Math.random() * 59) + 10;
-		var ampm = !this.state.flag ? "am" : "pm" 
-		var time = `${h}:${m} ${ampm}`;
-		var Name = faker.Name.firstName() + ' ' + faker.Name.lastName()[0];
+		const h = Math.floor(Math.random() * 12) + 1;
+		const m = Math.floor(Math.random() * 59) + 10;
+		const ampm = !this.state.flag ? "am" : "pm" 
+		const time = `${h}:${m} ${ampm}`;
+		const Name = faker.Name.firstName() + ' ' + faker.Name.lastName()[0];
 		return (
 			<div className="MessageItem Media" {...this.props}>	
 				<div className="Media__figure">

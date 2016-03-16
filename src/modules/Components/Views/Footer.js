@@ -24,12 +24,12 @@ class Footer extends React.Component {
 						<div className="col-xs-3 Footer__Item">
 							<h3 className="Footer__Heading">SJDC MESA</h3>
 							<address>
-									Science Math Building - SCMA 163<br />
-									5151 Pacific Avenue<br />
-									Stockton, CA 95207<br />
-									<abbr title="Phone">P:</abbr> (209) 954 - 5318<br />
-									<abbr title="Fax">F:</abbr> (209) 954 - 5600<br />
-									<abbr title="Email">E:</abbr> mesa@deltacollege.edu<br />
+								Science Math Building - SCMA 163<br />
+								5151 Pacific Avenue<br />
+								Stockton, CA 95207<br />
+								<abbr title="Phone">P:</abbr> (209) 954 - 5318<br />
+								<abbr title="Fax">F:</abbr> (209) 954 - 5600<br />
+								<abbr title="Email">E:</abbr> mesa@deltacollege.edu<br />
 							</address>
 						</div>
 						<div className="col-xs-2 Footer__Item">
@@ -72,6 +72,7 @@ class Footer extends React.Component {
 						</div>
 					</div>
 
+					{ /*
 					<div className="Footer__Newsletter">
 						<div className="input-group">
 							<input className="form-control" type="text" placeholder="example@gmail.com" />
@@ -79,7 +80,7 @@ class Footer extends React.Component {
 								<button className="btn btn-default" type="button">Subscribe!</button>
 							</span>
 						</div>
-					</div>
+					</div> */}
 
 						<hr />
 

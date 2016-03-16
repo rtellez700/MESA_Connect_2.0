@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class Showcase extends React.Component {
-	constructor(props){
-		super(props);
-	}
+ class Showcase extends Component {
 	render() {
 		return (
-			<div>Hello from Showcase.js</div>
+			<div className="display--in-center">
+				<h1> Hello from Showcase.js! </h1>
+			</div>
 		);
 	}
 }
-module.exports = Showcase
+module.exports = Showcase;

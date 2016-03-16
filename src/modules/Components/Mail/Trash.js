@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
- class About extends Component {
+ class Trash extends Component {
 	render() {
 		return (
 			<div className="display--in-center">
-				<h1> Hello from About.js! </h1>
+				<h1> Hello from Trash.js! </h1>
 			</div>
 		);
 	}
 }
-module.exports = About;
+module.exports = Trash;

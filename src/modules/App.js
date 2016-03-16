@@ -1,8 +1,5 @@
 import React from 'react'
 
-import NavBar from './Components/Views/NavBar';
-import Footer from './Components/Views/Footer';
-
 // var UserExampleData = require('./UserDataSimple');
 var UserAPIUtils = require('./Utils/UserAPIUtils');
 
@@ -13,20 +10,13 @@ class App extends React.Component{
 
 	render() {
 		return (
-			<div>
-				<div id="App_Wrapper" className="toggled container-fluid">
-					<NavBar />
+			<div  className="container-fluid">
 
-					{ this.props.children }
+			
 
-					<Footer />
-					
-				</div>
-
-
+				{ this.props.children }
 
 			</div>
-			
 		);
 	}
 }

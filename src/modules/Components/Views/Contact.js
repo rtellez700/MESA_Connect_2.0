@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-class Contact extends React.Component {
-	constructor(props){
-		super(props);
-	}
+ class Contact extends Component {
 	render() {
 		return (
-			<div>Hello from Contact.js</div>
+			<div className="display--in-center">
+				<h1> Hello from Contact.js! </h1>
+			</div>
 		);
 	}
 }
-module.exports = Contact
+module.exports = Contact;
