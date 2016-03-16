@@ -1086,7 +1086,7 @@ figure {
 img {
   vertical-align: middle; }
 
-.img-responsive, .MailBox .MessageItem img, img {
+.img-responsive, .MailBox .MessageItemBox .MessageItem img, img {
   display: block;
   max-width: 100%;
   height: auto; }
@@ -5611,7 +5611,7 @@ button.close {
 .clearfix:after {
   clear: both; }
 
-.center-block, .Network .BioInfoCard {
+.center-block, .Network .BioInfoCard, .Footer__Newsletter {
   display: block;
   margin-left: auto;
   margin-right: auto; }
@@ -5839,8 +5839,9 @@ button.close {
   left: 250px;
   width: 0;
   height: 100%;
+  padding-top: 10px;
   margin-left: -250px;
-  margin-top: -112px;
+  margin-top: -92px;
   overflow-y: auto;
   background: #414146;
   -webkit-transition: all 0.5s ease;
@@ -5917,85 +5918,81 @@ button.close {
     position: relative;
     margin-right: 0; } }
 
-.MailBox {
-  margin-bottom: 50px;
-  width: 500px; }
-  .MailBox .badge {
-    background-color: #B53B24;
-    color: whitesmoke; }
-  .MailBox .MessageItem {
-    padding: 20px; }
-    .MailBox .MessageItem p {
-      padding-top: 5px;
-      padding-right: 5px;
-      text-align: justify; }
-    .MailBox .MessageItem .Media__figure {
-      display: flex;
-      align-items: center; }
-    .MailBox .MessageItem .Media__body {
-      display: flex;
-      align-items: center;
-      justify-content: center; }
-    .MailBox .MessageItem .MessageBubble {
-      position: relative;
-      top: 0;
-      left: 0;
-      z-index: 1060;
-      padding: 1px;
-      font-weight: 400;
-      line-height: 1.4;
-      text-align: start;
-      text-decoration: none;
-      text-shadow: none;
-      background-color: #fff;
-      background-clip: padding-box;
-      border: 1px solid rgba(0, 0, 0, 0.4);
-      border-radius: 6px;
-      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); }
-      .MailBox .MessageItem .MessageBubble--arrow {
+.MailBox .Inbox, .MailBox .Sent, .MailBox .Trash {
+  width: 100%;
+  margin-bottom: 0; }
+  .MailBox .Inbox .MessageItemBox, .MailBox .Sent .MessageItemBox, .MailBox .Trash .MessageItemBox {
+    padding: 10px;
+    background-color: #e8e8e8;
+    box-shadow: inset 0 0 10px #c2c2c2;
+    width: 100%;
+    border: 1px solid #b3b3b3;
+    margin-bottom: 0; }
+
+.MailBox .Inbox .MessageInputBox textarea {
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 2px; }
+
+.MailBox .MessageItemBox .MessageItem {
+  padding: 20px; }
+  .MailBox .MessageItemBox .MessageItem p {
+    padding-top: 5px;
+    padding-right: 5px;
+    text-align: justify; }
+  .MailBox .MessageItemBox .MessageItem .Media__figure {
+    display: flex;
+    align-items: center; }
+  .MailBox .MessageItemBox .MessageItem .Media__body {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  .MailBox .MessageItemBox .MessageItem .MessageBubble {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1060;
+    padding: 1px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-align: start;
+    text-decoration: none;
+    text-shadow: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); }
+    .MailBox .MessageItemBox .MessageItem .MessageBubble--arrow {
+      position: absolute;
+      display: block;
+      width: 0;
+      height: 0;
+      border-color: transparent;
+      border-style: solid;
+      border-width: 11px;
+      top: 50%;
+      left: -22px;
+      margin-top: -11px;
+      border-right-color: rgba(0, 0, 0, 0.4); }
+      .MailBox .MessageItemBox .MessageItem .MessageBubble--arrow:after {
         position: absolute;
         display: block;
         width: 0;
         height: 0;
         border-color: transparent;
         border-style: solid;
-        border-width: 11px;
-        top: 50%;
-        left: -22px;
-        margin-top: -11px;
-        border-right-color: rgba(0, 0, 0, 0.4); }
-        .MailBox .MessageItem .MessageBubble--arrow:after {
-          position: absolute;
-          display: block;
-          width: 0;
-          height: 0;
-          border-color: transparent;
-          border-style: solid;
-          content: "";
-          border-width: 10px;
-          bottom: -10px;
-          left: 2px;
-          content: " ";
-          border-right-color: #FFF;
-          border-left-width: 0; }
-      .MailBox .MessageItem .MessageBubble--content {
-        padding: 9px 14px; }
-        .MailBox .MessageItem .MessageBubble--content-heading small {
-          color: #a6a6a6; }
-
-.Inbox .MailBox {
-  width: 100%;
-  border: 1px solid #b3b3b3;
-  margin-bottom: 0; }
-
-.Inbox .MessageInputBox textarea {
-  width: 100%;
-  margin-top: 5px;
-  margin-bottom: 2px; }
-
-.Inbox .leftSection li {
-  background-color: #ccc;
-  margin: 5px 0; }
+        content: "";
+        border-width: 10px;
+        bottom: -10px;
+        left: 2px;
+        content: " ";
+        border-right-color: #FFF;
+        border-left-width: 0; }
+    .MailBox .MessageItemBox .MessageItem .MessageBubble--content {
+      padding: 9px 14px; }
+      .MailBox .MessageItemBox .MessageItem .MessageBubble--content-heading small {
+        color: #a6a6a6; }
 
 .Tile__Row {
   display: flex; }
@@ -6030,6 +6027,20 @@ button.close {
     font-size: 18px;
     font-weight: 600; }
 
+.Footer {
+  width: 100%;
+  background-color: #323A45;
+  color: whitesmoke; }
+  .Footer__Logo {
+    padding-top: 20px; }
+  .Footer__Heading {
+    font-size: 1.1em;
+    text-transform: uppercase; }
+  .Footer__Item p, .Footer__Item address {
+    font-size: 10px; }
+  .Footer__Newsletter {
+    width: 500px; }
+
 body {
   font-family: 'Lato', sans-serif; }
 
@@ -6038,7 +6049,7 @@ body {
   padding-right: 0; }
 
 .navbar {
-  margin-bottom: 20px; }
+  margin-bottom: 0; }
   .navbar-brand {
     padding: 0;
     margin: 0; }
@@ -6108,18 +6119,15 @@ body {
   .BioInfoCard .btn:first-child {
     margin-right: 10px; }
 
-.Footer {
-  width: 100%;
-  height: 200px;
-  background-color: #323A45; }
-
 .Media {
   display: flex;
   padding: 20px;
   border-radius: 0px; }
   .Media__figure {
     margin-right: 1.1em; }
-  .Media__body p:first-child {
+    .Media__figure img {
+      max-width: none; }
+  .Media__body *:first-child {
     margin-top: 0; }
 
 .Scrollable__list {
@@ -6132,6 +6140,16 @@ body {
   height: 100%;
   overflow: hidden;
   position: relative; }
+
+.Dashboard {
+  padding-top: 50px;
+  padding-bottom: 50px; }
+  .Dashboard__Heading {
+    font-weight: bold; }
+  .Dashboard__Sub-Heading {
+    font-weight: bold; }
+  .Dashboard__Sub-Content {
+    margin-bottom: 2em; }
 
 .bg--white {
   background-color: #ffffff; }
@@ -6170,6 +6188,12 @@ body {
 .display--flex {
   display: flex; }
 
+.display--in-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
+
 .display--none {
   display: none; }
 
@@ -6177,3 +6201,9 @@ body {
   display: block !important;
   margin-left: auto !important;
   margin-right: auto !important; }
+
+.hr--black {
+  border-color: #000000; }
+
+.hr--2x {
+  border-width: 2px; }
