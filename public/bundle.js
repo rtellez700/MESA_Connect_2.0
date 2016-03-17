@@ -24867,7 +24867,8 @@
 					'div',
 					{ id: 'App_Wrapper', className: "container-fluid " + sidebarClass },
 					_react2.default.createElement(_NavBar2.default, null),
-					this.props.children,
+					this.props.SIDEBAR || '',
+					this.props.MAIN || this.props.children,
 					_react2.default.createElement(_Footer2.default, null)
 				);
 			}
@@ -31743,16 +31744,21 @@
 			return _this;
 		}
 
-		// componentDidMount(){
-		// 	if (this.state.sidebar){
-		// 		this._toggleSidebar();
-		// 	}
-		// }
-		// componentWillUnmount(){
-
-		// }
-
 		_createClass(User, [{
+			key: 'componentDidMount',
+			value: function componentDidMount() {
+				if (this.state.sidebar) {
+					this._toggleSidebar();
+				}
+			}
+		}, {
+			key: 'componentWillUnmount',
+			value: function componentWillUnmount() {
+				if (this.state.sidebar) {
+					this._toggleSidebar();
+				}
+			}
+		}, {
 			key: '_onClick',
 			value: function _onClick(e) {
 				e.preventDefault();
@@ -31770,11 +31776,10 @@
 				return _react2.default.createElement(
 					'div',
 					null,
-					console.log('test test test'),
 					_react2.default.createElement(
 						'div',
 						{ className: 'page-content-wrapper' },
-						this.props.MAIN
+						this.props.children
 					),
 					_react2.default.createElement('br', null),
 					_react2.default.createElement('br', null),
