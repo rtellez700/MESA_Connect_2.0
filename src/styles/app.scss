@@ -3,7 +3,6 @@
 @import './CustomVariables.scss';
 @import './SideBar.scss';
 @import './MailBox.scss';
-// @import './Inbox.scss';
 @import './Network.scss';
 @import './Tile.scss';
 @import './Footer.scss';
@@ -34,6 +33,7 @@ img{
 
 .navbar{
 	margin-bottom: 0;
+
 	&-brand{
 		padding: 0;
 		margin: 0;

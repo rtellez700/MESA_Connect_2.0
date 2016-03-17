@@ -89,6 +89,8 @@ class Dashboard extends React.Component {
 			        	Chemical & Biomolecular Engineering
 	        	</div>
 
+	        	<hr className="hr--black hr--2x" />
+	        	
 	        	<div className="Dashboard__Content">
 		        	<h2 className="Dashboard__Heading">Interests</h2>
 		        		<span className="label label-primary">Interest 1</span>{' '}

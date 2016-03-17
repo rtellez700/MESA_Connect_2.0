@@ -4058,20 +4058,22 @@
 
 				e.preventDefault();
 
-				// vALIDATE SUBMISSION
-				if (!this._validated(3, 3)) {
-					this.setState({ errors: 'Testing Error Message' });
-				} else {
-					// CREATE USER OBJECT
-					var rawUser = this._getUserInput();
-					// window.rawUser = rawUser;
-					_UserActions2.default.create(rawUser);
+				_reactRouter.browserHistory.push('/dashboard');
 
-					// show successful login notification
-					alert('Sign-up successful. Will now redirect . . .');
-					// redirect to dashboard page
-					// browserHistory.push('/dashboard');
-				}
+				// // vALIDATE SUBMISSION
+				// if (!this._validated()){
+				// 	this.setState({errors: 'Testing Error Message'});
+				// }else{
+				// // CREATE USER OBJECT
+				// const rawUser = this._getUserInput();
+				// // window.rawUser = rawUser;
+				// UserActions.create(rawUser);
+
+				// // show successful login notification
+				// alert('Sign-up successful. Will now redirect . . .');
+				// // redirect to dashboard page
+				// browserHistory.push('/dashboard');
+				// }
 			}
 		}, {
 			key: '_onInputChange',

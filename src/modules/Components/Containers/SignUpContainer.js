@@ -70,20 +70,25 @@ class SignUpContainer extends React.Component {
 
 		e.preventDefault();
 	
-		// vALIDATE SUBMISSION
-		if (!this._validated(3,3)){
-			this.setState({errors: 'Testing Error Message'});
-		}else{
-		// CREATE USER OBJECT
-		const rawUser = this._getUserInput();
-		// window.rawUser = rawUser;
-		UserActions.create(rawUser);
-
-		// show successful login notification
-		alert('Sign-up successful. Will now redirect . . .');
-		// redirect to dashboard page
 		// browserHistory.push('/dashboard');
-		}
+			
+			// VALIDATE SUBMISSION
+			// if (!this._validated()){
+			// 	this.setState({errors: 'Testing Error Message'});
+			// }else{
+
+			// CREATE USER OBJECT
+			// const rawUser = this._getUserInput();
+
+			// window.rawUser = rawUser;
+			// UserActions.create(rawUser);
+
+			// show successful login notification
+			alert('Sign-up successful. Will now redirect . . .');
+			
+			// redirect to dashboard page
+			browserHistory.push('/dashboard');
+			// }
 	}
 
 	_onInputChange(e){
@@ -154,17 +159,17 @@ class SignUpContainer extends React.Component {
 	_validated(value, type){
 		switch(type){
 			case INPUT.F_NAME:
-				return false;
+				return true;
 			case INPUT.M_NAME:
-				return false;
+				return true;
 			case INPUT.L_NAME:
-				return false;
+				return true;
 			case INPUT.EMAIL:
-				return false;
+				return true;
 			case INPUT.DELTA_ID:
-				return false;
+				return true;
 			default: 
-				return false;
+				return true;
 		}
 	}
 
