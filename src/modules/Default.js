@@ -9,7 +9,7 @@ var UserAPIUtils = require('./Utils/UserAPIUtils');
 // UserExampleData.init();
 UserAPIUtils.getAllUsers();
 
-class App extends React.Component{
+class Default extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
@@ -24,9 +24,7 @@ class App extends React.Component{
 
 				<NavBar />
 
-					{ this.props.SIDEBAR || ''}
-
-					{ this.props.MAIN || this.props.children }
+					{ this.props.children }
 					
 				<Footer />
 
@@ -35,7 +33,7 @@ class App extends React.Component{
 	}
 }
 
-module.exports = App;
+module.exports = Default;
 
 
 

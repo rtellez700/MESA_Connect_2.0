@@ -209,7 +209,11 @@
 
 	var _Join2 = _interopRequireDefault(_Join);
 
-	var _User = __webpack_require__(47);
+	var _Sidebar = __webpack_require__(47);
+
+	var _Sidebar2 = _interopRequireDefault(_Sidebar);
+
+	var _User = __webpack_require__(51);
 
 	var _User2 = _interopRequireDefault(_User);
 
@@ -246,6 +250,8 @@
 	        <Route path="/profile" component={Profile} />
 	 */
 
+	// VIEWS
+	// modules/routes.js
 	module.exports = _react2.default.createElement(
 	    _reactRouter.Route,
 	    { path: '/', component: _App2.default },
@@ -257,7 +263,7 @@
 	    _react2.default.createElement(_reactRouter.Route, { path: 'join', component: _Join2.default }),
 	    _react2.default.createElement(
 	        _reactRouter.Route,
-	        { path: 'user', component: _User2.default },
+	        { path: 'user', components: { MAIN: _User2.default, SIDEBAR: _Sidebar2.default } },
 	        _react2.default.createElement(_reactRouter.Route, { path: '/dashboard', component: _Dashboard2.default }),
 	        _react2.default.createElement(_reactRouter.Route, { path: '/mail', component: _MailBox2.default }),
 	        _react2.default.createElement(
@@ -277,10 +283,6 @@
 
 
 	// USER
-
-
-	// VIEWS
-	// modules/routes.js
 
 /***/ },
 /* 8 */
@@ -4058,21 +4060,24 @@
 
 				e.preventDefault();
 
-				_reactRouter.browserHistory.push('/dashboard');
+				// browserHistory.push('/dashboard');
 
-				// // vALIDATE SUBMISSION
+				// VALIDATE SUBMISSION
 				// if (!this._validated()){
 				// 	this.setState({errors: 'Testing Error Message'});
 				// }else{
-				// // CREATE USER OBJECT
+
+				// CREATE USER OBJECT
 				// const rawUser = this._getUserInput();
-				// // window.rawUser = rawUser;
+
+				// window.rawUser = rawUser;
 				// UserActions.create(rawUser);
 
-				// // show successful login notification
-				// alert('Sign-up successful. Will now redirect . . .');
-				// // redirect to dashboard page
-				// browserHistory.push('/dashboard');
+				// show successful login notification
+				alert('Sign-up successful. Will now redirect . . .');
+
+				// redirect to dashboard page
+				_reactRouter.browserHistory.push('/dashboard');
 				// }
 			}
 		}, {
@@ -4147,17 +4152,17 @@
 			value: function _validated(value, type) {
 				switch (type) {
 					case INPUT.F_NAME:
-						return false;
+						return true;
 					case INPUT.M_NAME:
-						return false;
+						return true;
 					case INPUT.L_NAME:
-						return false;
+						return true;
 					case INPUT.EMAIL:
-						return false;
+						return true;
 					case INPUT.DELTA_ID:
-						return false;
+						return true;
 					default:
-						return false;
+						return true;
 				}
 			}
 		}, {
@@ -4313,100 +4318,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _NavBar = __webpack_require__(9);
-
-	var _NavBar2 = _interopRequireDefault(_NavBar);
-
-	var _SideBar = __webpack_require__(48);
-
-	var _SideBar2 = _interopRequireDefault(_SideBar);
-
-	var _Footer = __webpack_require__(11);
-
-	var _Footer2 = _interopRequireDefault(_Footer);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var User = function (_React$Component) {
-		_inherits(User, _React$Component);
-
-		function User(props) {
-			_classCallCheck(this, User);
-
-			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(User).call(this, props));
-
-			_this.state = {
-				sidebar: true
-			};
-			return _this;
-		}
-
-		_createClass(User, [{
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				if (this.state.sidebar) {
-					this._toggleSidebar();
-				}
-			}
-		}, {
-			key: '_onClick',
-			value: function _onClick(e) {
-				e.preventDefault();
-				$('#App_Wrapper').toggleClass("toggled");
-			}
-		}, {
-			key: '_toggleSidebar',
-			value: function _toggleSidebar() {
-				$('#App_Wrapper').toggleClass("toggled");
-			}
-		}, {
-			key: 'render',
-			value: function render() {
-
-				return _react2.default.createElement(
-					'div',
-					null,
-					_react2.default.createElement(_SideBar2.default, null),
-					_react2.default.createElement(
-						'div',
-						{ className: 'page-content-wrapper' },
-						this.props.children
-					),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('br', null)
-				);
-			}
-		}]);
-
-		return User;
-	}(_react2.default.Component);
-
-	module.exports = User;
-
-/***/ },
-/* 48 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(4);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _NavLinkList = __webpack_require__(49);
+	var _NavLinkList = __webpack_require__(48);
 
 	var _NavLinkList2 = _interopRequireDefault(_NavLinkList);
 
-	var _ProfileAvatar = __webpack_require__(50);
+	var _ProfileAvatar = __webpack_require__(49);
 
 	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
 
@@ -4487,7 +4403,7 @@
 	module.exports = SideBar;
 
 /***/ },
-/* 49 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4560,7 +4476,7 @@
 	module.exports = NavLinkList;
 
 /***/ },
-/* 50 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4573,7 +4489,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactAvatar = __webpack_require__(51);
+	var _reactAvatar = __webpack_require__(50);
 
 	var _reactAvatar2 = _interopRequireDefault(_reactAvatar);
 
@@ -4612,10 +4528,99 @@
 	module.exports = ProfileAvatar;
 
 /***/ },
-/* 51 */
+/* 50 */
 /***/ function(module, exports) {
 
 	module.exports = require("react-avatar");
+
+/***/ },
+/* 51 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(4);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _NavBar = __webpack_require__(9);
+
+	var _NavBar2 = _interopRequireDefault(_NavBar);
+
+	var _Footer = __webpack_require__(11);
+
+	var _Footer2 = _interopRequireDefault(_Footer);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	// import SideBar from '../Views/SideBar';
+
+
+	var User = function (_React$Component) {
+		_inherits(User, _React$Component);
+
+		function User(props) {
+			_classCallCheck(this, User);
+
+			var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(User).call(this, props));
+
+			_this.state = {
+				sidebar: true
+			};
+			return _this;
+		}
+
+		// componentDidMount(){
+		// 	if (this.state.sidebar){
+		// 		this._toggleSidebar();
+		// 	}
+		// }
+		// componentWillUnmount(){
+
+		// }
+
+		_createClass(User, [{
+			key: '_onClick',
+			value: function _onClick(e) {
+				e.preventDefault();
+				$('#App_Wrapper').toggleClass("toggled");
+			}
+		}, {
+			key: '_toggleSidebar',
+			value: function _toggleSidebar() {
+				$('#App_Wrapper').toggleClass("toggled");
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+
+				return _react2.default.createElement(
+					'div',
+					null,
+					console.log('test test test'),
+					_react2.default.createElement(
+						'div',
+						{ className: 'page-content-wrapper' },
+						this.props.MAIN
+					),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('br', null),
+					_react2.default.createElement('br', null)
+				);
+			}
+		}]);
+
+		return User;
+	}(_react2.default.Component);
+
+	module.exports = User;
 
 /***/ },
 /* 52 */
@@ -4629,7 +4634,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ProfileAvatar = __webpack_require__(50);
+	var _ProfileAvatar = __webpack_require__(49);
 
 	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
 
@@ -4995,7 +5000,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ProfileAvatar = __webpack_require__(50);
+	var _ProfileAvatar = __webpack_require__(49);
 
 	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
 
@@ -5308,6 +5313,7 @@
 						_react2.default.createElement("br", null),
 						"Chemical & Biomolecular Engineering"
 					),
+					_react2.default.createElement("hr", { className: "hr--black hr--2x" }),
 					_react2.default.createElement(
 						"div",
 						{ className: "Dashboard__Content" },
@@ -5934,7 +5940,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ProfileAvatar = __webpack_require__(50);
+	var _ProfileAvatar = __webpack_require__(49);
 
 	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
 

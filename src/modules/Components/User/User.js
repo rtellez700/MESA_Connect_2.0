@@ -1,7 +1,7 @@
 import React from 'react';
 
 import NavBar from '../Views/NavBar';
-import SideBar from '../Views/SideBar';
+// import SideBar from '../Views/SideBar';
 import Footer from '../Views/Footer';
 
 class User extends React.Component {
@@ -13,6 +13,11 @@ class User extends React.Component {
 	}
 
 	componentDidMount(){
+		if (this.state.sidebar){
+			this._toggleSidebar();
+		}
+	}
+	componentWillUnmount(){
 		if (this.state.sidebar){
 			this._toggleSidebar();
 		}
@@ -33,8 +38,6 @@ class User extends React.Component {
 		return (
 			<div >
 				
-				<SideBar />
-
 				<div className="page-content-wrapper">
 					{ this.props.children }
 				</div>

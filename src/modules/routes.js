@@ -14,6 +14,7 @@ import About from './Components/Views/About'
 import Contact from './Components/Views/Contact'
 import Join from './Components/Views/Join'
 
+import Sidebar from './Components/Views/Sidebar'
 
 // USER
 import User from './Components/User/User'
@@ -43,7 +44,7 @@ module.exports = (
     <Route path="about" component={About} />
     <Route path="contact" component={Contact} />
     <Route path="join" component={Join} />
-    <Route path="user" component={ User} >
+    <Route path="user" components={{ MAIN: User, SIDEBAR: Sidebar }} >
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/mail" component={MailBox} />
         <Route path="/resources" component={Resources}>
