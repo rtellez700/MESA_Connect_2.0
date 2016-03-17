@@ -60,9 +60,9 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	window.jQuery = window.$ = __webpack_require__(287);
-	__webpack_require__(288);
-	__webpack_require__(289);
+	window.jQuery = window.$ = __webpack_require__(293);
+	__webpack_require__(294);
+	__webpack_require__(295);
 
 	(0, _reactDom.render)(_react2.default.createElement(_reactRouter.Router, { routes: _routes2.default, history: _reactRouter.browserHistory }), document.getElementById('App'));
 
@@ -24720,51 +24720,71 @@
 
 	var _Showcase2 = _interopRequireDefault(_Showcase);
 
-	var _Donate = __webpack_require__(246);
+	var _Donate = __webpack_require__(256);
 
 	var _Donate2 = _interopRequireDefault(_Donate);
 
-	var _About = __webpack_require__(247);
+	var _About = __webpack_require__(257);
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Contact = __webpack_require__(248);
+	var _Contact = __webpack_require__(258);
 
 	var _Contact2 = _interopRequireDefault(_Contact);
 
-	var _Join = __webpack_require__(249);
+	var _Join = __webpack_require__(259);
 
 	var _Join2 = _interopRequireDefault(_Join);
 
-	var _Sidebar = __webpack_require__(258);
+	var _Sidebar = __webpack_require__(268);
 
 	var _Sidebar2 = _interopRequireDefault(_Sidebar);
 
-	var _User = __webpack_require__(269);
+	var _User = __webpack_require__(270);
 
 	var _User2 = _interopRequireDefault(_User);
 
-	var _Profile = __webpack_require__(270);
+	var _Profile = __webpack_require__(271);
 
 	var _Profile2 = _interopRequireDefault(_Profile);
 
-	var _Dashboard = __webpack_require__(275);
+	var _Dashboard = __webpack_require__(276);
 
 	var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
-	var _Network = __webpack_require__(276);
+	var _Settings = __webpack_require__(277);
 
-	var _Network2 = _interopRequireDefault(_Network);
+	var _Settings2 = _interopRequireDefault(_Settings);
 
-	var _Resources = __webpack_require__(278);
+	var _Logout = __webpack_require__(278);
+
+	var _Logout2 = _interopRequireDefault(_Logout);
+
+	var _Resources = __webpack_require__(279);
 
 	var _Resources2 = _interopRequireDefault(_Resources);
 
-	var _ListResources = __webpack_require__(279);
+	var _ListResources = __webpack_require__(280);
 
 	var _ListResources2 = _interopRequireDefault(_ListResources);
 
-	var _MailBox = __webpack_require__(280);
+	var _Network = __webpack_require__(281);
+
+	var _Network2 = _interopRequireDefault(_Network);
+
+	var _Scholarships = __webpack_require__(283);
+
+	var _Scholarships2 = _interopRequireDefault(_Scholarships);
+
+	var _Internships = __webpack_require__(284);
+
+	var _Internships2 = _interopRequireDefault(_Internships);
+
+	var _Events = __webpack_require__(285);
+
+	var _Events2 = _interopRequireDefault(_Events);
+
+	var _MailBox = __webpack_require__(286);
 
 	var _MailBox2 = _interopRequireDefault(_MailBox);
 
@@ -24777,8 +24797,7 @@
 	        <Route path="/profile" component={Profile} />
 	 */
 
-	// VIEWS
-	// modules/routes.js
+	// USER
 	module.exports = _react2.default.createElement(
 	    _reactRouter.Route,
 	    { path: '/', component: _App2.default },
@@ -24797,8 +24816,13 @@
 	            _reactRouter.Route,
 	            { path: '/resources', component: _Resources2.default },
 	            _react2.default.createElement(_reactRouter.IndexRoute, { component: _ListResources2.default }),
-	            _react2.default.createElement(_reactRouter.Route, { path: 'network', component: _Network2.default })
-	        )
+	            _react2.default.createElement(_reactRouter.Route, { path: 'network', component: _Network2.default }),
+	            _react2.default.createElement(_reactRouter.Route, { path: 'scholarships', component: _Scholarships2.default }),
+	            _react2.default.createElement(_reactRouter.Route, { path: 'internships', component: _Internships2.default }),
+	            _react2.default.createElement(_reactRouter.Route, { path: 'events', component: _Events2.default })
+	        ),
+	        _react2.default.createElement(_reactRouter.Route, { path: '/settings', component: _Settings2.default }),
+	        _react2.default.createElement(_reactRouter.Route, { path: '/logout', component: _Logout2.default })
 	    ),
 	    _react2.default.createElement(_reactRouter.Route, { path: '*', component: _NoMatch_2.default })
 	);
@@ -24809,7 +24833,8 @@
 	// USER Views
 
 
-	// USER
+	// VIEWS
+	// modules/routes.js
 
 /***/ },
 /* 217 */
@@ -24860,16 +24885,25 @@
 		}
 
 		_createClass(App, [{
+			key: '_displayFooter',
+			value: function _displayFooter() {
+				return _react2.default.createElement(_Footer2.default, null);
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				var sidebarClass = this.state.sidebar ? '' : 'toggled';
 				return _react2.default.createElement(
 					'div',
 					{ id: 'App_Wrapper', className: "container-fluid " + sidebarClass },
-					_react2.default.createElement(_NavBar2.default, null),
 					this.props.SIDEBAR || '',
-					this.props.MAIN || this.props.children,
-					_react2.default.createElement(_Footer2.default, null)
+					_react2.default.createElement(
+						'div',
+						{ className: 'page-content-wrapper' },
+						_react2.default.createElement(_NavBar2.default, null),
+						this.props.MAIN || this.props.children,
+						this._displayFooter()
+					)
 				);
 			}
 		}]);
@@ -24956,7 +24990,7 @@
 								_react2.default.createElement(
 									'a',
 									{ className: 'navbar-brand', href: '/' },
-									_react2.default.createElement('img', { src: '/img/MESA-logo.jpg' })
+									_react2.default.createElement('img', { src: '/img/SJDC_MESA_Logo.png' })
 								)
 							),
 							_react2.default.createElement(
@@ -25118,7 +25152,7 @@
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					'div',
+					'footer',
 					{ className: 'Footer' },
 					_react2.default.createElement(
 						'div',
@@ -28226,13 +28260,17 @@
 /* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _ShowcasePanel = __webpack_require__(246);
+
+	var _ShowcasePanel2 = _interopRequireDefault(_ShowcasePanel);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28252,15 +28290,30 @@
 		}
 
 		_createClass(Showcase, [{
-			key: "render",
+			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					"div",
-					{ className: "display--in-center" },
+					'div',
+					null,
 					_react2.default.createElement(
-						"h1",
-						null,
-						" Hello from Showcase.js! "
+						'div',
+						{ className: 'ShowcasePanel bg--grey' },
+						_react2.default.createElement(_ShowcasePanel2.default, null)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'ShowcasePanel bg--grey-google' },
+						_react2.default.createElement(_ShowcasePanel2.default, { figure: 'right' })
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'ShowcasePanel bg--grey' },
+						_react2.default.createElement(_ShowcasePanel2.default, null)
+					),
+					_react2.default.createElement(
+						'div',
+						{ className: 'ShowcasePanel bg--grey-google' },
+						_react2.default.createElement(_ShowcasePanel2.default, { figure: 'right' })
 					)
 				);
 			}
@@ -28273,6 +28326,885 @@
 
 /***/ },
 /* 246 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _faker = __webpack_require__(230);
+
+	var _faker2 = _interopRequireDefault(_faker);
+
+	var _ProfileAvatar = __webpack_require__(247);
+
+	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ShowcasePanel = function (_Component) {
+		_inherits(ShowcasePanel, _Component);
+
+		function ShowcasePanel() {
+			_classCallCheck(this, ShowcasePanel);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(ShowcasePanel).apply(this, arguments));
+		}
+
+		_createClass(ShowcasePanel, [{
+			key: '_renderFigure',
+			value: function _renderFigure() {
+				return _react2.default.createElement(
+					'div',
+					{ className: 'Media__figure' },
+					_react2.default.createElement(_ProfileAvatar2.default, { name: 'Rodrigo Tellez', className: 'CENTER-NOW' })
+				);
+			}
+		}, {
+			key: '_renderBody',
+			value: function _renderBody() {
+				return _react2.default.createElement(
+					'div',
+					{ className: 'Media__body' },
+					_react2.default.createElement(
+						'p',
+						null,
+						_faker2.default.Lorem.paragraphs()
+					),
+					_react2.default.createElement(
+						'p',
+						null,
+						_faker2.default.Lorem.paragraphs()
+					)
+				);
+			}
+		}, {
+			key: 'render',
+			value: function render() {
+				var FIGURE_RIGHT = this.props.figure === "right";
+				{
+					console.log(FIGURE_RIGHT);
+				}
+				return _react2.default.createElement(
+					'div',
+					{ className: 'Media' },
+					FIGURE_RIGHT ? this._renderBody() : this._renderFigure(),
+					FIGURE_RIGHT ? this._renderFigure() : this._renderBody()
+				);
+			}
+		}]);
+
+		return ShowcasePanel;
+	}(_react.Component);
+
+	module.exports = ShowcasePanel;
+
+/***/ },
+/* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactAvatar = __webpack_require__(248);
+
+	var _reactAvatar2 = _interopRequireDefault(_reactAvatar);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ProfileAvatar = function (_React$Component) {
+		_inherits(ProfileAvatar, _React$Component);
+
+		function ProfileAvatar() {
+			_classCallCheck(this, ProfileAvatar);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(ProfileAvatar).apply(this, arguments));
+		}
+
+		_createClass(ProfileAvatar, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(_reactAvatar2.default, _extends({
+					size: 150,
+					name: this.props.name,
+					color: '#4285F4',
+					round: true
+				}, this.props));
+			}
+		}]);
+
+		return ProfileAvatar;
+	}(_react2.default.Component);
+
+	module.exports = ProfileAvatar;
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	module.exports = (function() {
+
+	  "use strict";
+
+	  var React = __webpack_require__(1);
+	  var md5 = __webpack_require__(249);
+	  var PureRenderMixin = __webpack_require__(253);
+
+	  var Avatar = React.createClass({displayName: "Avatar",
+	      mixins: [PureRenderMixin],
+	    getProtocol: function()
+	    {
+	      if( typeof window === 'undefined' )
+	        return 'https:';
+
+	      return window.location.protocol;
+	    },
+
+	    /**
+	     * Gravatar implementation
+	     * @param  {string}   email MD5 hash or plain text email address
+	     * @param  {int}   size
+	     * @param  {Function} cb
+	     * @return {void}
+	     */
+	    getGravatarURL: function(email, size, cb, tryNext )
+	    {
+	      var base = 'gravatar.com/avatar/<%=id%>?s=<%=size%>&d=404';
+
+	      // if email does not contain @ it's already an MD5 hash
+	      if( email.indexOf('@') > -1 )
+	        email = md5(email);
+
+	      var prefix = this.getProtocol() === 'https:' ? 'https://secure.' : 'http://';
+	      cb(prefix + this.parse(base, {id: email, size: size}));
+	    },
+
+	    /**
+	     * Facebook implementation
+	     * @param  {string|int}   id
+	     * @param  {int}   size
+	     * @param  {Function} cb
+	     * @return {void}
+	     */
+	    getFacebookURL: function( id, size, cb, tryNext )
+	    {
+	      var base = 'graph.facebook.com/<%=id%>/picture?width=<%=size%>';
+	      cb( this.getProtocol() + '//' + this.parse(base, {id: id, size: size}));
+	    },
+
+	    /**
+	     * Google+ implementation
+	     * @param  {int}   id
+	     * @param  {int}   size
+	     * @param  {Function} cb
+	     * @return {void}
+	     */
+	    getGoogleURL: function( id, size, cb, tryNext )
+	    {
+	      var base = 'picasaweb.google.com/data/entry/api/user/<%=id%>?alt=json';
+	      var url = this.getProtocol() + '//' + this.parse(base, {id: id});
+	      this.get(url, function(data) {
+	        var src = data.entry.gphoto$thumbnail.$t.replace('s64', 's' + size); // replace with the correct size
+	        cb(src);
+	      }, tryNext);
+	    },
+
+	    /**
+	     * Skype implementation
+	     * @param  {string}   id
+	     * @param  {int}   size
+	     * @param  {Function} cb
+	     * @return {void}
+	     */
+	    getSkypeURL: function( id, size, cb, tryNext )
+	    {
+	      var base = 'api.skype.com/users/<%=id%>/profile/avatar';
+	      cb(this.getProtocol() + '//' + this.parse(base, {id: id}));
+	    },
+
+	    /**
+	     * Replace variables in a string
+	     * @param  {string} value String that will be parsed
+	     * @param  {Object} variables    Key value object
+	     * @return {string}
+	     */
+	    parse: function( value, variables )
+	    {
+	      for(var variable in variables)
+	      {
+	        value = value.replace('<%=' + variable + '%>', variables[variable]);
+	      }
+	      return value;
+	    },
+
+	    /**
+	     * Return a random color
+	     * @return {string}
+	     */
+	    rndColor: function()
+	    {
+	      var colors = ['#d73d32', '#7e3794', '#4285f4', '#67ae3f', '#d61a7f', '#ff4080'];
+	      var index = Math.floor(Math.random()*colors.length);
+	      return colors[ index ];
+	    },
+
+	    /**
+	     * Convert a name into initials
+	     * @param {string} name
+	     * @return {string}
+	     */
+	    getInitials: function( name )
+	    {
+	      var parts = name.split(' ');
+	      var initials = '';
+	      for(var i=0 ; i < parts.length ; i++)
+	      {
+	        initials += parts[i].substr(0, 1).toUpperCase();
+	      }
+	      return initials;
+	    },
+
+	    /**
+	     * Do an ajax request to fetch remote data
+	     * @param  {string}   url
+	     * @param  {Function} cb
+	     * @return {void}
+	     */
+	    get: function(url, successCb, errorCb) {
+	      var request = new XMLHttpRequest();
+	      request.onreadystatechange = function() {
+	        if (request.readyState === 4) {
+	          if (request.status === 200) {
+	            var data = JSON.parse(request.responseText);
+	            successCb(data);
+	          } else {
+	            errorCb(request.status);
+	          }
+	        }
+	      };
+	      request.open('GET', url, true);
+	      request.send();
+	    },
+
+	    /**
+	     * Set the src attribute of the image element use to display the avatar
+	     * @param {string} src
+	     */
+	    setSrc: function( src )
+	    {
+	      if( src === null )
+	        return;
+
+	      this.setState({ src: src });
+	    },
+
+	    propTypes: {
+	      className: React.PropTypes.string,
+	      fgColor: React.PropTypes.string,
+	      color: React.PropTypes.string,
+	      name: React.PropTypes.string,
+	      value: React.PropTypes.string,
+	      email: React.PropTypes.string,
+	      facebookId: React.PropTypes.string,
+	      googleId: React.PropTypes.string,
+	      skypeID: React.PropTypes.string,
+	      round: React.PropTypes.bool,
+	      size: React.PropTypes.number
+	    },
+	    getInitialState: function() {
+	      return {
+	        src: null,
+	        value: null,
+	        triedFacebook: false,
+	        triedGoogle: false,
+	        triedSkype: false,
+	        triedGravatar: false,
+	      };
+	    },
+	    getDefaultProps: function() {
+	      return {
+	        fgColor: '#FFF',
+	        color: null,
+	        name: null,
+	        value: null,
+	        email: null,
+	        facebookId: null,
+	        skypeId: null,
+	        googleId: null,
+	        round: false,
+	        size: 100
+	      };
+	    },
+	    componentWillMount: function() {
+	      this.fetch();
+	    },
+	    componentWillReceiveProps: function(newProps) {
+	      /**
+	       * This component ignores changes in `this.props.src`, `this.props.name`, and
+	       * `this.props.value`. This lifecycle method will allow users to change the avatars name or
+	       * value.
+	       */
+	      if (newProps.src && newProps.src !== this.props.src) {
+	        this.setState({ src: newProps.src });
+	      } else if (newProps.name && newProps.name !== this.props.name) {
+	        this.setState({ value: this.getInitials(newProps.name) });
+	      } else if (newProps.value && newProps.value !== this.props.value) {
+	        this.setState({ value: newProps.value });
+	      }
+	    },
+	    fetch: function( e ) {
+	      var url = null;
+	      var self = this;
+	      var tryNext = function() {
+	        self.fetch();
+	      };
+
+	      // If fetch was triggered by img onError
+	      // then set state src back to null so getVisual will
+	      // automatically switch to drawn avatar if there is no other social ID available to try
+	      if( e && e.type === "error" )
+	        this.state.src = null;
+
+	      if( this.state.triedFacebook === false && ! this.state.url && this.props.facebookId) {
+	        this.state.triedFacebook = true;
+	        this.getFacebookURL( this.props.facebookId , this.props.size, this.setSrc, tryNext );
+	        return;
+	      }
+
+	      if( this.state.triedGoogle === false && ! this.state.url && this.props.googleId) {
+	        this.state.triedGoogle = true;
+	        this.getGoogleURL( this.props.googleId , this.props.size, this.setSrc, tryNext );
+	        return;
+	      }
+
+	      if( this.state.triedSkype === false && ! this.state.url && this.props.skypeId) {
+	        this.state.triedSkype = true;
+	        this.getSkypeURL( this.props.skypeId , this.props.size, this.setSrc, tryNext );
+	        return;
+	      }
+
+	      if( this.state.triedGravatar === false && ! this.state.url && this.props.email) {
+	        this.state.triedGravatar = true;
+	        this.getGravatarURL( this.props.email, this.props.size, this.setSrc, tryNext );
+	        return;
+	      }
+
+	      if( this.state.src )
+	        return;
+
+	      if( this.props.name )
+	        this.setState({ value: this.getInitials( this.props.name ) });
+
+	      if( !this.props.name && this.props.value )
+	        this.setState({ value: this.props.value });
+
+	      if( url === null && this.props.src) {
+	        this.setSrc( this.parse(this.props.src, {size: this.props.size}) );
+	        return;
+	      }
+	    },
+	    getVisual: function() {
+
+	      var imageStyle = {
+	        maxWidth: '100%',
+	        width: this.props.size,
+	        height: this.props.size,
+	        borderRadius: (this.props.round ? 500 : 0)
+	      };
+
+	      var initialsStyle = {
+	        background: this.props.color || this.rndColor(),
+	        width: this.props.size,
+	        height: this.props.size,
+	        font: Math.floor(this.props.size/3) + 'px/100px Helvetica, Arial, sans-serif',
+	        color: this.props.fgColor,
+	        textAlign: 'center',
+	        textTransform: 'uppercase',
+	        lineHeight: (this.props.size + Math.floor(this.props.size/10)) + 'px',
+	        borderRadius: (this.props.round ? 500 : 0)
+	      };
+
+	      if(this.state.src ) {
+	        return (
+	          /* jshint ignore:start */
+	          React.createElement("img", {width:  this.props.size, height:  this.props.size, style: imageStyle, src:  this.state.src, onError:  this.fetch})
+	          /* jshint ignore:end */
+	        );
+	      } else {
+	        return (
+	          /* jshint ignore:start */
+	          React.createElement("div", {style: initialsStyle },  this.state.value)
+	          /* jshint ignore:end */
+	        );
+	      }
+	    },
+	    render: function() {
+
+	      var hostStyle = {
+	        display: 'inline-block',
+	        width: this.props.size,
+	        height: this.props.size,
+	        borderRadius: (this.props.round ? 500 : 0)
+	      };
+	      var visual = this.getVisual();
+
+	      return (
+	        /* jshint ignore:start */
+	        React.createElement("div", {className: this.props.className, style: hostStyle }, 
+	          visual 
+	        )
+	        /* jshint ignore:end */
+	      );
+	    }
+	  });
+
+	  return Avatar;
+
+	})();
+
+
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	(function(){
+	  var crypt = __webpack_require__(250),
+	      utf8 = __webpack_require__(251).utf8,
+	      isBuffer = __webpack_require__(252),
+	      bin = __webpack_require__(251).bin,
+
+	  // The core
+	  md5 = function (message, options) {
+	    // Convert to byte array
+	    if (message.constructor == String)
+	      if (options && options.encoding === 'binary')
+	        message = bin.stringToBytes(message);
+	      else
+	        message = utf8.stringToBytes(message);
+	    else if (isBuffer(message))
+	      message = Array.prototype.slice.call(message, 0);
+	    else if (!Array.isArray(message))
+	      message = message.toString();
+	    // else, assume byte array already
+
+	    var m = crypt.bytesToWords(message),
+	        l = message.length * 8,
+	        a =  1732584193,
+	        b = -271733879,
+	        c = -1732584194,
+	        d =  271733878;
+
+	    // Swap endian
+	    for (var i = 0; i < m.length; i++) {
+	      m[i] = ((m[i] <<  8) | (m[i] >>> 24)) & 0x00FF00FF |
+	             ((m[i] << 24) | (m[i] >>>  8)) & 0xFF00FF00;
+	    }
+
+	    // Padding
+	    m[l >>> 5] |= 0x80 << (l % 32);
+	    m[(((l + 64) >>> 9) << 4) + 14] = l;
+
+	    // Method shortcuts
+	    var FF = md5._ff,
+	        GG = md5._gg,
+	        HH = md5._hh,
+	        II = md5._ii;
+
+	    for (var i = 0; i < m.length; i += 16) {
+
+	      var aa = a,
+	          bb = b,
+	          cc = c,
+	          dd = d;
+
+	      a = FF(a, b, c, d, m[i+ 0],  7, -680876936);
+	      d = FF(d, a, b, c, m[i+ 1], 12, -389564586);
+	      c = FF(c, d, a, b, m[i+ 2], 17,  606105819);
+	      b = FF(b, c, d, a, m[i+ 3], 22, -1044525330);
+	      a = FF(a, b, c, d, m[i+ 4],  7, -176418897);
+	      d = FF(d, a, b, c, m[i+ 5], 12,  1200080426);
+	      c = FF(c, d, a, b, m[i+ 6], 17, -1473231341);
+	      b = FF(b, c, d, a, m[i+ 7], 22, -45705983);
+	      a = FF(a, b, c, d, m[i+ 8],  7,  1770035416);
+	      d = FF(d, a, b, c, m[i+ 9], 12, -1958414417);
+	      c = FF(c, d, a, b, m[i+10], 17, -42063);
+	      b = FF(b, c, d, a, m[i+11], 22, -1990404162);
+	      a = FF(a, b, c, d, m[i+12],  7,  1804603682);
+	      d = FF(d, a, b, c, m[i+13], 12, -40341101);
+	      c = FF(c, d, a, b, m[i+14], 17, -1502002290);
+	      b = FF(b, c, d, a, m[i+15], 22,  1236535329);
+
+	      a = GG(a, b, c, d, m[i+ 1],  5, -165796510);
+	      d = GG(d, a, b, c, m[i+ 6],  9, -1069501632);
+	      c = GG(c, d, a, b, m[i+11], 14,  643717713);
+	      b = GG(b, c, d, a, m[i+ 0], 20, -373897302);
+	      a = GG(a, b, c, d, m[i+ 5],  5, -701558691);
+	      d = GG(d, a, b, c, m[i+10],  9,  38016083);
+	      c = GG(c, d, a, b, m[i+15], 14, -660478335);
+	      b = GG(b, c, d, a, m[i+ 4], 20, -405537848);
+	      a = GG(a, b, c, d, m[i+ 9],  5,  568446438);
+	      d = GG(d, a, b, c, m[i+14],  9, -1019803690);
+	      c = GG(c, d, a, b, m[i+ 3], 14, -187363961);
+	      b = GG(b, c, d, a, m[i+ 8], 20,  1163531501);
+	      a = GG(a, b, c, d, m[i+13],  5, -1444681467);
+	      d = GG(d, a, b, c, m[i+ 2],  9, -51403784);
+	      c = GG(c, d, a, b, m[i+ 7], 14,  1735328473);
+	      b = GG(b, c, d, a, m[i+12], 20, -1926607734);
+
+	      a = HH(a, b, c, d, m[i+ 5],  4, -378558);
+	      d = HH(d, a, b, c, m[i+ 8], 11, -2022574463);
+	      c = HH(c, d, a, b, m[i+11], 16,  1839030562);
+	      b = HH(b, c, d, a, m[i+14], 23, -35309556);
+	      a = HH(a, b, c, d, m[i+ 1],  4, -1530992060);
+	      d = HH(d, a, b, c, m[i+ 4], 11,  1272893353);
+	      c = HH(c, d, a, b, m[i+ 7], 16, -155497632);
+	      b = HH(b, c, d, a, m[i+10], 23, -1094730640);
+	      a = HH(a, b, c, d, m[i+13],  4,  681279174);
+	      d = HH(d, a, b, c, m[i+ 0], 11, -358537222);
+	      c = HH(c, d, a, b, m[i+ 3], 16, -722521979);
+	      b = HH(b, c, d, a, m[i+ 6], 23,  76029189);
+	      a = HH(a, b, c, d, m[i+ 9],  4, -640364487);
+	      d = HH(d, a, b, c, m[i+12], 11, -421815835);
+	      c = HH(c, d, a, b, m[i+15], 16,  530742520);
+	      b = HH(b, c, d, a, m[i+ 2], 23, -995338651);
+
+	      a = II(a, b, c, d, m[i+ 0],  6, -198630844);
+	      d = II(d, a, b, c, m[i+ 7], 10,  1126891415);
+	      c = II(c, d, a, b, m[i+14], 15, -1416354905);
+	      b = II(b, c, d, a, m[i+ 5], 21, -57434055);
+	      a = II(a, b, c, d, m[i+12],  6,  1700485571);
+	      d = II(d, a, b, c, m[i+ 3], 10, -1894986606);
+	      c = II(c, d, a, b, m[i+10], 15, -1051523);
+	      b = II(b, c, d, a, m[i+ 1], 21, -2054922799);
+	      a = II(a, b, c, d, m[i+ 8],  6,  1873313359);
+	      d = II(d, a, b, c, m[i+15], 10, -30611744);
+	      c = II(c, d, a, b, m[i+ 6], 15, -1560198380);
+	      b = II(b, c, d, a, m[i+13], 21,  1309151649);
+	      a = II(a, b, c, d, m[i+ 4],  6, -145523070);
+	      d = II(d, a, b, c, m[i+11], 10, -1120210379);
+	      c = II(c, d, a, b, m[i+ 2], 15,  718787259);
+	      b = II(b, c, d, a, m[i+ 9], 21, -343485551);
+
+	      a = (a + aa) >>> 0;
+	      b = (b + bb) >>> 0;
+	      c = (c + cc) >>> 0;
+	      d = (d + dd) >>> 0;
+	    }
+
+	    return crypt.endian([a, b, c, d]);
+	  };
+
+	  // Auxiliary functions
+	  md5._ff  = function (a, b, c, d, x, s, t) {
+	    var n = a + (b & c | ~b & d) + (x >>> 0) + t;
+	    return ((n << s) | (n >>> (32 - s))) + b;
+	  };
+	  md5._gg  = function (a, b, c, d, x, s, t) {
+	    var n = a + (b & d | c & ~d) + (x >>> 0) + t;
+	    return ((n << s) | (n >>> (32 - s))) + b;
+	  };
+	  md5._hh  = function (a, b, c, d, x, s, t) {
+	    var n = a + (b ^ c ^ d) + (x >>> 0) + t;
+	    return ((n << s) | (n >>> (32 - s))) + b;
+	  };
+	  md5._ii  = function (a, b, c, d, x, s, t) {
+	    var n = a + (c ^ (b | ~d)) + (x >>> 0) + t;
+	    return ((n << s) | (n >>> (32 - s))) + b;
+	  };
+
+	  // Package private blocksize
+	  md5._blocksize = 16;
+	  md5._digestsize = 16;
+
+	  module.exports = function (message, options) {
+	    if(typeof message == 'undefined')
+	      return;
+
+	    var digestbytes = crypt.wordsToBytes(md5(message, options));
+	    return options && options.asBytes ? digestbytes :
+	        options && options.asString ? bin.bytesToString(digestbytes) :
+	        crypt.bytesToHex(digestbytes);
+	  };
+
+	})();
+
+
+/***/ },
+/* 250 */
+/***/ function(module, exports) {
+
+	(function() {
+	  var base64map
+	      = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
+
+	  crypt = {
+	    // Bit-wise rotation left
+	    rotl: function(n, b) {
+	      return (n << b) | (n >>> (32 - b));
+	    },
+
+	    // Bit-wise rotation right
+	    rotr: function(n, b) {
+	      return (n << (32 - b)) | (n >>> b);
+	    },
+
+	    // Swap big-endian to little-endian and vice versa
+	    endian: function(n) {
+	      // If number given, swap endian
+	      if (n.constructor == Number) {
+	        return crypt.rotl(n, 8) & 0x00FF00FF | crypt.rotl(n, 24) & 0xFF00FF00;
+	      }
+
+	      // Else, assume array and swap all items
+	      for (var i = 0; i < n.length; i++)
+	        n[i] = crypt.endian(n[i]);
+	      return n;
+	    },
+
+	    // Generate an array of any length of random bytes
+	    randomBytes: function(n) {
+	      for (var bytes = []; n > 0; n--)
+	        bytes.push(Math.floor(Math.random() * 256));
+	      return bytes;
+	    },
+
+	    // Convert a byte array to big-endian 32-bit words
+	    bytesToWords: function(bytes) {
+	      for (var words = [], i = 0, b = 0; i < bytes.length; i++, b += 8)
+	        words[b >>> 5] |= bytes[i] << (24 - b % 32);
+	      return words;
+	    },
+
+	    // Convert big-endian 32-bit words to a byte array
+	    wordsToBytes: function(words) {
+	      for (var bytes = [], b = 0; b < words.length * 32; b += 8)
+	        bytes.push((words[b >>> 5] >>> (24 - b % 32)) & 0xFF);
+	      return bytes;
+	    },
+
+	    // Convert a byte array to a hex string
+	    bytesToHex: function(bytes) {
+	      for (var hex = [], i = 0; i < bytes.length; i++) {
+	        hex.push((bytes[i] >>> 4).toString(16));
+	        hex.push((bytes[i] & 0xF).toString(16));
+	      }
+	      return hex.join('');
+	    },
+
+	    // Convert a hex string to a byte array
+	    hexToBytes: function(hex) {
+	      for (var bytes = [], c = 0; c < hex.length; c += 2)
+	        bytes.push(parseInt(hex.substr(c, 2), 16));
+	      return bytes;
+	    },
+
+	    // Convert a byte array to a base-64 string
+	    bytesToBase64: function(bytes) {
+	      for (var base64 = [], i = 0; i < bytes.length; i += 3) {
+	        var triplet = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2];
+	        for (var j = 0; j < 4; j++)
+	          if (i * 8 + j * 6 <= bytes.length * 8)
+	            base64.push(base64map.charAt((triplet >>> 6 * (3 - j)) & 0x3F));
+	          else
+	            base64.push('=');
+	      }
+	      return base64.join('');
+	    },
+
+	    // Convert a base-64 string to a byte array
+	    base64ToBytes: function(base64) {
+	      // Remove non-base-64 characters
+	      base64 = base64.replace(/[^A-Z0-9+\/]/ig, '');
+
+	      for (var bytes = [], i = 0, imod4 = 0; i < base64.length;
+	          imod4 = ++i % 4) {
+	        if (imod4 == 0) continue;
+	        bytes.push(((base64map.indexOf(base64.charAt(i - 1))
+	            & (Math.pow(2, -2 * imod4 + 8) - 1)) << (imod4 * 2))
+	            | (base64map.indexOf(base64.charAt(i)) >>> (6 - imod4 * 2)));
+	      }
+	      return bytes;
+	    }
+	  };
+
+	  module.exports = crypt;
+	})();
+
+
+/***/ },
+/* 251 */
+/***/ function(module, exports) {
+
+	var charenc = {
+	  // UTF-8 encoding
+	  utf8: {
+	    // Convert a string to a byte array
+	    stringToBytes: function(str) {
+	      return charenc.bin.stringToBytes(unescape(encodeURIComponent(str)));
+	    },
+
+	    // Convert a byte array to a string
+	    bytesToString: function(bytes) {
+	      return decodeURIComponent(escape(charenc.bin.bytesToString(bytes)));
+	    }
+	  },
+
+	  // Binary encoding
+	  bin: {
+	    // Convert a string to a byte array
+	    stringToBytes: function(str) {
+	      for (var bytes = [], i = 0; i < str.length; i++)
+	        bytes.push(str.charCodeAt(i) & 0xFF);
+	      return bytes;
+	    },
+
+	    // Convert a byte array to a string
+	    bytesToString: function(bytes) {
+	      for (var str = [], i = 0; i < bytes.length; i++)
+	        str.push(String.fromCharCode(bytes[i]));
+	      return str.join('');
+	    }
+	  }
+	};
+
+	module.exports = charenc;
+
+
+/***/ },
+/* 252 */
+/***/ function(module, exports) {
+
+	/**
+	 * Determine if an object is Buffer
+	 *
+	 * Author:   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+	 * License:  MIT
+	 *
+	 * `npm install is-buffer`
+	 */
+
+	module.exports = function (obj) {
+	  return !!(
+	    obj != null &&
+	    obj.constructor &&
+	    typeof obj.constructor.isBuffer === 'function' &&
+	    obj.constructor.isBuffer(obj)
+	  )
+	}
+
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(254);
+
+/***/ },
+/* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	 * @providesModule ReactComponentWithPureRenderMixin
+	 */
+
+	'use strict';
+
+	var shallowCompare = __webpack_require__(255);
+
+	/**
+	 * If your React component's render function is "pure", e.g. it will render the
+	 * same result given the same props and state, provide this Mixin for a
+	 * considerable performance boost.
+	 *
+	 * Most React components have pure render functions.
+	 *
+	 * Example:
+	 *
+	 *   var ReactComponentWithPureRenderMixin =
+	 *     require('ReactComponentWithPureRenderMixin');
+	 *   React.createClass({
+	 *     mixins: [ReactComponentWithPureRenderMixin],
+	 *
+	 *     render: function() {
+	 *       return <div className={this.props.className}>foo</div>;
+	 *     }
+	 *   });
+	 *
+	 * Note: This only checks shallow equality for props and state. If these contain
+	 * complex data structures this mixin may have false-negatives for deeper
+	 * differences. Only mixin to components which have simple props and state, or
+	 * use `forceUpdate()` when you know deep data structures have changed.
+	 */
+	var ReactComponentWithPureRenderMixin = {
+	  shouldComponentUpdate: function (nextProps, nextState) {
+	    return shallowCompare(this, nextProps, nextState);
+	  }
+	};
+
+	module.exports = ReactComponentWithPureRenderMixin;
+
+/***/ },
+/* 255 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Copyright 2013-2015, Facebook, Inc.
+	 * All rights reserved.
+	 *
+	 * This source code is licensed under the BSD-style license found in the
+	 * LICENSE file in the root directory of this source tree. An additional grant
+	 * of patent rights can be found in the PATENTS file in the same directory.
+	 *
+	* @providesModule shallowCompare
+	*/
+
+	'use strict';
+
+	var shallowEqual = __webpack_require__(117);
+
+	/**
+	 * Does a shallow comparison for props and state.
+	 * See ReactComponentWithPureRenderMixin
+	 */
+	function shallowCompare(instance, nextProps, nextState) {
+	  return !shallowEqual(instance.props, nextProps) || !shallowEqual(instance.state, nextState);
+	}
+
+	module.exports = shallowCompare;
+
+/***/ },
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28321,7 +29253,7 @@
 	module.exports = Donate;
 
 /***/ },
-/* 247 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28370,7 +29302,7 @@
 	module.exports = About;
 
 /***/ },
-/* 248 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28419,7 +29351,7 @@
 	module.exports = Contact;
 
 /***/ },
-/* 249 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28430,11 +29362,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _SignUpBox = __webpack_require__(250);
+	var _SignUpBox = __webpack_require__(260);
 
 	var _SignUpBox2 = _interopRequireDefault(_SignUpBox);
 
-	var _SignUpContainer = __webpack_require__(255);
+	var _SignUpContainer = __webpack_require__(265);
 
 	var _SignUpContainer2 = _interopRequireDefault(_SignUpContainer);
 
@@ -28476,7 +29408,7 @@
 	module.exports = Join;
 
 /***/ },
-/* 250 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28489,15 +29421,15 @@
 
 	var _reactRouter = __webpack_require__(159);
 
-	var _FormList = __webpack_require__(251);
+	var _FormList = __webpack_require__(261);
 
 	var _FormList2 = _interopRequireDefault(_FormList);
 
-	var _Input = __webpack_require__(253);
+	var _Input = __webpack_require__(263);
 
 	var _Input2 = _interopRequireDefault(_Input);
 
-	var _Select = __webpack_require__(254);
+	var _Select = __webpack_require__(264);
 
 	var _Select2 = _interopRequireDefault(_Select);
 
@@ -28595,7 +29527,7 @@
 	module.exports = FormBox;
 
 /***/ },
-/* 251 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28606,7 +29538,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _FormItem = __webpack_require__(252);
+	var _FormItem = __webpack_require__(262);
 
 	var _FormItem2 = _interopRequireDefault(_FormItem);
 
@@ -28651,7 +29583,7 @@
 	module.exports = FormList;
 
 /***/ },
-/* 252 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28701,7 +29633,7 @@
 	module.exports = FormItem;
 
 /***/ },
-/* 253 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28759,7 +29691,7 @@
 	module.exports = Input;
 
 /***/ },
-/* 254 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -28833,7 +29765,7 @@
 	module.exports = Select;
 
 /***/ },
-/* 255 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28846,23 +29778,23 @@
 
 	var _reactRouter = __webpack_require__(159);
 
-	var _underscore = __webpack_require__(256);
+	var _underscore = __webpack_require__(266);
 
 	var _underscore2 = _interopRequireDefault(_underscore);
 
-	var _FormList = __webpack_require__(251);
+	var _FormList = __webpack_require__(261);
 
 	var _FormList2 = _interopRequireDefault(_FormList);
 
-	var _Input = __webpack_require__(253);
+	var _Input = __webpack_require__(263);
 
 	var _Input2 = _interopRequireDefault(_Input);
 
-	var _Select = __webpack_require__(254);
+	var _Select = __webpack_require__(264);
 
 	var _Select2 = _interopRequireDefault(_Select);
 
-	var _UserActions = __webpack_require__(257);
+	var _UserActions = __webpack_require__(267);
 
 	var _UserActions2 = _interopRequireDefault(_UserActions);
 
@@ -29147,7 +30079,7 @@
 	module.exports = SignUpContainer;
 
 /***/ },
-/* 256 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
@@ -30701,7 +31633,7 @@
 
 
 /***/ },
-/* 257 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30738,7 +31670,7 @@
 	module.exports = UserActions;
 
 /***/ },
-/* 258 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30749,11 +31681,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _NavLinkList = __webpack_require__(259);
+	var _NavLinkList = __webpack_require__(269);
 
 	var _NavLinkList2 = _interopRequireDefault(_NavLinkList);
 
-	var _ProfileAvatar = __webpack_require__(260);
+	var _ProfileAvatar = __webpack_require__(247);
 
 	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
 
@@ -30766,7 +31698,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var SideBarLinks = [{
-	    url: "profile",
+	    url: "dashboard",
 	    title: "Rodrigo Tellez",
 	    class: "SideBar-brand"
 	}, {
@@ -30781,16 +31713,18 @@
 	    url: "resources",
 	    title: "Resources",
 	    icon: "fa fa-book"
-	}, {
-	    url: "events",
-	    title: "Events",
-	    icon: "fa fa-calendar"
-	}, {
+	},
+	// {
+	//     url: "/resources/events",
+	//     title: "Events",
+	//     icon: "fa fa-calendar"
+	// },
+	{
 	    url: "settings",
 	    title: "Settings",
 	    icon: "fa fa-cogs"
 	}, {
-	    url: "log_out",
+	    url: "logout",
 	    title: "Log Out",
 	    icon: "fa fa-sign-out"
 	}];
@@ -30834,7 +31768,7 @@
 	module.exports = SideBar;
 
 /***/ },
-/* 259 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30907,801 +31841,7 @@
 	module.exports = NavLinkList;
 
 /***/ },
-/* 260 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactAvatar = __webpack_require__(261);
-
-	var _reactAvatar2 = _interopRequireDefault(_reactAvatar);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ProfileAvatar = function (_React$Component) {
-		_inherits(ProfileAvatar, _React$Component);
-
-		function ProfileAvatar() {
-			_classCallCheck(this, ProfileAvatar);
-
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(ProfileAvatar).apply(this, arguments));
-		}
-
-		_createClass(ProfileAvatar, [{
-			key: 'render',
-			value: function render() {
-				return _react2.default.createElement(_reactAvatar2.default, _extends({
-					size: 150,
-					name: this.props.name,
-					color: '#4285F4',
-					round: true
-				}, this.props));
-			}
-		}]);
-
-		return ProfileAvatar;
-	}(_react2.default.Component);
-
-	module.exports = ProfileAvatar;
-
-/***/ },
-/* 261 */
-/***/ function(module, exports, __webpack_require__) {
-
-	
-	module.exports = (function() {
-
-	  "use strict";
-
-	  var React = __webpack_require__(1);
-	  var md5 = __webpack_require__(262);
-	  var PureRenderMixin = __webpack_require__(266);
-
-	  var Avatar = React.createClass({displayName: "Avatar",
-	      mixins: [PureRenderMixin],
-	    getProtocol: function()
-	    {
-	      if( typeof window === 'undefined' )
-	        return 'https:';
-
-	      return window.location.protocol;
-	    },
-
-	    /**
-	     * Gravatar implementation
-	     * @param  {string}   email MD5 hash or plain text email address
-	     * @param  {int}   size
-	     * @param  {Function} cb
-	     * @return {void}
-	     */
-	    getGravatarURL: function(email, size, cb, tryNext )
-	    {
-	      var base = 'gravatar.com/avatar/<%=id%>?s=<%=size%>&d=404';
-
-	      // if email does not contain @ it's already an MD5 hash
-	      if( email.indexOf('@') > -1 )
-	        email = md5(email);
-
-	      var prefix = this.getProtocol() === 'https:' ? 'https://secure.' : 'http://';
-	      cb(prefix + this.parse(base, {id: email, size: size}));
-	    },
-
-	    /**
-	     * Facebook implementation
-	     * @param  {string|int}   id
-	     * @param  {int}   size
-	     * @param  {Function} cb
-	     * @return {void}
-	     */
-	    getFacebookURL: function( id, size, cb, tryNext )
-	    {
-	      var base = 'graph.facebook.com/<%=id%>/picture?width=<%=size%>';
-	      cb( this.getProtocol() + '//' + this.parse(base, {id: id, size: size}));
-	    },
-
-	    /**
-	     * Google+ implementation
-	     * @param  {int}   id
-	     * @param  {int}   size
-	     * @param  {Function} cb
-	     * @return {void}
-	     */
-	    getGoogleURL: function( id, size, cb, tryNext )
-	    {
-	      var base = 'picasaweb.google.com/data/entry/api/user/<%=id%>?alt=json';
-	      var url = this.getProtocol() + '//' + this.parse(base, {id: id});
-	      this.get(url, function(data) {
-	        var src = data.entry.gphoto$thumbnail.$t.replace('s64', 's' + size); // replace with the correct size
-	        cb(src);
-	      }, tryNext);
-	    },
-
-	    /**
-	     * Skype implementation
-	     * @param  {string}   id
-	     * @param  {int}   size
-	     * @param  {Function} cb
-	     * @return {void}
-	     */
-	    getSkypeURL: function( id, size, cb, tryNext )
-	    {
-	      var base = 'api.skype.com/users/<%=id%>/profile/avatar';
-	      cb(this.getProtocol() + '//' + this.parse(base, {id: id}));
-	    },
-
-	    /**
-	     * Replace variables in a string
-	     * @param  {string} value String that will be parsed
-	     * @param  {Object} variables    Key value object
-	     * @return {string}
-	     */
-	    parse: function( value, variables )
-	    {
-	      for(var variable in variables)
-	      {
-	        value = value.replace('<%=' + variable + '%>', variables[variable]);
-	      }
-	      return value;
-	    },
-
-	    /**
-	     * Return a random color
-	     * @return {string}
-	     */
-	    rndColor: function()
-	    {
-	      var colors = ['#d73d32', '#7e3794', '#4285f4', '#67ae3f', '#d61a7f', '#ff4080'];
-	      var index = Math.floor(Math.random()*colors.length);
-	      return colors[ index ];
-	    },
-
-	    /**
-	     * Convert a name into initials
-	     * @param {string} name
-	     * @return {string}
-	     */
-	    getInitials: function( name )
-	    {
-	      var parts = name.split(' ');
-	      var initials = '';
-	      for(var i=0 ; i < parts.length ; i++)
-	      {
-	        initials += parts[i].substr(0, 1).toUpperCase();
-	      }
-	      return initials;
-	    },
-
-	    /**
-	     * Do an ajax request to fetch remote data
-	     * @param  {string}   url
-	     * @param  {Function} cb
-	     * @return {void}
-	     */
-	    get: function(url, successCb, errorCb) {
-	      var request = new XMLHttpRequest();
-	      request.onreadystatechange = function() {
-	        if (request.readyState === 4) {
-	          if (request.status === 200) {
-	            var data = JSON.parse(request.responseText);
-	            successCb(data);
-	          } else {
-	            errorCb(request.status);
-	          }
-	        }
-	      };
-	      request.open('GET', url, true);
-	      request.send();
-	    },
-
-	    /**
-	     * Set the src attribute of the image element use to display the avatar
-	     * @param {string} src
-	     */
-	    setSrc: function( src )
-	    {
-	      if( src === null )
-	        return;
-
-	      this.setState({ src: src });
-	    },
-
-	    propTypes: {
-	      className: React.PropTypes.string,
-	      fgColor: React.PropTypes.string,
-	      color: React.PropTypes.string,
-	      name: React.PropTypes.string,
-	      value: React.PropTypes.string,
-	      email: React.PropTypes.string,
-	      facebookId: React.PropTypes.string,
-	      googleId: React.PropTypes.string,
-	      skypeID: React.PropTypes.string,
-	      round: React.PropTypes.bool,
-	      size: React.PropTypes.number
-	    },
-	    getInitialState: function() {
-	      return {
-	        src: null,
-	        value: null,
-	        triedFacebook: false,
-	        triedGoogle: false,
-	        triedSkype: false,
-	        triedGravatar: false,
-	      };
-	    },
-	    getDefaultProps: function() {
-	      return {
-	        fgColor: '#FFF',
-	        color: null,
-	        name: null,
-	        value: null,
-	        email: null,
-	        facebookId: null,
-	        skypeId: null,
-	        googleId: null,
-	        round: false,
-	        size: 100
-	      };
-	    },
-	    componentWillMount: function() {
-	      this.fetch();
-	    },
-	    componentWillReceiveProps: function(newProps) {
-	      /**
-	       * This component ignores changes in `this.props.src`, `this.props.name`, and
-	       * `this.props.value`. This lifecycle method will allow users to change the avatars name or
-	       * value.
-	       */
-	      if (newProps.src && newProps.src !== this.props.src) {
-	        this.setState({ src: newProps.src });
-	      } else if (newProps.name && newProps.name !== this.props.name) {
-	        this.setState({ value: this.getInitials(newProps.name) });
-	      } else if (newProps.value && newProps.value !== this.props.value) {
-	        this.setState({ value: newProps.value });
-	      }
-	    },
-	    fetch: function( e ) {
-	      var url = null;
-	      var self = this;
-	      var tryNext = function() {
-	        self.fetch();
-	      };
-
-	      // If fetch was triggered by img onError
-	      // then set state src back to null so getVisual will
-	      // automatically switch to drawn avatar if there is no other social ID available to try
-	      if( e && e.type === "error" )
-	        this.state.src = null;
-
-	      if( this.state.triedFacebook === false && ! this.state.url && this.props.facebookId) {
-	        this.state.triedFacebook = true;
-	        this.getFacebookURL( this.props.facebookId , this.props.size, this.setSrc, tryNext );
-	        return;
-	      }
-
-	      if( this.state.triedGoogle === false && ! this.state.url && this.props.googleId) {
-	        this.state.triedGoogle = true;
-	        this.getGoogleURL( this.props.googleId , this.props.size, this.setSrc, tryNext );
-	        return;
-	      }
-
-	      if( this.state.triedSkype === false && ! this.state.url && this.props.skypeId) {
-	        this.state.triedSkype = true;
-	        this.getSkypeURL( this.props.skypeId , this.props.size, this.setSrc, tryNext );
-	        return;
-	      }
-
-	      if( this.state.triedGravatar === false && ! this.state.url && this.props.email) {
-	        this.state.triedGravatar = true;
-	        this.getGravatarURL( this.props.email, this.props.size, this.setSrc, tryNext );
-	        return;
-	      }
-
-	      if( this.state.src )
-	        return;
-
-	      if( this.props.name )
-	        this.setState({ value: this.getInitials( this.props.name ) });
-
-	      if( !this.props.name && this.props.value )
-	        this.setState({ value: this.props.value });
-
-	      if( url === null && this.props.src) {
-	        this.setSrc( this.parse(this.props.src, {size: this.props.size}) );
-	        return;
-	      }
-	    },
-	    getVisual: function() {
-
-	      var imageStyle = {
-	        maxWidth: '100%',
-	        width: this.props.size,
-	        height: this.props.size,
-	        borderRadius: (this.props.round ? 500 : 0)
-	      };
-
-	      var initialsStyle = {
-	        background: this.props.color || this.rndColor(),
-	        width: this.props.size,
-	        height: this.props.size,
-	        font: Math.floor(this.props.size/3) + 'px/100px Helvetica, Arial, sans-serif',
-	        color: this.props.fgColor,
-	        textAlign: 'center',
-	        textTransform: 'uppercase',
-	        lineHeight: (this.props.size + Math.floor(this.props.size/10)) + 'px',
-	        borderRadius: (this.props.round ? 500 : 0)
-	      };
-
-	      if(this.state.src ) {
-	        return (
-	          /* jshint ignore:start */
-	          React.createElement("img", {width:  this.props.size, height:  this.props.size, style: imageStyle, src:  this.state.src, onError:  this.fetch})
-	          /* jshint ignore:end */
-	        );
-	      } else {
-	        return (
-	          /* jshint ignore:start */
-	          React.createElement("div", {style: initialsStyle },  this.state.value)
-	          /* jshint ignore:end */
-	        );
-	      }
-	    },
-	    render: function() {
-
-	      var hostStyle = {
-	        display: 'inline-block',
-	        width: this.props.size,
-	        height: this.props.size,
-	        borderRadius: (this.props.round ? 500 : 0)
-	      };
-	      var visual = this.getVisual();
-
-	      return (
-	        /* jshint ignore:start */
-	        React.createElement("div", {className: this.props.className, style: hostStyle }, 
-	          visual 
-	        )
-	        /* jshint ignore:end */
-	      );
-	    }
-	  });
-
-	  return Avatar;
-
-	})();
-
-
-/***/ },
-/* 262 */
-/***/ function(module, exports, __webpack_require__) {
-
-	(function(){
-	  var crypt = __webpack_require__(263),
-	      utf8 = __webpack_require__(264).utf8,
-	      isBuffer = __webpack_require__(265),
-	      bin = __webpack_require__(264).bin,
-
-	  // The core
-	  md5 = function (message, options) {
-	    // Convert to byte array
-	    if (message.constructor == String)
-	      if (options && options.encoding === 'binary')
-	        message = bin.stringToBytes(message);
-	      else
-	        message = utf8.stringToBytes(message);
-	    else if (isBuffer(message))
-	      message = Array.prototype.slice.call(message, 0);
-	    else if (!Array.isArray(message))
-	      message = message.toString();
-	    // else, assume byte array already
-
-	    var m = crypt.bytesToWords(message),
-	        l = message.length * 8,
-	        a =  1732584193,
-	        b = -271733879,
-	        c = -1732584194,
-	        d =  271733878;
-
-	    // Swap endian
-	    for (var i = 0; i < m.length; i++) {
-	      m[i] = ((m[i] <<  8) | (m[i] >>> 24)) & 0x00FF00FF |
-	             ((m[i] << 24) | (m[i] >>>  8)) & 0xFF00FF00;
-	    }
-
-	    // Padding
-	    m[l >>> 5] |= 0x80 << (l % 32);
-	    m[(((l + 64) >>> 9) << 4) + 14] = l;
-
-	    // Method shortcuts
-	    var FF = md5._ff,
-	        GG = md5._gg,
-	        HH = md5._hh,
-	        II = md5._ii;
-
-	    for (var i = 0; i < m.length; i += 16) {
-
-	      var aa = a,
-	          bb = b,
-	          cc = c,
-	          dd = d;
-
-	      a = FF(a, b, c, d, m[i+ 0],  7, -680876936);
-	      d = FF(d, a, b, c, m[i+ 1], 12, -389564586);
-	      c = FF(c, d, a, b, m[i+ 2], 17,  606105819);
-	      b = FF(b, c, d, a, m[i+ 3], 22, -1044525330);
-	      a = FF(a, b, c, d, m[i+ 4],  7, -176418897);
-	      d = FF(d, a, b, c, m[i+ 5], 12,  1200080426);
-	      c = FF(c, d, a, b, m[i+ 6], 17, -1473231341);
-	      b = FF(b, c, d, a, m[i+ 7], 22, -45705983);
-	      a = FF(a, b, c, d, m[i+ 8],  7,  1770035416);
-	      d = FF(d, a, b, c, m[i+ 9], 12, -1958414417);
-	      c = FF(c, d, a, b, m[i+10], 17, -42063);
-	      b = FF(b, c, d, a, m[i+11], 22, -1990404162);
-	      a = FF(a, b, c, d, m[i+12],  7,  1804603682);
-	      d = FF(d, a, b, c, m[i+13], 12, -40341101);
-	      c = FF(c, d, a, b, m[i+14], 17, -1502002290);
-	      b = FF(b, c, d, a, m[i+15], 22,  1236535329);
-
-	      a = GG(a, b, c, d, m[i+ 1],  5, -165796510);
-	      d = GG(d, a, b, c, m[i+ 6],  9, -1069501632);
-	      c = GG(c, d, a, b, m[i+11], 14,  643717713);
-	      b = GG(b, c, d, a, m[i+ 0], 20, -373897302);
-	      a = GG(a, b, c, d, m[i+ 5],  5, -701558691);
-	      d = GG(d, a, b, c, m[i+10],  9,  38016083);
-	      c = GG(c, d, a, b, m[i+15], 14, -660478335);
-	      b = GG(b, c, d, a, m[i+ 4], 20, -405537848);
-	      a = GG(a, b, c, d, m[i+ 9],  5,  568446438);
-	      d = GG(d, a, b, c, m[i+14],  9, -1019803690);
-	      c = GG(c, d, a, b, m[i+ 3], 14, -187363961);
-	      b = GG(b, c, d, a, m[i+ 8], 20,  1163531501);
-	      a = GG(a, b, c, d, m[i+13],  5, -1444681467);
-	      d = GG(d, a, b, c, m[i+ 2],  9, -51403784);
-	      c = GG(c, d, a, b, m[i+ 7], 14,  1735328473);
-	      b = GG(b, c, d, a, m[i+12], 20, -1926607734);
-
-	      a = HH(a, b, c, d, m[i+ 5],  4, -378558);
-	      d = HH(d, a, b, c, m[i+ 8], 11, -2022574463);
-	      c = HH(c, d, a, b, m[i+11], 16,  1839030562);
-	      b = HH(b, c, d, a, m[i+14], 23, -35309556);
-	      a = HH(a, b, c, d, m[i+ 1],  4, -1530992060);
-	      d = HH(d, a, b, c, m[i+ 4], 11,  1272893353);
-	      c = HH(c, d, a, b, m[i+ 7], 16, -155497632);
-	      b = HH(b, c, d, a, m[i+10], 23, -1094730640);
-	      a = HH(a, b, c, d, m[i+13],  4,  681279174);
-	      d = HH(d, a, b, c, m[i+ 0], 11, -358537222);
-	      c = HH(c, d, a, b, m[i+ 3], 16, -722521979);
-	      b = HH(b, c, d, a, m[i+ 6], 23,  76029189);
-	      a = HH(a, b, c, d, m[i+ 9],  4, -640364487);
-	      d = HH(d, a, b, c, m[i+12], 11, -421815835);
-	      c = HH(c, d, a, b, m[i+15], 16,  530742520);
-	      b = HH(b, c, d, a, m[i+ 2], 23, -995338651);
-
-	      a = II(a, b, c, d, m[i+ 0],  6, -198630844);
-	      d = II(d, a, b, c, m[i+ 7], 10,  1126891415);
-	      c = II(c, d, a, b, m[i+14], 15, -1416354905);
-	      b = II(b, c, d, a, m[i+ 5], 21, -57434055);
-	      a = II(a, b, c, d, m[i+12],  6,  1700485571);
-	      d = II(d, a, b, c, m[i+ 3], 10, -1894986606);
-	      c = II(c, d, a, b, m[i+10], 15, -1051523);
-	      b = II(b, c, d, a, m[i+ 1], 21, -2054922799);
-	      a = II(a, b, c, d, m[i+ 8],  6,  1873313359);
-	      d = II(d, a, b, c, m[i+15], 10, -30611744);
-	      c = II(c, d, a, b, m[i+ 6], 15, -1560198380);
-	      b = II(b, c, d, a, m[i+13], 21,  1309151649);
-	      a = II(a, b, c, d, m[i+ 4],  6, -145523070);
-	      d = II(d, a, b, c, m[i+11], 10, -1120210379);
-	      c = II(c, d, a, b, m[i+ 2], 15,  718787259);
-	      b = II(b, c, d, a, m[i+ 9], 21, -343485551);
-
-	      a = (a + aa) >>> 0;
-	      b = (b + bb) >>> 0;
-	      c = (c + cc) >>> 0;
-	      d = (d + dd) >>> 0;
-	    }
-
-	    return crypt.endian([a, b, c, d]);
-	  };
-
-	  // Auxiliary functions
-	  md5._ff  = function (a, b, c, d, x, s, t) {
-	    var n = a + (b & c | ~b & d) + (x >>> 0) + t;
-	    return ((n << s) | (n >>> (32 - s))) + b;
-	  };
-	  md5._gg  = function (a, b, c, d, x, s, t) {
-	    var n = a + (b & d | c & ~d) + (x >>> 0) + t;
-	    return ((n << s) | (n >>> (32 - s))) + b;
-	  };
-	  md5._hh  = function (a, b, c, d, x, s, t) {
-	    var n = a + (b ^ c ^ d) + (x >>> 0) + t;
-	    return ((n << s) | (n >>> (32 - s))) + b;
-	  };
-	  md5._ii  = function (a, b, c, d, x, s, t) {
-	    var n = a + (c ^ (b | ~d)) + (x >>> 0) + t;
-	    return ((n << s) | (n >>> (32 - s))) + b;
-	  };
-
-	  // Package private blocksize
-	  md5._blocksize = 16;
-	  md5._digestsize = 16;
-
-	  module.exports = function (message, options) {
-	    if(typeof message == 'undefined')
-	      return;
-
-	    var digestbytes = crypt.wordsToBytes(md5(message, options));
-	    return options && options.asBytes ? digestbytes :
-	        options && options.asString ? bin.bytesToString(digestbytes) :
-	        crypt.bytesToHex(digestbytes);
-	  };
-
-	})();
-
-
-/***/ },
-/* 263 */
-/***/ function(module, exports) {
-
-	(function() {
-	  var base64map
-	      = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/',
-
-	  crypt = {
-	    // Bit-wise rotation left
-	    rotl: function(n, b) {
-	      return (n << b) | (n >>> (32 - b));
-	    },
-
-	    // Bit-wise rotation right
-	    rotr: function(n, b) {
-	      return (n << (32 - b)) | (n >>> b);
-	    },
-
-	    // Swap big-endian to little-endian and vice versa
-	    endian: function(n) {
-	      // If number given, swap endian
-	      if (n.constructor == Number) {
-	        return crypt.rotl(n, 8) & 0x00FF00FF | crypt.rotl(n, 24) & 0xFF00FF00;
-	      }
-
-	      // Else, assume array and swap all items
-	      for (var i = 0; i < n.length; i++)
-	        n[i] = crypt.endian(n[i]);
-	      return n;
-	    },
-
-	    // Generate an array of any length of random bytes
-	    randomBytes: function(n) {
-	      for (var bytes = []; n > 0; n--)
-	        bytes.push(Math.floor(Math.random() * 256));
-	      return bytes;
-	    },
-
-	    // Convert a byte array to big-endian 32-bit words
-	    bytesToWords: function(bytes) {
-	      for (var words = [], i = 0, b = 0; i < bytes.length; i++, b += 8)
-	        words[b >>> 5] |= bytes[i] << (24 - b % 32);
-	      return words;
-	    },
-
-	    // Convert big-endian 32-bit words to a byte array
-	    wordsToBytes: function(words) {
-	      for (var bytes = [], b = 0; b < words.length * 32; b += 8)
-	        bytes.push((words[b >>> 5] >>> (24 - b % 32)) & 0xFF);
-	      return bytes;
-	    },
-
-	    // Convert a byte array to a hex string
-	    bytesToHex: function(bytes) {
-	      for (var hex = [], i = 0; i < bytes.length; i++) {
-	        hex.push((bytes[i] >>> 4).toString(16));
-	        hex.push((bytes[i] & 0xF).toString(16));
-	      }
-	      return hex.join('');
-	    },
-
-	    // Convert a hex string to a byte array
-	    hexToBytes: function(hex) {
-	      for (var bytes = [], c = 0; c < hex.length; c += 2)
-	        bytes.push(parseInt(hex.substr(c, 2), 16));
-	      return bytes;
-	    },
-
-	    // Convert a byte array to a base-64 string
-	    bytesToBase64: function(bytes) {
-	      for (var base64 = [], i = 0; i < bytes.length; i += 3) {
-	        var triplet = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2];
-	        for (var j = 0; j < 4; j++)
-	          if (i * 8 + j * 6 <= bytes.length * 8)
-	            base64.push(base64map.charAt((triplet >>> 6 * (3 - j)) & 0x3F));
-	          else
-	            base64.push('=');
-	      }
-	      return base64.join('');
-	    },
-
-	    // Convert a base-64 string to a byte array
-	    base64ToBytes: function(base64) {
-	      // Remove non-base-64 characters
-	      base64 = base64.replace(/[^A-Z0-9+\/]/ig, '');
-
-	      for (var bytes = [], i = 0, imod4 = 0; i < base64.length;
-	          imod4 = ++i % 4) {
-	        if (imod4 == 0) continue;
-	        bytes.push(((base64map.indexOf(base64.charAt(i - 1))
-	            & (Math.pow(2, -2 * imod4 + 8) - 1)) << (imod4 * 2))
-	            | (base64map.indexOf(base64.charAt(i)) >>> (6 - imod4 * 2)));
-	      }
-	      return bytes;
-	    }
-	  };
-
-	  module.exports = crypt;
-	})();
-
-
-/***/ },
-/* 264 */
-/***/ function(module, exports) {
-
-	var charenc = {
-	  // UTF-8 encoding
-	  utf8: {
-	    // Convert a string to a byte array
-	    stringToBytes: function(str) {
-	      return charenc.bin.stringToBytes(unescape(encodeURIComponent(str)));
-	    },
-
-	    // Convert a byte array to a string
-	    bytesToString: function(bytes) {
-	      return decodeURIComponent(escape(charenc.bin.bytesToString(bytes)));
-	    }
-	  },
-
-	  // Binary encoding
-	  bin: {
-	    // Convert a string to a byte array
-	    stringToBytes: function(str) {
-	      for (var bytes = [], i = 0; i < str.length; i++)
-	        bytes.push(str.charCodeAt(i) & 0xFF);
-	      return bytes;
-	    },
-
-	    // Convert a byte array to a string
-	    bytesToString: function(bytes) {
-	      for (var str = [], i = 0; i < bytes.length; i++)
-	        str.push(String.fromCharCode(bytes[i]));
-	      return str.join('');
-	    }
-	  }
-	};
-
-	module.exports = charenc;
-
-
-/***/ },
-/* 265 */
-/***/ function(module, exports) {
-
-	/**
-	 * Determine if an object is Buffer
-	 *
-	 * Author:   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
-	 * License:  MIT
-	 *
-	 * `npm install is-buffer`
-	 */
-
-	module.exports = function (obj) {
-	  return !!(
-	    obj != null &&
-	    obj.constructor &&
-	    typeof obj.constructor.isBuffer === 'function' &&
-	    obj.constructor.isBuffer(obj)
-	  )
-	}
-
-
-/***/ },
-/* 266 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__(267);
-
-/***/ },
-/* 267 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	 * @providesModule ReactComponentWithPureRenderMixin
-	 */
-
-	'use strict';
-
-	var shallowCompare = __webpack_require__(268);
-
-	/**
-	 * If your React component's render function is "pure", e.g. it will render the
-	 * same result given the same props and state, provide this Mixin for a
-	 * considerable performance boost.
-	 *
-	 * Most React components have pure render functions.
-	 *
-	 * Example:
-	 *
-	 *   var ReactComponentWithPureRenderMixin =
-	 *     require('ReactComponentWithPureRenderMixin');
-	 *   React.createClass({
-	 *     mixins: [ReactComponentWithPureRenderMixin],
-	 *
-	 *     render: function() {
-	 *       return <div className={this.props.className}>foo</div>;
-	 *     }
-	 *   });
-	 *
-	 * Note: This only checks shallow equality for props and state. If these contain
-	 * complex data structures this mixin may have false-negatives for deeper
-	 * differences. Only mixin to components which have simple props and state, or
-	 * use `forceUpdate()` when you know deep data structures have changed.
-	 */
-	var ReactComponentWithPureRenderMixin = {
-	  shouldComponentUpdate: function (nextProps, nextState) {
-	    return shallowCompare(this, nextProps, nextState);
-	  }
-	};
-
-	module.exports = ReactComponentWithPureRenderMixin;
-
-/***/ },
-/* 268 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 *
-	* @providesModule shallowCompare
-	*/
-
-	'use strict';
-
-	var shallowEqual = __webpack_require__(117);
-
-	/**
-	 * Does a shallow comparison for props and state.
-	 * See ReactComponentWithPureRenderMixin
-	 */
-	function shallowCompare(instance, nextProps, nextState) {
-	  return !shallowEqual(instance.props, nextProps) || !shallowEqual(instance.state, nextState);
-	}
-
-	module.exports = shallowCompare;
-
-/***/ },
-/* 269 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31778,12 +31918,9 @@
 					null,
 					_react2.default.createElement(
 						'div',
-						{ className: 'page-content-wrapper' },
+						null,
 						this.props.children
-					),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('br', null),
-					_react2.default.createElement('br', null)
+					)
 				);
 			}
 		}]);
@@ -31794,7 +31931,7 @@
 	module.exports = User;
 
 /***/ },
-/* 270 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31805,19 +31942,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ProfileAvatar = __webpack_require__(260);
+	var _ProfileAvatar = __webpack_require__(247);
 
 	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
 
-	var _BioInfo = __webpack_require__(271);
+	var _BioInfo = __webpack_require__(272);
 
 	var _BioInfo2 = _interopRequireDefault(_BioInfo);
 
-	var _Interests = __webpack_require__(272);
+	var _Interests = __webpack_require__(273);
 
 	var _Interests2 = _interopRequireDefault(_Interests);
 
-	var _BioInfoCardList = __webpack_require__(273);
+	var _BioInfoCardList = __webpack_require__(274);
 
 	var _BioInfoCardList2 = _interopRequireDefault(_BioInfoCardList);
 
@@ -31944,7 +32081,7 @@
 	module.exports = Profile;
 
 /***/ },
-/* 271 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31999,7 +32136,7 @@
 	module.exports = Bio;
 
 /***/ },
-/* 272 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32108,7 +32245,7 @@
 	module.exports = Interests;
 
 /***/ },
-/* 273 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32119,7 +32256,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _BioInfoCard = __webpack_require__(274);
+	var _BioInfoCard = __webpack_require__(275);
 
 	var _BioInfoCard2 = _interopRequireDefault(_BioInfoCard);
 
@@ -32160,7 +32297,7 @@
 	module.exports = BioInfoCardList;
 
 /***/ },
-/* 274 */
+/* 275 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32171,7 +32308,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ProfileAvatar = __webpack_require__(260);
+	var _ProfileAvatar = __webpack_require__(247);
 
 	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
 
@@ -32267,7 +32404,7 @@
 	module.exports = BioInfoCard;
 
 /***/ },
-/* 275 */
+/* 276 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32366,8 +32503,16 @@
 										{ className: "Dashboard__Sub-Heading" },
 										"Email"
 									),
-									_react2.default.createElement("i", { className: "fa fa-envelope" }),
-									" example@gmail.com"
+									_react2.default.createElement(
+										"ul",
+										{ className: "fa-ul" },
+										_react2.default.createElement(
+											"li",
+											null,
+											_react2.default.createElement("i", { className: "fa-li fa fa-envelope" }),
+											" example@gmail.com"
+										)
+									)
 								),
 								_react2.default.createElement(
 									"div",
@@ -32377,8 +32522,16 @@
 										{ className: "Dashboard__Sub-Heading" },
 										"Phone"
 									),
-									_react2.default.createElement("i", { className: "fa fa-phone" }),
-									" (209) 555 - 5555"
+									_react2.default.createElement(
+										"ul",
+										{ className: "fa-ul" },
+										_react2.default.createElement(
+											"li",
+											null,
+											_react2.default.createElement("i", { className: "fa-li fa fa-phone" }),
+											" (209) 555 - 5555"
+										)
+									)
 								),
 								_react2.default.createElement(
 									"div",
@@ -32422,8 +32575,16 @@
 										{ className: "Dashboard__Sub-Heading" },
 										"Websites"
 									),
-									_react2.default.createElement("i", { className: "fa fa-globe" }),
-									" www.example.com"
+									_react2.default.createElement(
+										"ul",
+										{ className: "fa-ul" },
+										_react2.default.createElement(
+											"li",
+											null,
+											_react2.default.createElement("i", { className: "fa-li fa fa-globe" }),
+											" www.example.com"
+										)
+									)
 								),
 								_react2.default.createElement(
 									"div",
@@ -32540,7 +32701,320 @@
 	module.exports = Dashboard;
 
 /***/ },
-/* 276 */
+/* 277 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Settings = function (_Component) {
+		_inherits(Settings, _Component);
+
+		function Settings() {
+			_classCallCheck(this, Settings);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Settings).apply(this, arguments));
+		}
+
+		_createClass(Settings, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"div",
+					{ className: "display--in-center" },
+					_react2.default.createElement(
+						"h1",
+						null,
+						" Hello from Settings.js! "
+					)
+				);
+			}
+		}]);
+
+		return Settings;
+	}(_react.Component);
+
+	module.exports = Settings;
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var LogOut = function (_Component) {
+		_inherits(LogOut, _Component);
+
+		function LogOut() {
+			_classCallCheck(this, LogOut);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(LogOut).apply(this, arguments));
+		}
+
+		_createClass(LogOut, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"div",
+					{ className: "display--in-center" },
+					_react2.default.createElement(
+						"h1",
+						null,
+						" Hello from LogOut.js! "
+					)
+				);
+			}
+		}]);
+
+		return LogOut;
+	}(_react.Component);
+
+	module.exports = LogOut;
+
+/***/ },
+/* 279 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Resources = function (_Component) {
+		_inherits(Resources, _Component);
+
+		function Resources() {
+			_classCallCheck(this, Resources);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Resources).apply(this, arguments));
+		}
+
+		_createClass(Resources, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"div",
+					{ className: "container Resources" },
+					this.props.children
+				);
+			}
+		}]);
+
+		return Resources;
+	}(_react.Component);
+
+	module.exports = Resources;
+
+/***/ },
+/* 280 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(159);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ListResources = function (_Component) {
+		_inherits(ListResources, _Component);
+
+		function ListResources() {
+			_classCallCheck(this, ListResources);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(ListResources).apply(this, arguments));
+		}
+
+		_createClass(ListResources, [{
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					_react2.default.createElement(
+						'div',
+						{ className: 'Tile__Container' },
+						_react2.default.createElement(
+							'div',
+							{ className: 'Tile__Wrapper' },
+							_react2.default.createElement(
+								'div',
+								{ className: 'Tile__Row' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'Tile__Content' },
+									_react2.default.createElement(
+										_reactRouter.Link,
+										{ to: '/resources/network' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'Tile__Content--Icon' },
+											_react2.default.createElement('i', { className: 'fa fa-users fa-5x' })
+										),
+										_react2.default.createElement(
+											'div',
+											{ className: 'Tile__Content--Label' },
+											'Network'
+										)
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'Tile__Content' },
+									_react2.default.createElement(
+										_reactRouter.Link,
+										{ to: '/resources/scholarships' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'Tile__Content--Icon' },
+											_react2.default.createElement('i', { className: 'fa fa-usd fa-5x' })
+										),
+										_react2.default.createElement(
+											'div',
+											{ className: 'Tile__Content--Label' },
+											'Scholarships'
+										)
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'Tile__Content' },
+									_react2.default.createElement(
+										_reactRouter.Link,
+										{ to: '/resources/internships' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'Tile__Content--Icon' },
+											_react2.default.createElement('i', { className: 'fa fa-mortar-board fa-5x' })
+										),
+										_react2.default.createElement(
+											'div',
+											{ className: 'Tile__Content--Label' },
+											'Internships'
+										)
+									)
+								)
+							),
+							_react2.default.createElement(
+								'div',
+								{ className: 'Tile__Row' },
+								_react2.default.createElement(
+									'div',
+									{ className: 'Tile__Content' },
+									_react2.default.createElement(
+										_reactRouter.Link,
+										{ to: '/resources/events' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'Tile__Content--Icon' },
+											_react2.default.createElement('i', { className: 'fa fa-calendar fa-5x' })
+										),
+										_react2.default.createElement(
+											'div',
+											{ className: 'Tile__Content--Label' },
+											'Events'
+										)
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'Tile__Content' },
+									_react2.default.createElement(
+										_reactRouter.Link,
+										{ to: '/resources' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'Tile__Content--Icon' },
+											_react2.default.createElement('i', { className: 'fa fa-5x' })
+										),
+										_react2.default.createElement(
+											'div',
+											{ className: 'Tile__Content--Label' },
+											'Label'
+										)
+									)
+								),
+								_react2.default.createElement(
+									'div',
+									{ className: 'Tile__Content' },
+									_react2.default.createElement(
+										_reactRouter.Link,
+										{ to: '/resources' },
+										_react2.default.createElement(
+											'div',
+											{ className: 'Tile__Content--Icon' },
+											_react2.default.createElement('i', { className: 'fa fa-5x' })
+										),
+										_react2.default.createElement(
+											'div',
+											{ className: 'Tile__Content--Label' },
+											'Label'
+										)
+									)
+								)
+							)
+						)
+					)
+				);
+			}
+		}]);
+
+		return ListResources;
+	}(_react.Component);
+
+	module.exports = ListResources;
+
+/***/ },
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32555,11 +33029,11 @@
 
 	var _faker2 = _interopRequireDefault(_faker);
 
-	var _SearchBox = __webpack_require__(277);
+	var _SearchBox = __webpack_require__(282);
 
 	var _SearchBox2 = _interopRequireDefault(_SearchBox);
 
-	var _BioInfoCardList = __webpack_require__(273);
+	var _BioInfoCardList = __webpack_require__(274);
 
 	var _BioInfoCardList2 = _interopRequireDefault(_BioInfoCardList);
 
@@ -32657,7 +33131,7 @@
 	module.exports = Network;
 
 /***/ },
-/* 277 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32726,7 +33200,7 @@
 	module.exports = SearchBox;
 
 /***/ },
-/* 278 */
+/* 283 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -32745,44 +33219,46 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Resources = function (_Component) {
-		_inherits(Resources, _Component);
+	var Scholarships = function (_Component) {
+		_inherits(Scholarships, _Component);
 
-		function Resources() {
-			_classCallCheck(this, Resources);
+		function Scholarships() {
+			_classCallCheck(this, Scholarships);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(Resources).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Scholarships).apply(this, arguments));
 		}
 
-		_createClass(Resources, [{
+		_createClass(Scholarships, [{
 			key: "render",
 			value: function render() {
 				return _react2.default.createElement(
 					"div",
-					{ className: "container" },
-					this.props.children
+					{ className: "display--in-center" },
+					_react2.default.createElement(
+						"h1",
+						null,
+						" Hello from Scholarships.js! "
+					)
 				);
 			}
 		}]);
 
-		return Resources;
+		return Scholarships;
 	}(_react.Component);
 
-	module.exports = Resources;
+	module.exports = Scholarships;
 
 /***/ },
-/* 279 */
+/* 284 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	"use strict";
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRouter = __webpack_require__(159);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32792,151 +33268,86 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var ListResources = function (_Component) {
-		_inherits(ListResources, _Component);
+	var Internships = function (_Component) {
+		_inherits(Internships, _Component);
 
-		function ListResources() {
-			_classCallCheck(this, ListResources);
+		function Internships() {
+			_classCallCheck(this, Internships);
 
-			return _possibleConstructorReturn(this, Object.getPrototypeOf(ListResources).apply(this, arguments));
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Internships).apply(this, arguments));
 		}
 
-		_createClass(ListResources, [{
-			key: 'render',
+		_createClass(Internships, [{
+			key: "render",
 			value: function render() {
 				return _react2.default.createElement(
-					'div',
-					null,
+					"div",
+					{ className: "display--in-center" },
 					_react2.default.createElement(
-						'div',
-						{ className: 'list-group' },
-						_react2.default.createElement(
-							_reactRouter.Link,
-							{ to: '/resources/network', className: 'list-group-item' },
-							'Network'
-						),
-						_react2.default.createElement(
-							_reactRouter.Link,
-							{ to: '/resources/scholarships', className: 'list-group-item' },
-							'Scholarships'
-						),
-						_react2.default.createElement(
-							_reactRouter.Link,
-							{ to: '/resources/internships', className: 'list-group-item' },
-							'Internships'
-						)
-					),
-					_react2.default.createElement(
-						'div',
-						{ className: 'Tile__Container' },
-						_react2.default.createElement(
-							'div',
-							{ className: 'Tile__Wrapper' },
-							_react2.default.createElement(
-								'div',
-								{ className: 'Tile__Row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'Tile__Content' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'Tile__Content--Icon' },
-										_react2.default.createElement('i', { className: 'fa fa-users fa-5x' })
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'Tile__Content--Label' },
-										'Network'
-									)
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'Tile__Content' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'Tile__Content--Icon' },
-										_react2.default.createElement('i', { className: 'fa fa-usd fa-5x' })
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'Tile__Content--Label' },
-										'Scholarships'
-									)
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'Tile__Content' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'Tile__Content--Icon' },
-										_react2.default.createElement('i', { className: 'fa fa-mortar-board fa-5x' })
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'Tile__Content--Label' },
-										'Internships'
-									)
-								)
-							),
-							_react2.default.createElement(
-								'div',
-								{ className: 'Tile__Row' },
-								_react2.default.createElement(
-									'div',
-									{ className: 'Tile__Content' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'Tile__Content--Icon' },
-										_react2.default.createElement('i', { className: 'fa fa-calendar fa-5x' })
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'Tile__Content--Label' },
-										'Events'
-									)
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'Tile__Content' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'Tile__Content--Icon' },
-										_react2.default.createElement('i', { className: 'fa fa-5x' })
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'Tile__Content--Label' },
-										'Label'
-									)
-								),
-								_react2.default.createElement(
-									'div',
-									{ className: 'Tile__Content' },
-									_react2.default.createElement(
-										'div',
-										{ className: 'Tile__Content--Icon' },
-										_react2.default.createElement('i', { className: 'fa fa-5x' })
-									),
-									_react2.default.createElement(
-										'div',
-										{ className: 'Tile__Content--Label' },
-										'Label'
-									)
-								)
-							)
-						)
+						"h1",
+						null,
+						" Hello from Internships.js! "
 					)
 				);
 			}
 		}]);
 
-		return ListResources;
+		return Internships;
 	}(_react.Component);
 
-	module.exports = ListResources;
+	module.exports = Internships;
 
 /***/ },
-/* 280 */
+/* 285 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Events = function (_Component) {
+		_inherits(Events, _Component);
+
+		function Events() {
+			_classCallCheck(this, Events);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Events).apply(this, arguments));
+		}
+
+		_createClass(Events, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"div",
+					{ className: "display--in-center" },
+					_react2.default.createElement(
+						"h1",
+						null,
+						" Hello from Events.js! "
+					)
+				);
+			}
+		}]);
+
+		return Events;
+	}(_react.Component);
+
+	module.exports = Events;
+
+/***/ },
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32949,27 +33360,27 @@
 
 	var _reactRouter = __webpack_require__(159);
 
-	var _MessageItem = __webpack_require__(281);
+	var _MessageItem = __webpack_require__(287);
 
 	var _MessageItem2 = _interopRequireDefault(_MessageItem);
 
-	var _MessageInput = __webpack_require__(282);
+	var _MessageInput = __webpack_require__(288);
 
 	var _MessageInput2 = _interopRequireDefault(_MessageInput);
 
-	var _MessageItemList = __webpack_require__(283);
+	var _MessageItemList = __webpack_require__(289);
 
 	var _MessageItemList2 = _interopRequireDefault(_MessageItemList);
 
-	var _Inbox = __webpack_require__(284);
+	var _Inbox = __webpack_require__(290);
 
 	var _Inbox2 = _interopRequireDefault(_Inbox);
 
-	var _Sent = __webpack_require__(285);
+	var _Sent = __webpack_require__(291);
 
 	var _Sent2 = _interopRequireDefault(_Sent);
 
-	var _Trash = __webpack_require__(286);
+	var _Trash = __webpack_require__(292);
 
 	var _Trash2 = _interopRequireDefault(_Trash);
 
@@ -33098,7 +33509,7 @@
 	module.exports = Inbox;
 
 /***/ },
-/* 281 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33111,7 +33522,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _ProfileAvatar = __webpack_require__(260);
+	var _ProfileAvatar = __webpack_require__(247);
 
 	var _ProfileAvatar2 = _interopRequireDefault(_ProfileAvatar);
 
@@ -33196,7 +33607,7 @@
 	module.exports = MessageItem;
 
 /***/ },
-/* 282 */
+/* 288 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -33241,7 +33652,7 @@
 	module.exports = MessageInput;
 
 /***/ },
-/* 283 */
+/* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33252,7 +33663,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _MessageItem = __webpack_require__(281);
+	var _MessageItem = __webpack_require__(287);
 
 	var _MessageItem2 = _interopRequireDefault(_MessageItem);
 
@@ -33324,7 +33735,7 @@
 	module.exports = MessageItemList;
 
 /***/ },
-/* 284 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -33337,15 +33748,15 @@
 
 	var _reactRouter = __webpack_require__(159);
 
-	var _MessageItem = __webpack_require__(281);
+	var _MessageItem = __webpack_require__(287);
 
 	var _MessageItem2 = _interopRequireDefault(_MessageItem);
 
-	var _MessageInput = __webpack_require__(282);
+	var _MessageInput = __webpack_require__(288);
 
 	var _MessageInput2 = _interopRequireDefault(_MessageInput);
 
-	var _MessageItemList = __webpack_require__(283);
+	var _MessageItemList = __webpack_require__(289);
 
 	var _MessageItemList2 = _interopRequireDefault(_MessageItemList);
 
@@ -33425,7 +33836,7 @@
 	module.exports = Inbox;
 
 /***/ },
-/* 285 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -33474,7 +33885,7 @@
 	module.exports = Sent;
 
 /***/ },
-/* 286 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -33523,11 +33934,11 @@
 	module.exports = Trash;
 
 /***/ },
-/* 287 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*** IMPORTS FROM imports-loader ***/
-	var jQuery = __webpack_require__(287);
+	var jQuery = __webpack_require__(293);
 
 	/*!
 	 * jQuery JavaScript Library v2.2.1
@@ -43364,7 +43775,7 @@
 
 
 /***/ },
-/* 288 */
+/* 294 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -43953,7 +44364,7 @@
 	}(jQuery);
 
 /***/ },
-/* 289 */
+/* 295 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin

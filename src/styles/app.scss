@@ -6,12 +6,20 @@
 @import './Network.scss';
 @import './Tile.scss';
 @import './Footer.scss';
+@import './ShowcasePanel';
 
+html{
+	position: relative;
+	min-height: 100%;
+}
 
 body{
 	// padding-top: $navbar-height;
 	font-family: 'Lato', sans-serif;
+	margin-bottom: $footer-height;
 }
+
+// .page-content-wrapper{}
 
 #App{
 	// min-height: 100%;
@@ -215,6 +223,14 @@ img{
 	}
 	&__Sub-Content{
 		margin-bottom: 2em;
+	}
+}
+
+// Resources
+.Resources{
+	margin-top: 30px;
+	& .Tile__Content a{
+		color: darken(#F3F5F6,45%);
 	}
 }
 

@@ -20,11 +20,16 @@ import Sidebar from './Components/Views/Sidebar'
 import User from './Components/User/User'
 import Profile from './Components/User/Profile'
 import Dashboard from './Components/User/Dashboard'
-import Network from './Components/User/Network'
+import Settings from './Components/User/Settings'
+import Logout from './Components/User/Logout'
 
 // USER Views
 import Resources from './Components/User/Views/Resources'
 import ListResources from './Components/User/Views/ListResources'
+import Network from './Components/User/Views/Resources/Network'
+import Scholarships from './Components/User/Views/Resources/Scholarships'
+import Internships from './Components/User/Views/Resources/Internships'
+import Events from './Components/User/Views/Resources/Events'
 
 // INBOX
 import MailBox from './Components/Mail/MailBox'
@@ -50,7 +55,12 @@ module.exports = (
         <Route path="/resources" component={Resources}>
             <IndexRoute component={ListResources} />
             <Route path="network" component={Network} />
+            <Route path="scholarships" component={Scholarships} />
+            <Route path="internships" component={Internships} />
+            <Route path="events" component={Events} />
         </Route>
+        <Route path="/settings" component={Settings} />
+        <Route path="/logout" component={Logout} />
     </Route>
     <Route path="*" component={NoMatch_404} />
   </Route>

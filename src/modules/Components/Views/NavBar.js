@@ -30,7 +30,7 @@ class NavBar extends React.Component {
 				</button>
 
 				<a className="navbar-brand" href="/">
-				<img src="/img/MESA-logo.jpg"/>
+				<img src="/img/SJDC_MESA_Logo.png"/>
 				</a>
 				</div>
 

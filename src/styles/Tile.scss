@@ -65,6 +65,12 @@ $border-radius: 1em;
 		
 		&:first-child{border-left: $border-size solid $border-color;}
 		&:hover{background-color: #ADCBD9;}
+		& a{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+		}
 		&--Icon{
 			margin-bottom: 1em;
 		}

@@ -1,15 +1,10 @@
 // Footer
 .Footer{
-	// position: absolute;
-	// left: 0;
-	// bottom: 0;
-	
+	height: $footer-height;
+	position: absolute;
+	bottom: 0;
 	width: 100%;
-
-	// height: $footer-height;
-	
 	background-color: #323A45;
-
 	color: whitesmoke;
 
 	&__Logo{
@@ -18,10 +13,15 @@
 	&__Heading{
 		font-size: 1.1em;
 		text-transform: uppercase;
+
 	}
 	&__Item{
 		& p, & address {
 			font-size: 10px;
+		}
+		& hr{
+			margin-top: 10px;
+			margin-bottom: 10px;
 		}
 	}
 	&__Newsletter{

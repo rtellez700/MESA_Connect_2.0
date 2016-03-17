@@ -1499,24 +1499,24 @@ pre {
   max-height: 340px;
   overflow-y: scroll; }
 
-.container, .JoinBox__container {
+.container, .ShowcasePanel .Media, .JoinBox__container {
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px; }
-  .container:before, .JoinBox__container:before, .container:after, .JoinBox__container:after {
+  .container:before, .ShowcasePanel .Media:before, .JoinBox__container:before, .container:after, .ShowcasePanel .Media:after, .JoinBox__container:after {
     content: " ";
     display: table; }
-  .container:after, .JoinBox__container:after {
+  .container:after, .ShowcasePanel .Media:after, .JoinBox__container:after {
     clear: both; }
   @media (min-width: 768px) {
-    .container, .JoinBox__container {
+    .container, .ShowcasePanel .Media, .JoinBox__container {
       width: 750px; } }
   @media (min-width: 992px) {
-    .container, .JoinBox__container {
+    .container, .ShowcasePanel .Media, .JoinBox__container {
       width: 970px; } }
   @media (min-width: 1200px) {
-    .container, .JoinBox__container {
+    .container, .ShowcasePanel .Media, .JoinBox__container {
       width: 1170px; } }
 
 .container-fluid {
@@ -3656,7 +3656,7 @@ tbody.collapse.in {
 
 .navbar {
   position: relative;
-  min-height: 90px;
+  min-height: 100px;
   margin-bottom: 20px;
   border: 1px solid transparent; }
   .navbar:before, .navbar:after {
@@ -3719,15 +3719,15 @@ tbody.collapse.in {
     .navbar-fixed-bottom .navbar-collapse {
       max-height: 200px; } }
 
-.container > .navbar-header, .JoinBox__container > .navbar-header,
-.container > .navbar-collapse, .JoinBox__container > .navbar-collapse,
+.container > .navbar-header, .ShowcasePanel .Media > .navbar-header, .JoinBox__container > .navbar-header,
+.container > .navbar-collapse, .ShowcasePanel .Media > .navbar-collapse, .JoinBox__container > .navbar-collapse,
 .container-fluid > .navbar-header,
 .container-fluid > .navbar-collapse {
   margin-right: -15px;
   margin-left: -15px; }
   @media (min-width: 995px) {
-    .container > .navbar-header, .JoinBox__container > .navbar-header,
-    .container > .navbar-collapse, .JoinBox__container > .navbar-collapse,
+    .container > .navbar-header, .ShowcasePanel .Media > .navbar-header, .JoinBox__container > .navbar-header,
+    .container > .navbar-collapse, .ShowcasePanel .Media > .navbar-collapse, .JoinBox__container > .navbar-collapse,
     .container-fluid > .navbar-header,
     .container-fluid > .navbar-collapse {
       margin-right: 0;
@@ -3762,16 +3762,16 @@ tbody.collapse.in {
 
 .navbar-brand {
   float: left;
-  padding: 35px 15px;
+  padding: 40px 15px;
   font-size: 18px;
   line-height: 20px;
-  height: 90px; }
+  height: 100px; }
   .navbar-brand:hover, .navbar-brand:focus {
     text-decoration: none; }
   .navbar-brand > img {
     display: block; }
   @media (min-width: 995px) {
-    .navbar > .container .navbar-brand, .navbar > .JoinBox__container .navbar-brand,
+    .navbar > .container .navbar-brand, .ShowcasePanel .navbar > .Media .navbar-brand, .navbar > .JoinBox__container .navbar-brand,
     .navbar > .container-fluid .navbar-brand {
       margin-left: -15px; } }
 
@@ -3780,8 +3780,8 @@ tbody.collapse.in {
   float: right;
   margin-right: 15px;
   padding: 9px 10px;
-  margin-top: 28px;
-  margin-bottom: 28px;
+  margin-top: 33px;
+  margin-bottom: 33px;
   background-color: transparent;
   background-image: none;
   border: 1px solid transparent;
@@ -3800,7 +3800,7 @@ tbody.collapse.in {
       display: none; } }
 
 .navbar-nav {
-  margin: 17.5px -15px; }
+  margin: 20px -15px; }
   .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -3828,8 +3828,8 @@ tbody.collapse.in {
       .navbar-nav > li {
         float: left; }
         .navbar-nav > li > a {
-          padding-top: 35px;
-          padding-bottom: 35px; } }
+          padding-top: 40px;
+          padding-bottom: 40px; } }
 
 .navbar-form {
   margin-left: -15px;
@@ -3839,8 +3839,8 @@ tbody.collapse.in {
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 28px;
-  margin-bottom: 28px; }
+  margin-top: 33px;
+  margin-bottom: 33px; }
   @media (min-width: 768px) {
     .navbar-form .form-group {
       display: inline-block;
@@ -3908,18 +3908,18 @@ tbody.collapse.in {
   border-bottom-left-radius: 0; }
 
 .navbar-btn {
-  margin-top: 28px;
-  margin-bottom: 28px; }
+  margin-top: 33px;
+  margin-bottom: 33px; }
   .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn {
-    margin-top: 30px;
-    margin-bottom: 30px; }
+    margin-top: 35px;
+    margin-bottom: 35px; }
   .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn {
-    margin-top: 34px;
-    margin-bottom: 34px; }
+    margin-top: 39px;
+    margin-bottom: 39px; }
 
 .navbar-text {
-  margin-top: 35px;
-  margin-bottom: 35px; }
+  margin-top: 40px;
+  margin-bottom: 40px; }
   @media (min-width: 995px) {
     .navbar-text {
       float: left;
@@ -4298,18 +4298,18 @@ a.badge:hover, a.badge:focus {
     font-weight: 200; }
   .jumbotron > hr {
     border-top-color: #d5d5d5; }
-  .container .jumbotron, .JoinBox__container .jumbotron,
+  .container .jumbotron, .ShowcasePanel .Media .jumbotron, .JoinBox__container .jumbotron,
   .container-fluid .jumbotron {
     border-radius: 6px;
     padding-left: 15px;
     padding-right: 15px; }
-  .jumbotron .container, .jumbotron .JoinBox__container {
+  .jumbotron .container, .jumbotron .ShowcasePanel .Media, .ShowcasePanel .jumbotron .Media, .jumbotron .JoinBox__container {
     max-width: 100%; }
   @media screen and (min-width: 768px) {
     .jumbotron {
       padding-top: 48px;
       padding-bottom: 48px; }
-      .container .jumbotron, .JoinBox__container .jumbotron,
+      .container .jumbotron, .ShowcasePanel .Media .jumbotron, .JoinBox__container .jumbotron,
       .container-fluid .jumbotron {
         padding-left: 60px;
         padding-right: 60px; }
@@ -5841,7 +5841,6 @@ button.close {
   height: 100%;
   padding-top: 10px;
   margin-left: -250px;
-  margin-top: -92px;
   overflow-y: auto;
   background: #414146;
   -webkit-transition: all 0.5s ease;
@@ -5918,81 +5917,81 @@ button.close {
     position: relative;
     margin-right: 0; } }
 
-.MailBox .Inbox, .MailBox .Sent, .MailBox .Trash {
-  width: 100%;
-  margin-bottom: 0; }
-  .MailBox .Inbox .MessageItemBox, .MailBox .Sent .MessageItemBox, .MailBox .Trash .MessageItemBox {
-    padding: 10px;
-    background-color: #e8e8e8;
-    box-shadow: inset 0 0 10px #c2c2c2;
+.MailBox {
+  margin-top: 30px; }
+  .MailBox .Inbox, .MailBox .Sent, .MailBox .Trash {
     width: 100%;
-    border: 1px solid #b3b3b3;
     margin-bottom: 0; }
-
-.MailBox .Inbox .MessageInputBox textarea {
-  width: 100%;
-  margin-top: 5px;
-  margin-bottom: 2px; }
-
-.MailBox .MessageItemBox .MessageItem {
-  padding: 20px; }
-  .MailBox .MessageItemBox .MessageItem p {
-    padding-top: 5px;
-    padding-right: 5px;
-    text-align: justify; }
-  .MailBox .MessageItemBox .MessageItem .Media__figure {
-    display: flex;
-    align-items: center; }
-  .MailBox .MessageItemBox .MessageItem .Media__body {
-    display: flex;
-    align-items: center;
-    justify-content: center; }
-  .MailBox .MessageItemBox .MessageItem .MessageBubble {
-    position: relative;
-    top: 0;
-    left: 0;
-    z-index: 1060;
-    padding: 1px;
-    font-weight: 400;
-    line-height: 1.4;
-    text-align: start;
-    text-decoration: none;
-    text-shadow: none;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.4);
-    border-radius: 6px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); }
-    .MailBox .MessageItemBox .MessageItem .MessageBubble--arrow {
-      position: absolute;
-      display: block;
-      width: 0;
-      height: 0;
-      border-color: transparent;
-      border-style: solid;
-      border-width: 11px;
-      top: 50%;
-      left: -22px;
-      margin-top: -11px;
-      border-right-color: rgba(0, 0, 0, 0.4); }
-      .MailBox .MessageItemBox .MessageItem .MessageBubble--arrow:after {
+    .MailBox .Inbox .MessageItemBox, .MailBox .Sent .MessageItemBox, .MailBox .Trash .MessageItemBox {
+      padding: 10px;
+      background-color: #e8e8e8;
+      box-shadow: inset 0 0 10px #c2c2c2;
+      width: 100%;
+      border: 1px solid #b3b3b3;
+      margin-bottom: 0; }
+  .MailBox .Inbox .MessageInputBox textarea {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 2px; }
+  .MailBox .MessageItemBox .MessageItem {
+    padding: 20px; }
+    .MailBox .MessageItemBox .MessageItem p {
+      padding-top: 5px;
+      padding-right: 5px;
+      text-align: justify; }
+    .MailBox .MessageItemBox .MessageItem .Media__figure {
+      display: flex;
+      align-items: center; }
+    .MailBox .MessageItemBox .MessageItem .Media__body {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+    .MailBox .MessageItemBox .MessageItem .MessageBubble {
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 1060;
+      padding: 1px;
+      font-weight: 400;
+      line-height: 1.4;
+      text-align: start;
+      text-decoration: none;
+      text-shadow: none;
+      background-color: #fff;
+      background-clip: padding-box;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      border-radius: 6px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4); }
+      .MailBox .MessageItemBox .MessageItem .MessageBubble--arrow {
         position: absolute;
         display: block;
         width: 0;
         height: 0;
         border-color: transparent;
         border-style: solid;
-        content: "";
-        border-width: 10px;
-        bottom: -10px;
-        left: 2px;
-        content: " ";
-        border-right-color: #FFF;
-        border-left-width: 0; }
-    .MailBox .MessageItemBox .MessageItem .MessageBubble--content {
-      padding: 9px 14px; }
-      .MailBox .MessageItemBox .MessageItem .MessageBubble--content-heading small {
-        color: #a6a6a6; }
+        border-width: 11px;
+        top: 50%;
+        left: -22px;
+        margin-top: -11px;
+        border-right-color: rgba(0, 0, 0, 0.4); }
+        .MailBox .MessageItemBox .MessageItem .MessageBubble--arrow:after {
+          position: absolute;
+          display: block;
+          width: 0;
+          height: 0;
+          border-color: transparent;
+          border-style: solid;
+          content: "";
+          border-width: 10px;
+          bottom: -10px;
+          left: 2px;
+          content: " ";
+          border-right-color: #FFF;
+          border-left-width: 0; }
+      .MailBox .MessageItemBox .MessageItem .MessageBubble--content {
+        padding: 9px 14px; }
+        .MailBox .MessageItemBox .MessageItem .MessageBubble--content-heading small {
+          color: #a6a6a6; }
 
 .Tile__Row {
   display: flex; }
@@ -6021,6 +6020,11 @@ button.close {
     border-left: 1px solid #ACADAF; }
   .Tile__Content:hover {
     background-color: #ADCBD9; }
+  .Tile__Content a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; }
   .Tile__Content--Icon {
     margin-bottom: 1em; }
   .Tile__Content--Label {
@@ -6028,6 +6032,9 @@ button.close {
     font-weight: 600; }
 
 .Footer {
+  height: 250px;
+  position: absolute;
+  bottom: 0;
   width: 100%;
   background-color: #323A45;
   color: whitesmoke; }
@@ -6038,11 +6045,30 @@ button.close {
     text-transform: uppercase; }
   .Footer__Item p, .Footer__Item address {
     font-size: 10px; }
+  .Footer__Item hr {
+    margin-top: 10px;
+    margin-bottom: 10px; }
   .Footer__Newsletter {
     width: 500px; }
 
+.ShowcasePanel {
+  min-height: 300px;
+  display: flex;
+  align-items: center; }
+  .ShowcasePanel .Media {
+    display: flex;
+    align-items: center; }
+  .ShowcasePanel .Media__body {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+
+html {
+  position: relative;
+  min-height: 100%; }
+
 body {
-  font-family: 'Lato', sans-serif; }
+  font-family: 'Lato', sans-serif;
+  margin-bottom: 250px; }
 
 .container-fluid {
   padding-left: 0;
@@ -6150,6 +6176,11 @@ body {
     font-weight: bold; }
   .Dashboard__Sub-Content {
     margin-bottom: 2em; }
+
+.Resources {
+  margin-top: 30px; }
+  .Resources .Tile__Content a {
+    color: #708894; }
 
 .bg--white {
   background-color: #ffffff; }

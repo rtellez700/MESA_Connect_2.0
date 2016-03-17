@@ -34,12 +34,16 @@ class Dashboard extends React.Component {
 	        			<div className="col-md-6">
 			        		<div className="Dashboard__Sub-Content">
 					        	<h4 className="Dashboard__Sub-Heading">Email</h4>
-					        		<i className="fa fa-envelope"></i> example@gmail.com
+					        	<ul className="fa-ul">
+					        		<li><i className="fa-li fa fa-envelope"></i> example@gmail.com</li>
+					        	</ul>
 			        		</div>
 
 			        		<div className="Dashboard__Sub-Content">
 					        	<h4 className="Dashboard__Sub-Heading">Phone</h4>
-					        		<i className="fa fa-phone"></i> (209) 555 - 5555
+					        	<ul className="fa-ul">
+					        		<li><i className="fa-li fa fa-phone"></i> (209) 555 - 5555</li>
+					        	</ul>
 			        		</div>
 
 			        		<div className="Dashboard__Sub-Content">
@@ -59,7 +63,9 @@ class Dashboard extends React.Component {
 						<div className="col-md-6">
 							<div className="Dashboard__Sub-Content">
 					        	<h4 className="Dashboard__Sub-Heading">Websites</h4>
-					        		<i className="fa fa-globe"></i> www.example.com
+					        	<ul className="fa-ul">
+					        		<li><i className="fa-li fa fa-globe"></i> www.example.com</li>
+					        	</ul>
 			        		</div>
 
 			        		<div className="Dashboard__Sub-Content">

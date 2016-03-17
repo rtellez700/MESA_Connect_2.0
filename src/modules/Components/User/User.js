@@ -38,13 +38,9 @@ class User extends React.Component {
 		return (
 			<div >
 				
-				<div className="page-content-wrapper">
+				<div >
 					{ this.props.children }
 				</div>
-
-				<br />
-				<br />
-				<br />
 				
 			</div>
 		);

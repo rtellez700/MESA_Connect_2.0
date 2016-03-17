@@ -5,64 +5,70 @@ import { Link } from 'react-router';
 	render() {
 		return (
 			<div>
-				<div className="list-group">
-					<Link to="/resources/network" className="list-group-item">Network</Link>
-					<Link to="/resources/scholarships" className="list-group-item">Scholarships</Link>
-					<Link to="/resources/internships" className="list-group-item">Internships</Link>
-				</div>
-
 				<div className="Tile__Container">
 					<div className="Tile__Wrapper">
 						<div className="Tile__Row">
+								<div className="Tile__Content">
+									<Link to="/resources/network">
+										<div className="Tile__Content--Icon">
+											<i className="fa fa-users fa-5x"></i>
+										</div>
+										<div className="Tile__Content--Label">
+											Network
+										</div>
+									</Link>
+								</div>
 							<div className="Tile__Content">
-								<div className="Tile__Content--Icon">
-									<i className="fa fa-users fa-5x"></i>
-								</div>
-								<div className="Tile__Content--Label">
-									Network
-								</div>
+								<Link to="/resources/scholarships">
+									<div className="Tile__Content--Icon">
+										<i className="fa fa-usd fa-5x"></i>
+									</div>
+									<div className="Tile__Content--Label">
+										Scholarships
+									</div>
+								</Link>
 							</div>
 							<div className="Tile__Content">
-								<div className="Tile__Content--Icon">
-									<i className="fa fa-usd fa-5x"></i>
-								</div>
-								<div className="Tile__Content--Label">
-									Scholarships
-								</div>
-							</div>
-							<div className="Tile__Content">
-								<div className="Tile__Content--Icon">
-									<i className="fa fa-mortar-board fa-5x"></i>
-								</div>
-								<div className="Tile__Content--Label">
-									Internships
-								</div>
+								<Link to="/resources/internships">
+									<div className="Tile__Content--Icon">
+										<i className="fa fa-mortar-board fa-5x"></i>
+									</div>
+									<div className="Tile__Content--Label">
+										Internships
+									</div>
+								</Link>
 							</div>
 						</div>
 						<div className="Tile__Row">
 							<div className="Tile__Content">
-								<div className="Tile__Content--Icon">
-									<i className="fa fa-calendar fa-5x"></i>
-								</div>
-								<div className="Tile__Content--Label">
-									Events
-								</div>
+								<Link to="/resources/events">
+									<div className="Tile__Content--Icon">
+										<i className="fa fa-calendar fa-5x"></i>
+									</div>
+									<div className="Tile__Content--Label">
+										Events
+									</div>
+								</Link>
 							</div>
 							<div className="Tile__Content">
-								<div className="Tile__Content--Icon">
-									<i className="fa fa-5x"></i>
-								</div>
-								<div className="Tile__Content--Label">
-									Label
-								</div>
+								<Link to="/resources">
+									<div className="Tile__Content--Icon">
+										<i className="fa fa-5x"></i>
+									</div>
+									<div className="Tile__Content--Label">
+										Label
+									</div>
+								</Link>
 							</div>
 							<div className="Tile__Content">
-								<div className="Tile__Content--Icon">
-									<i className="fa fa-5x"></i>
-								</div>
-								<div className="Tile__Content--Label">
-									Label 
-								</div>
+								<Link to="/resources">
+									<div className="Tile__Content--Icon">
+										<i className="fa fa-5x"></i>
+									</div>
+									<div className="Tile__Content--Label">
+										Label 
+									</div>
+								</Link>
 							</div>
 						</div>
 					</div>

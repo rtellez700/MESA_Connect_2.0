@@ -4,7 +4,7 @@ import React, { Component } from 'react';
  class Resources extends Component {
 	render() {
 		return (
-			<div className="container">
+			<div className="container Resources">
 				{ this.props.children }
 			</div>
 		);

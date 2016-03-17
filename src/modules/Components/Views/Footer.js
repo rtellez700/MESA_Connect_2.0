@@ -13,7 +13,7 @@ class Footer extends React.Component {
 
 	render() {
 		return (
-			<div className="Footer">
+			<footer className="Footer">
 
 				<div className="container">
 
@@ -110,7 +110,7 @@ class Footer extends React.Component {
 
 				</div>
 
-			</div>
+			</footer>
 		);
 	}
 }

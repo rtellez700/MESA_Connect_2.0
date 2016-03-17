@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import faker from 'faker';
 
-import SearchBox from './SearchBox';
-import BioInfoCardList from './BioInfoCardList';
+import SearchBox from '../../SearchBox';
+import BioInfoCardList from '../../BioInfoCardList';
 
 // sample data
 var users = [

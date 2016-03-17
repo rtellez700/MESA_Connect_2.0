@@ -29,7 +29,7 @@ $SideBar_Width--small: 0;
     height: 100%;
     padding-top: 10px;
     margin-left: -$SideBar_Width;
-    margin-top: -(2px + $navbar-height ); 
+    // margin-top: -(2px + $navbar-height ); 
     overflow-y: auto;
     background: #414146;
     -webkit-transition: all 0.5s ease;

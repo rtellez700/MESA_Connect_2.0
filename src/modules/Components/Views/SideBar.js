@@ -4,7 +4,7 @@ import ProfileAvatar from '../User/ProfileAvatar';
 
 var SideBarLinks = [
     {
-        url: "profile",
+        url: "dashboard",
         title: "Rodrigo Tellez",
         class: "SideBar-brand",
     },
@@ -23,18 +23,18 @@ var SideBarLinks = [
         title: "Resources",
         icon: "fa fa-book"
     },
-    {
-        url: "events",
-        title: "Events",
-        icon: "fa fa-calendar"
-    },
+    // {
+    //     url: "/resources/events",
+    //     title: "Events",
+    //     icon: "fa fa-calendar"
+    // },
     {
         url: "settings",
         title: "Settings",
         icon: "fa fa-cogs"
     },
     {
-        url: "log_out",
+        url: "logout",
         title: "Log Out",
         icon: "fa fa-sign-out"
     }

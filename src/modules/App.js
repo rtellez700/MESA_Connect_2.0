@@ -17,19 +17,29 @@ class App extends React.Component{
 		}
 	}
 
+	_displayFooter(){
+		return (
+			<Footer />
+		);
+	}
+
 	render() {
 		const sidebarClass = this.state.sidebar ? '' : 'toggled';
 		return (
 			<div id="App_Wrapper" className={ "container-fluid " + sidebarClass }>
 
-				<NavBar />
+				{ this.props.SIDEBAR || ''}
 
-					{ this.props.SIDEBAR || ''}
+				<div className="page-content-wrapper">
+				
+					<NavBar />
 
 					{ this.props.MAIN || this.props.children }
-					
-				<Footer />
+						
+					{ this._displayFooter() }
 
+				</div>
+				
 			</div>
 		);
 	}
