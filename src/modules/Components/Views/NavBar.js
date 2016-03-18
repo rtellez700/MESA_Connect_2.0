@@ -1,4 +1,7 @@
 import React from 'react';
+
+import { browserHistory } from 'react-router';
+
 import NavLink from './NavLink'
 
 class NavBar extends React.Component {
@@ -11,6 +14,15 @@ class NavBar extends React.Component {
 	toggleCollapse(){
 		const collapsed = !this.state.collapsed;
 		this.setState({collapsed: collapsed});
+	}
+	_onLogin(e){
+		e.preventDefault();
+
+		// show successful login notification
+		alert('Sign-in successful. Will now redirect . . .');
+
+		// redirect to dashboard page
+		browserHistory.push('/dashboard');
 	}
 
 	render() {
@@ -43,6 +55,7 @@ class NavBar extends React.Component {
 					<li><NavLink to="/about">About</NavLink></li>
 					<li><NavLink to="/contact">Contact</NavLink></li>
 					<li><NavLink to="/join">Join</NavLink></li>
+					<li><a href="#" className="btn btn-primary" onClick={this._onLogin.bind(this)}>Login</a></li>
 				
 				</ul>
 				</div>

@@ -133,3 +133,10 @@ $SideBar_Width--small: 0;
         margin-right: $SideBar_Width--small;
     }
 }
+
+// apply only to small phones
+@media(max-width:$screen-md){
+    #App_Wrapper {
+        padding-left: 0 !important;
+    }
+}

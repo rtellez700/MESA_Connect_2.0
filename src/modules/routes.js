@@ -13,6 +13,7 @@ import Donate from './Components/Views/Donate'
 import About from './Components/Views/About'
 import Contact from './Components/Views/Contact'
 import Join from './Components/Views/Join'
+import Signin from './Components/Views/Signin'
 
 import Sidebar from './Components/Views/Sidebar'
 
@@ -62,6 +63,7 @@ module.exports = (
         <Route path="/settings" component={Settings} />
         <Route path="/logout" component={Logout} />
     </Route>
+    <Route path="signin" component={Signin} />
     <Route path="*" component={NoMatch_404} />
   </Route>
 )

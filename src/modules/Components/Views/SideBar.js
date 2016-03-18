@@ -52,7 +52,7 @@ class SideBar extends React.Component {
 
 	render() {
 		return (
-        <div id="SideBar-wrapper">
+        <div id="SideBar-wrapper" className="hidden-sm">
             <ProfileAvatar name="Rodrigo Tellez" className="CENTER-NOW"/>
             <NavLinkList links={ SideBarLinks }/>
 
