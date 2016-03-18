@@ -348,16 +348,6 @@
 	// UserExampleData.init();
 	UserAPIUtils.getAllUsers();
 
-	_react2.default.createElement(
-		'div',
-		{ className: 'alert alert-danger hidden-md hidden-lg' },
-		_react2.default.createElement(
-			'h1',
-			null,
-			'Please use desktop to view website during development.'
-		)
-	);
-
 	var App = function (_React$Component) {
 		_inherits(App, _React$Component);
 
@@ -389,6 +379,15 @@
 						'div',
 						{ className: 'page-content-wrapper' },
 						_react2.default.createElement(_NavBar2.default, null),
+						_react2.default.createElement(
+							'div',
+							{ className: 'alert alert-danger visible-xs' },
+							_react2.default.createElement(
+								'h1',
+								null,
+								'Please use desktop to view website during development.'
+							)
+						),
 						this.props.MAIN || this.props.children,
 						this._displayFooter()
 					)
