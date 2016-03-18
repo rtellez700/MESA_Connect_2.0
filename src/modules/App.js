@@ -9,6 +9,10 @@ var UserAPIUtils = require('./Utils/UserAPIUtils');
 // UserExampleData.init();
 UserAPIUtils.getAllUsers();
 
+
+<div className="alert alert-danger hidden-md hidden-lg">
+						<h1>Please use desktop to view website during development.</h1>
+					</div>
 class App extends React.Component{
 	constructor(props){
 		super(props);
@@ -33,6 +37,9 @@ class App extends React.Component{
 				<div className="page-content-wrapper">
 				
 					<NavBar />
+
+					
+
 
 					{ this.props.MAIN || this.props.children }
 						

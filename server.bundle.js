@@ -348,6 +348,16 @@
 	// UserExampleData.init();
 	UserAPIUtils.getAllUsers();
 
+	_react2.default.createElement(
+		'div',
+		{ className: 'alert alert-danger hidden-md hidden-lg' },
+		_react2.default.createElement(
+			'h1',
+			null,
+			'Please use desktop to view website during development.'
+		)
+	);
+
 	var App = function (_React$Component) {
 		_inherits(App, _React$Component);
 
@@ -403,6 +413,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactRouter = __webpack_require__(6);
+
 	var _NavLink = __webpack_require__(10);
 
 	var _NavLink2 = _interopRequireDefault(_NavLink);
@@ -434,6 +446,17 @@
 			value: function toggleCollapse() {
 				var collapsed = !this.state.collapsed;
 				this.setState({ collapsed: collapsed });
+			}
+		}, {
+			key: '_onLogin',
+			value: function _onLogin(e) {
+				e.preventDefault();
+
+				// show successful login notification
+				alert('Sign-in successful. Will now redirect . . .');
+
+				// redirect to dashboard page
+				_reactRouter.browserHistory.push('/dashboard');
 			}
 		}, {
 			key: 'render',
@@ -529,6 +552,15 @@
 											_NavLink2.default,
 											{ to: '/join' },
 											'Join'
+										)
+									),
+									_react2.default.createElement(
+										'li',
+										null,
+										_react2.default.createElement(
+											'a',
+											{ href: '#', className: 'btn btn-primary', onClick: this._onLogin.bind(this) },
+											'Login'
 										)
 									)
 								)

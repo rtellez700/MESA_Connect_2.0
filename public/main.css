@@ -5917,8 +5917,9 @@ button.close {
     position: relative;
     margin-right: 0; } }
 
-@media (max-width: 800px) {
-  padding-left: 0; }
+@media (max-width: 992px) {
+  #App_Wrapper {
+    padding-left: 0 !important; } }
 
 .MailBox {
   margin-top: 30px; }
