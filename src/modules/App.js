@@ -3,6 +3,12 @@ import React from 'react';
 import NavBar from './Components/Views/NavBar';
 import Footer from './Components/Views/Footer';
 
+
+import LoginFormModal from './Components/Views/LoginFormModal';
+
+
+
+
 // var UserExampleData = require('./UserDataSimple');
 var UserAPIUtils = require('./Utils/UserAPIUtils');
 
@@ -30,6 +36,7 @@ class App extends React.Component{
 		return (
 			<div id="App_Wrapper" className={ "container-fluid " + sidebarClass }>
 
+				<LoginFormModal />
 				{ this.props.SIDEBAR || ''}
 
 				<div className="page-content-wrapper">

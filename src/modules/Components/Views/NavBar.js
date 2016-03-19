@@ -55,7 +55,12 @@ class NavBar extends React.Component {
 					<li><NavLink to="/about">About</NavLink></li>
 					<li><NavLink to="/contact">Contact</NavLink></li>
 					<li><NavLink to="/join">Join</NavLink></li>
-					<li><a href="#" className="btn btn-primary" onClick={this._onLogin.bind(this)}>Login</a></li>
+					<li>
+						<p className="navbar-btn">
+							<a className="btn btn-primary" href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+							{ /* <a href="#" className="btn btn-primary" onClick={this._onLogin.bind(this)}>Login</a> */ }
+						</p>
+					</li>
 				
 				</ul>
 				</div>
