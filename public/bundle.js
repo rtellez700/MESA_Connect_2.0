@@ -25322,14 +25322,18 @@
 									'About Us'
 								),
 								_react2.default.createElement('hr', null),
-								'Mission ',
-								_react2.default.createElement('br', null),
-								'Strategic Plan ',
-								_react2.default.createElement('br', null),
-								'Board ',
-								_react2.default.createElement('br', null),
-								'Staff ',
-								_react2.default.createElement('br', null)
+								_react2.default.createElement(
+									'p',
+									null,
+									'Mission ',
+									_react2.default.createElement('br', null),
+									'Strategic Plan ',
+									_react2.default.createElement('br', null),
+									'Board ',
+									_react2.default.createElement('br', null),
+									'Staff ',
+									_react2.default.createElement('br', null)
+								)
 							)
 						),
 						_react2.default.createElement('hr', null),

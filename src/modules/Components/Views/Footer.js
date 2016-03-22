@@ -65,10 +65,12 @@ class Footer extends React.Component {
 						<div className="col-xs-2 Footer__Item">
 							<h3 className="Footer__Heading">About Us</h3>
 							<hr />
-							Mission <br />
-							Strategic Plan <br />
-							Board <br />
-							Staff <br />
+							<p>
+								Mission <br />
+								Strategic Plan <br />
+								Board <br />
+								Staff <br />
+							</p>
 						</div>
 					</div>
 
