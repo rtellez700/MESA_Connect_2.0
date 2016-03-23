@@ -11,7 +11,13 @@
 @import './Signin';
 @import './LoginFormModal';
 
-
+@mixin flexbox(){
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
 
 html{
 	position: relative;
@@ -107,8 +113,9 @@ img{
 	&__row{
 		// add padding
 		&--same-height{
-			display: -webkit-flex;
-			display: flex;
+			@include flexbox();
+			// display: -webkit-flex;
+			// display: flex;
 		}
 	}
 
@@ -133,8 +140,9 @@ img{
 .JoinBox{
 	&__container{
 		@extend .container;
-		display: -webkit-flex;
-		display: flex;
+		@include flexbox();
+		// display: -webkit-flex;
+		// display: flex;
 		align-items: center;
 		justify-content: center;
 	}
@@ -193,8 +201,9 @@ img{
 
 // MEDIA
 .Media{
-	display: -webkit-flex;
-	display: flex;
+	@include flexbox();
+	// display: -webkit-flex;
+	// display: flex;
 	// background-color: #dedede;
 	padding: 20px;
 	border-radius: 0px;
@@ -299,10 +308,11 @@ img{
 	}
 }
 .display{
-	&--flex{display: -webkit-flex; display: flex;}
+	&--flex{@include flexbox();}
 	&--in-center{
-		display: -webkit-flex;
-		display: flex;
+		@include flexbox();
+		// display: -webkit-flex;
+		// display: flex;
 		align-items: center;
 		justify-content: center;
 
