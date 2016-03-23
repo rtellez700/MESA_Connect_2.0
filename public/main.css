@@ -8591,6 +8591,7 @@ body {
   padding-bottom: 32px; }
 
 .grid__row--same-height {
+  display: -webkit-flex;
   display: flex; }
 
 .grid__col {
@@ -8604,6 +8605,7 @@ body {
   margin-right: auto; }
 
 .JoinBox__container {
+  display: -webkit-flex;
   display: flex;
   align-items: center;
   justify-content: center; }
@@ -8631,6 +8633,7 @@ body {
     margin-right: 10px; }
 
 .Media {
+  display: -webkit-flex;
   display: flex;
   padding: 20px;
   border-radius: 0px; }
@@ -8715,9 +8718,11 @@ body {
   width: 100%; }
 
 .display--flex {
+  display: -webkit-flex;
   display: flex; }
 
 .display--in-center {
+  display: -webkit-flex;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -107,6 +107,7 @@ img{
 	&__row{
 		// add padding
 		&--same-height{
+			display: -webkit-flex;
 			display: flex;
 		}
 	}
@@ -132,6 +133,7 @@ img{
 .JoinBox{
 	&__container{
 		@extend .container;
+		display: -webkit-flex;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -191,6 +193,7 @@ img{
 
 // MEDIA
 .Media{
+	display: -webkit-flex;
 	display: flex;
 	// background-color: #dedede;
 	padding: 20px;
@@ -296,8 +299,9 @@ img{
 	}
 }
 .display{
-	&--flex{display: flex;}
+	&--flex{display: -webkit-flex; display: flex;}
 	&--in-center{
+		display: -webkit-flex;
 		display: flex;
 		align-items: center;
 		justify-content: center;
