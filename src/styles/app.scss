@@ -1,4 +1,5 @@
 @import './vendor/bootstrap-sass/assets/stylesheets/_bootstrap.scss';
+@import './vendor/animate-css/animate';
 
 @import './CustomVariables.scss';
 @import './SideBar.scss';
@@ -9,6 +10,8 @@
 @import './ShowcasePanel';
 @import './Signin';
 @import './LoginFormModal';
+
+
 
 html{
 	position: relative;

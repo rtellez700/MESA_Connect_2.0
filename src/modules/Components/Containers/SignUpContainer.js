@@ -134,6 +134,12 @@ class SignUpContainer extends React.Component {
 		}
 	}
 
+	_onInputFocus(e){
+
+		console.log(e.target);
+		$(e.target).addClass('animated pulse');
+
+	}
 	_getUserInput(){
 		return ({
 			name:{
@@ -186,12 +192,12 @@ class SignUpContainer extends React.Component {
 				</div>
 
 				<form role="form" onSubmit={ this._handleSubmit.bind(this) } >
-					<Input type="text" id="f_name" title="First Name" placeholder="First Name" onChange={this._onInputChange.bind(this)} value={this.state.first} />
-					<Input type="text" id="m_name" title="Middle Name" placeholder="Middle Name" onChange={this._onInputChange.bind(this)} value={this.state.middle} />
-					<Input type="text" id="l_name" title="Last Name" placeholder="Last Name" onChange={this._onInputChange.bind(this)} value={this.state.last} />
+					<Input type="text" id="f_name" title="First Name" placeholder="First Name" onChange={this._onInputChange.bind(this)} value={this.state.first} onFocus={this._onInputFocus.bind(this)} />
+					<Input type="text" id="m_name" title="Middle Name" placeholder="Middle Name" onChange={this._onInputChange.bind(this)} value={this.state.middle} onFocus={this._onInputFocus.bind(this)}/>
+					<Input type="text" id="l_name" title="Last Name" placeholder="Last Name" onChange={this._onInputChange.bind(this)} value={this.state.last} onFocus={this._onInputFocus.bind(this)}/>
 					<Select id="name_suffix" title="Suffix" options={SUFFIXES} onChange={this._onInputChange.bind(this)} />
-					<Input type="email" id="e_email" title="Email" placeholder="example@gmail.com" onChange={this._onInputChange.bind(this)} value={this.state.email}/>
-					<Input type="text" id="delta_id" title="Delta ID (*optional)" placeholder="98-XXX-XXX" onChange={this._onInputChange.bind(this)} value={this.state.delta_id} />
+					<Input type="email" id="e_email" title="Email" placeholder="example@gmail.com" onChange={this._onInputChange.bind(this)} value={this.state.email} onFocus={this._onInputFocus.bind(this)}/>
+					<Input type="text" id="delta_id" title="Delta ID (*optional)" placeholder="98-XXX-XXX" onChange={this._onInputChange.bind(this)} value={this.state.delta_id} onFocus={this._onInputFocus.bind(this)}/>
 					<hr />
 					<h4>Date of Birth</h4>
 					<div className="display--flex">

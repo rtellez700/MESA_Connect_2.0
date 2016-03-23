@@ -17,6 +17,7 @@ class Input extends React.Component {
 					ref={this.props.ref || ''}
 					value={this.props.value}
 					onChange={this.props.onChange.bind(this)}
+					onFocus={this.props.onFocus.bind(this)}
 				/>
 			</div>
 		);

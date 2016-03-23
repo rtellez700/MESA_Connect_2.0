@@ -25030,7 +25030,7 @@
 								{ className: "navbar-collapse main-navbar " + navClass, id: 'MainNavbar' },
 								_react2.default.createElement(
 									'ul',
-									{ className: 'nav navbar-nav' },
+									{ className: 'nav navbar-nav pull-right' },
 									_react2.default.createElement(
 										'li',
 										null,
@@ -25446,6 +25446,14 @@
 			key: '_onSubmit',
 			value: function _onSubmit(e) {
 				// TODO
+				e.preventDefault();
+
+				// perform validation
+				//
+				// flash success message
+				//
+				// redirect
+				_reactRouter.browserHistory.push('/dashboard');
 			}
 		}, {
 			key: 'render',
@@ -29815,7 +29823,8 @@
 						placeholder: this.props.placeholder,
 						ref: this.props.ref || '',
 						value: this.props.value,
-						onChange: this.props.onChange.bind(this)
+						onChange: this.props.onChange.bind(this),
+						onFocus: this.props.onFocus.bind(this)
 					})
 				);
 			}
@@ -30076,6 +30085,13 @@
 				}
 			}
 		}, {
+			key: '_onInputFocus',
+			value: function _onInputFocus(e) {
+
+				console.log(e.target);
+				$(e.target).addClass('animated pulse');
+			}
+		}, {
 			key: '_getUserInput',
 			value: function _getUserInput() {
 				return {
@@ -30139,12 +30155,12 @@
 					_react2.default.createElement(
 						'form',
 						{ role: 'form', onSubmit: this._handleSubmit.bind(this) },
-						_react2.default.createElement(_Input2.default, { type: 'text', id: 'f_name', title: 'First Name', placeholder: 'First Name', onChange: this._onInputChange.bind(this), value: this.state.first }),
-						_react2.default.createElement(_Input2.default, { type: 'text', id: 'm_name', title: 'Middle Name', placeholder: 'Middle Name', onChange: this._onInputChange.bind(this), value: this.state.middle }),
-						_react2.default.createElement(_Input2.default, { type: 'text', id: 'l_name', title: 'Last Name', placeholder: 'Last Name', onChange: this._onInputChange.bind(this), value: this.state.last }),
+						_react2.default.createElement(_Input2.default, { type: 'text', id: 'f_name', title: 'First Name', placeholder: 'First Name', onChange: this._onInputChange.bind(this), value: this.state.first, onFocus: this._onInputFocus.bind(this) }),
+						_react2.default.createElement(_Input2.default, { type: 'text', id: 'm_name', title: 'Middle Name', placeholder: 'Middle Name', onChange: this._onInputChange.bind(this), value: this.state.middle, onFocus: this._onInputFocus.bind(this) }),
+						_react2.default.createElement(_Input2.default, { type: 'text', id: 'l_name', title: 'Last Name', placeholder: 'Last Name', onChange: this._onInputChange.bind(this), value: this.state.last, onFocus: this._onInputFocus.bind(this) }),
 						_react2.default.createElement(_Select2.default, { id: 'name_suffix', title: 'Suffix', options: SUFFIXES, onChange: this._onInputChange.bind(this) }),
-						_react2.default.createElement(_Input2.default, { type: 'email', id: 'e_email', title: 'Email', placeholder: 'example@gmail.com', onChange: this._onInputChange.bind(this), value: this.state.email }),
-						_react2.default.createElement(_Input2.default, { type: 'text', id: 'delta_id', title: 'Delta ID (*optional)', placeholder: '98-XXX-XXX', onChange: this._onInputChange.bind(this), value: this.state.delta_id }),
+						_react2.default.createElement(_Input2.default, { type: 'email', id: 'e_email', title: 'Email', placeholder: 'example@gmail.com', onChange: this._onInputChange.bind(this), value: this.state.email, onFocus: this._onInputFocus.bind(this) }),
+						_react2.default.createElement(_Input2.default, { type: 'text', id: 'delta_id', title: 'Delta ID (*optional)', placeholder: '98-XXX-XXX', onChange: this._onInputChange.bind(this), value: this.state.delta_id, onFocus: this._onInputFocus.bind(this) }),
 						_react2.default.createElement('hr', null),
 						_react2.default.createElement(
 							'h4',
@@ -32950,11 +32966,63 @@
 			value: function render() {
 				return _react2.default.createElement(
 					"div",
-					{ className: "display--in-center" },
+					{ className: "Settings container bg--grey-google" },
 					_react2.default.createElement(
-						"h1",
-						null,
-						" Hello from Settings.js! "
+						"div",
+						{ className: "row" },
+						_react2.default.createElement(
+							"div",
+							{ className: "col-md-4" },
+							_react2.default.createElement(
+								"ul",
+								{ className: "nav nav-pills nav-stacked" },
+								_react2.default.createElement(
+									"li",
+									{ className: "active", role: "presentation" },
+									_react2.default.createElement(
+										"a",
+										{ href: "#" },
+										"Account"
+									)
+								),
+								_react2.default.createElement(
+									"li",
+									{ role: "presentation" },
+									_react2.default.createElement(
+										"a",
+										{ href: "#" },
+										"Stuff 2"
+									)
+								),
+								_react2.default.createElement(
+									"li",
+									{ role: "presentation" },
+									_react2.default.createElement(
+										"a",
+										{ href: "#" },
+										"Stuff 3"
+									)
+								),
+								_react2.default.createElement(
+									"li",
+									{ role: "presentation" },
+									_react2.default.createElement(
+										"a",
+										{ href: "#" },
+										"Stuff 4"
+									)
+								)
+							)
+						),
+						_react2.default.createElement(
+							"div",
+							{ className: "col-md-8" },
+							_react2.default.createElement(
+								"h2",
+								null,
+								"Update Your Account"
+							)
+						)
 					)
 				);
 			}
