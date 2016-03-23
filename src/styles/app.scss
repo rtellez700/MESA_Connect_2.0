@@ -19,15 +19,12 @@ body{
 	// padding-top: $navbar-height;
 	font-family: 'Lato', sans-serif;
 	margin-bottom: $footer-height;
+	background-color: #F7F7F7;
 }
 
 // .page-content-wrapper{}
 
 #App{
-	// min-height: 100%;
-	// height: 100%;
-	// margin: 0 auto -$footer-height;
-    // padding-bottom: $footer-height;
 }
 
 img{
@@ -62,6 +59,18 @@ img{
 		// 	color: white;
 		// }
 	}
+	& .main-navbar{
+		
+		& li:hover{
+			background-color: #3a3a3a;
+
+			& a{
+				color: #F2F2F2;
+			}
+		}
+		// TODO: clear login button grey background
+	}
+
 	& ul a{
 		font-size: 1.4em;
 		font-weight: 400;
@@ -236,9 +245,26 @@ img{
 	}
 }
 
+// Settings
+.Settings{
+	padding-top: 60px;
+}
+
 // MEDIA QUERIES
 @media (max-width: $grid-float-breakpoint) {
 
+	.navbar{
+		& .main-navbar{
+			background-color: #F7F7F7;
+		}
+	}
+
+	#MainNavbar{
+		& ul{
+			float: left !important;
+			width: 100%;
+		}
+	}
 }
 
 // Helpers
@@ -258,6 +284,8 @@ img{
 	&--padding-right{padding-right: 0;}
 	&--padding-bottom{padding-bottom: 0;}
 	&--padding-left{padding-left: 0;}
+
+	&--bg{background-color: transparent;}
 }
 .full{
 	&--width{

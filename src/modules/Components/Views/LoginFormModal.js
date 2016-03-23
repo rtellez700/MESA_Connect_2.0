@@ -4,6 +4,14 @@ import { browserHistory } from 'react-router';
  class LoginFormModal extends Component {
  	_onSubmit(e){
  		// TODO
+ 		e.preventDefault();
+
+ 		// perform validation
+ 		// 
+ 		// flash success message
+ 		// 
+ 		// redirect
+ 		browserHistory.push('/dashboard');
  	}
 	render() {
 		return (

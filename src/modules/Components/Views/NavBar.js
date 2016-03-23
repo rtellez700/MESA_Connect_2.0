@@ -47,7 +47,7 @@ class NavBar extends React.Component {
 				</div>
 
 				<div className={"navbar-collapse main-navbar " + navClass} id="MainNavbar">
-				<ul className="nav navbar-nav">
+				<ul className="nav navbar-nav pull-right">
 
 					<li><NavLink to="/" onlyActiveOnIndex>Home</NavLink></li>
 					<li><NavLink to="/showcase">Our Students</NavLink></li>
