@@ -16,6 +16,10 @@ Run the application by simply running `npm run start:dev`.
 
 ##TODO
 - [x] Continue adding npm packages for initial setup.
+- [ ] Clean up React Components and begin creating reusable components.
+  - [ ] Convert component files from .js to .jsx
+  - [ ] Change 'require' to 'import'
+  - [ ] Change import only used methods from libraries.
 - [ ] Work on HTML/CSS layout for designs.
 - [ ] Develop sprint plans.
 - [ ] Re-implement linting rules.
