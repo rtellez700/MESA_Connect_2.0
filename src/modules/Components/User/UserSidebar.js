@@ -7,6 +7,9 @@ import faker from 'faker';
 import ProfileAvatar from '../User/ProfileAvatar';
 
 // http://gohooey.com/demo/sidebar/hoedemo.html
+// TODO:
+// [] Replace Links for NavLinks in order to keep track of active status
+// 
 
 var SideBarLinks = [
     {
@@ -52,7 +55,7 @@ var SideBarLinks = [
 		e.preventDefault();
 
 		$('.User__Left-Panel').toggleClass('User__Left-Panel--Minimize');
-
+		$('.User__Container').toggleClass('User__Left-Panel--Minimize');
 
 	}
 
@@ -67,7 +70,7 @@ var SideBarLinks = [
 
 				<div className="Profile__Box">
 					<div className="Media__Figure">
-						<ProfileAvatar name="Rodrigo Tellez" className="CENTER-NOW" src={ faker.Image.avatar() }/>		
+						<ProfileAvatar className="CENTER-NOW" src={ faker.Image.avatar() } />		
 					</div>
 					<div className="Media__Body">
 						<h3>Welcome James</h3>

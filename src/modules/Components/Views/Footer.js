@@ -6,11 +6,6 @@ class Footer extends React.Component {
 		super(props);
 	}
 	
-	_onClick(e){
-		e.preventDefault();
-		$('#App_Wrapper').toggleClass("toggled");
-	}
-
 	render() {
 		return (
 			<footer className="Footer">
@@ -18,10 +13,10 @@ class Footer extends React.Component {
 				<div className="container">
 
 					<div className="row">
-						<div className="col-xs-1 Footer__Item Footer__Logo">
+						<div className="col-xs-12 col-md-2 Footer__Item Footer__Logo">
 							<img src="http://placehold.it/80x82" alt=""/>
 						</div>
-						<div className="col-xs-3 Footer__Item">
+						<div className="col-xs-12 col-md-2 Footer__Item">
 							<h3 className="Footer__Heading">SJDC MESA</h3>
 							<address>
 								Science Math Building - SCMA 163<br />
@@ -29,29 +24,29 @@ class Footer extends React.Component {
 								Stockton, CA 95207<br />
 								<abbr title="Phone">P:</abbr> (209) 954 - 5318<br />
 								<abbr title="Fax">F:</abbr> (209) 954 - 5600<br />
-								<abbr title="Email">E:</abbr> mesa@deltacollege.edu<br />
+								<abbr title="Email">E:</abbr> mesa@deltacollege.edu
 							</address>
 						</div>
-						<div className="col-xs-2 Footer__Item">
+						<div className="col-xs-12 col-md-2 Footer__Item">
 							<h3 className="Footer__Heading">Career Tools</h3>
 							<hr />
 							<p>
 								Student Resources <br />
 								Student Internships <br />
 								Professional Resources <br />
-								Jobs <br />
+								Jobs 
 							</p>
 						</div>
-						<div className="col-xs-2 Footer__Item">
+						<div className="col-xs-12 col-md-2 Footer__Item">
 							<h3 className="Footer__Heading">Connections</h3>
 							<hr />
 							<p>
 								Member Directory <br />
-								My MESA Account
+								My MESA Account <br />
 								Join MESA
 							</p>
 						</div>
-						<div className="col-xs-2 Footer__Item">
+						<div className="col-xs-12 col-md-2 Footer__Item">
 							<h3 className="Footer__Heading">Support MESA</h3>
 							<hr />
 							<p>
@@ -59,17 +54,17 @@ class Footer extends React.Component {
 								Advertise with Us <br />
 								Share Your Story <br />
 								Donate <br />
-								Volunteer <br />
+								Volunteer
 							</p>
 						</div>
-						<div className="col-xs-2 Footer__Item">
+						<div className="col-xs-12 col-md-2 Footer__Item">
 							<h3 className="Footer__Heading">About Us</h3>
 							<hr />
 							<p>
 								Mission <br />
 								Strategic Plan <br />
 								Board <br />
-								Staff <br />
+								Staff
 							</p>
 						</div>
 					</div>

@@ -2,7 +2,8 @@
 
 .User{
 	&__Wrapper{
-		background: #eef1f6;
+		// background: #eef1f6;
+		background: #FFF;
 		color: #7e7e7e;
 		height: 100%;
 		position: relative;
@@ -20,6 +21,11 @@
 		height: 100%;
 		position:relative;
 		clear: both;
+		& .User__Main-Content{
+			-webkit-transition: 1s all ease;
+			transition: 1s all ease;
+			margin-left: 230px;
+		}
 	}
 	&__Left-Panel{
 		position: absolute;
@@ -41,12 +47,16 @@
 					// margin-left: 0;
 					& a:after{
 						margin-left: 50px;
+						-webkit-transition: 1s all ease;
+						transition: 1s all ease;
 					}
 				}
 
 				& .Profile__Box{
+					-webkit-transition: all 1s ease;
 					transition: all 1s ease;
-					& .Media__Figure >div, & .Media__Figure img{
+					& .Media__Figure > div, & .Media__Figure img, & .Media__Figure > div > div{
+						-webkit-transition: width 1s ease, height 1s ease;
 						transition: width 1s ease, height 1s ease;
 						width: 40px !important;
 						height: 40px !important;
@@ -89,9 +99,9 @@
 				}
 			}
 
-			// & .User__Main-Content{
-			// 	margin-left: 50px;
-			// }
+			& .User__Main-Content{
+				margin-left: 50px;
+			}
 		}
 	}
 	&__Main-Content{

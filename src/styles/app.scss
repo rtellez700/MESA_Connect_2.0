@@ -28,7 +28,7 @@ html{
 
 body{
 	font-family: 'Lato', sans-serif;
-	margin-bottom: $footer-height;
+	// margin-bottom: $footer-height;
 	background-color: #F7F7F7;
 }
 
@@ -45,7 +45,9 @@ img{
 		padding-right: 0;
 	}
 }
-
+.Main-Content{
+	min-height: 865px;
+}
 .navbar{
 	margin-bottom: 0;
 
@@ -73,7 +75,9 @@ img{
 				color: #F2F2F2;
 			}
 		}
-		// TODO: clear login button grey background
+		// & li:last-child{
+		// 	background-color:transparent;
+		// }
 	}
 
 	& ul a{
@@ -160,6 +164,14 @@ img{
 		}
 	}
 }
+@media (max-width: $grid-float-breakpoint){
+	.FormBox{
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+		margin-bottom: 0;
+	}
+}
 
 // BioInfo
 .BioInfo{
@@ -219,9 +231,11 @@ img{
 	padding-bottom: 50px;
 	&__Heading{
 		font-weight: bold;
+		color: #333333;
 	}
 	&__Sub-Heading{
 		font-weight: bold;
+		color: lighten(#333333,10%);
 	}
 	&__Sub-Content{
 		margin-bottom: 2em;
@@ -246,6 +260,10 @@ img{
 	.navbar{
 		& .main-navbar{
 			background-color: #F7F7F7;
+
+			& .navbar-btn > a{
+				width: 100%;
+			}
 		}
 	}
 

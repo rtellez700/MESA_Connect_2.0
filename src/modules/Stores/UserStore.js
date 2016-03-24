@@ -2,7 +2,8 @@ import UserDispatcher from '../Dispatcher/UserDispatcher';
 import UserConstants from '../Constants/UserConstants';
 import assign from 'object-assign';
 
-var EventEmitter = require('events').EventEmitter;
+// var EventEmitter = require('events').EventEmitter;
+import { EventEmitter } from 'events';
 
 var ActionTypes = UserConstants.ActionTypes;
 var CHANGE_EVENT = 'change';

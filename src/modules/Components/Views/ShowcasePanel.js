@@ -29,7 +29,6 @@ import ProfileAvatar from '../User/ProfileAvatar';
 
 	render() {
 		const FIGURE_RIGHT = this.props.figure === "right";
-		{console.log(FIGURE_RIGHT)}
 		return (
 			<div className="Media">
 				{ FIGURE_RIGHT ? this._renderBody() : this._renderFigure() }

@@ -8298,9 +8298,6 @@ button.close {
     font-weight: 600; }
 
 .Footer {
-  height: 250px;
-  position: absolute;
-  bottom: 0;
   width: 100%;
   background-color: #323A45;
   color: whitesmoke; }
@@ -8439,6 +8436,7 @@ button.close {
   font-size: 12px; }
 
 .User__Sidebar {
+  -webkit-transition: width 1s ease;
   transition: width 1s ease;
   position: absolute;
   width: 230px;
@@ -8460,7 +8458,9 @@ button.close {
     position: absolute;
     color: #7e7e7e;
     z-index: 1000;
-    margin-left: 230px; }
+    margin-left: 230px;
+    -webkit-transition: 1s all ease;
+    transition: 1s all ease; }
   .User__Sidebar li {
     text-indent: 10px;
     line-height: 20px;
@@ -8476,7 +8476,7 @@ button.close {
         text-decoration: none;
         color: #fff;
         background: #5C5C63; }
-      .User__Sidebar li a:active, .User__Sidebar li a a:focus {
+      .User__Sidebar li a:active, .User__Sidebar li a:focus {
         text-decoration: none; }
       .User__Sidebar li a .menu-text {
         display: inline-block; }
@@ -8506,14 +8506,16 @@ button.close {
     margin-bottom: 20px;
     padding-bottom: 15px;
     border-bottom: 1px solid #4d4d53;
+    -webkit-transition: all 1s ease;
     transition: all 1s ease; }
     .User__Sidebar .Profile__Box .Media__Figure img {
+      -webkit-transition: width 1s ease, height 1s ease;
       transition: width 1s ease, height 1s ease; }
     .User__Sidebar .Profile__Box .Media__Body {
       color: #CACACB; }
 
 .User__Wrapper {
-  background: #eef1f6;
+  background: #FFF;
   color: #7e7e7e;
   height: 100%;
   position: relative;
@@ -8531,6 +8533,10 @@ button.close {
   height: 100%;
   position: relative;
   clear: both; }
+  .User__Container .User__Main-Content {
+    -webkit-transition: 1s all ease;
+    transition: 1s all ease;
+    margin-left: 230px; }
 
 .User__Left-Panel {
   position: absolute;
@@ -8544,10 +8550,14 @@ button.close {
   .User__Left-Panel--Minimize .User__Sidebar {
     width: 50px; }
     .User__Left-Panel--Minimize .User__Sidebar-Toggle a:after {
-      margin-left: 50px; }
+      margin-left: 50px;
+      -webkit-transition: 1s all ease;
+      transition: 1s all ease; }
     .User__Left-Panel--Minimize .User__Sidebar .Profile__Box {
+      -webkit-transition: all 1s ease;
       transition: all 1s ease; }
-      .User__Left-Panel--Minimize .User__Sidebar .Profile__Box .Media__Figure > div, .User__Left-Panel--Minimize .User__Sidebar .Profile__Box .Media__Figure img {
+      .User__Left-Panel--Minimize .User__Sidebar .Profile__Box .Media__Figure > div, .User__Left-Panel--Minimize .User__Sidebar .Profile__Box .Media__Figure img, .User__Left-Panel--Minimize .User__Sidebar .Profile__Box .Media__Figure > div > div {
+        -webkit-transition: width 1s ease, height 1s ease;
         transition: width 1s ease, height 1s ease;
         width: 40px !important;
         height: 40px !important; }
@@ -8575,6 +8585,8 @@ button.close {
       padding-right: 6px; }
     .User__Left-Panel--Minimize .User__Sidebar li > a .menu-text {
       display: none; }
+  .User__Left-Panel--Minimize .User__Main-Content {
+    margin-left: 50px; }
 
 .User__Main-Content {
   min-height: 865px;
@@ -8586,12 +8598,14 @@ html {
 
 body {
   font-family: 'Lato', sans-serif;
-  margin-bottom: 250px;
   background-color: #F7F7F7; }
 
 .container-fluid {
   padding-left: 0;
   padding-right: 0; }
+
+.Main-Content {
+  min-height: 865px; }
 
 .navbar {
   margin-bottom: 0; }
@@ -8667,6 +8681,13 @@ body {
     width: 100%;
     font-size: 18px; }
 
+@media (max-width: 995px) {
+  .FormBox {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 0; } }
+
 .BioInfoCard {
   width: 800px;
   box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(128, 128, 128, 0.1) inset;
@@ -8706,9 +8727,11 @@ body {
   padding-top: 50px;
   padding-bottom: 50px; }
   .Dashboard__Heading {
-    font-weight: bold; }
+    font-weight: bold;
+    color: #333333; }
   .Dashboard__Sub-Heading {
-    font-weight: bold; }
+    font-weight: bold;
+    color: #4d4d4d; }
   .Dashboard__Sub-Content {
     margin-bottom: 2em; }
 
@@ -8721,6 +8744,8 @@ body {
 @media (max-width: 995px) {
   .navbar .main-navbar {
     background-color: #F7F7F7; }
+    .navbar .main-navbar .navbar-btn > a {
+      width: 100%; }
   #MainNavbar ul {
     float: left !important;
     width: 100%; } }

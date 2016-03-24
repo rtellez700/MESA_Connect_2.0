@@ -1,6 +1,6 @@
-var UserDispatcher = require('../Dispatcher/UserDispatcher');
-var UserConstants = require('../Constants/UserConstants');
-var UserAPIUtils = require('../Utils/UserAPIUtils');
+import UserDispatcher from '../Dispatcher/UserDispatcher';
+import UserConstants from '../Constants/UserConstants';
+import UserAPIUtils from '../Utils/UserAPIUtils';
 
 var ActionTypes = UserConstants.ActionTypes;
 

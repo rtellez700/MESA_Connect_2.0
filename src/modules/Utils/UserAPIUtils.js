@@ -1,5 +1,5 @@
-var UserServerActionCreators = require('../Actions/UserServerActionCreators');
-var USER_DATA = require('../UserExampleData_v2');
+import UserServerActionCreators from '../Actions/UserServerActionCreators';
+import USER_DATA from '../UserExampleData_v2';
 
 // window.USER_DATA = USER_DATA;
 // TODO: finish create user function

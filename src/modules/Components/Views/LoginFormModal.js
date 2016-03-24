@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
-import { browserHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
  class LoginFormModal extends Component {
+ 	_onRegister(e){
+ 		e.preventDefault();
+
+ 		$('#login-modal').modal('toggle');
+ 		browserHistory.push('/join');
+ 	}
  	_onSubmit(e){
  		// TODO
  		e.preventDefault();
@@ -10,6 +16,8 @@ import { browserHistory } from 'react-router';
  		// 
  		// flash success message
  		// 
+ 		// hide modal
+ 		$('#login-modal').modal('toggle')
  		// redirect
  		browserHistory.push('/dashboard');
  	}
@@ -27,7 +35,7 @@ import { browserHistory } from 'react-router';
 						</form>
 
 						<div className="login-help">
-							<a href="#">Register</a> - <a href="#">Forgot Password</a>
+							<Link to="join" onClick={this._onRegister.bind(this)}>Register</Link> - <a href="#">Forgot Password</a>
 						</div>
 					</div>
 				</div>

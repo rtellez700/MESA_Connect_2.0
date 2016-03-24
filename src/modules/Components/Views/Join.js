@@ -9,9 +9,7 @@ class Join extends React.Component {
 	render() {
 		return (
 			<div className="container-fluid bg--grey-dark">
-				<div className="grid__wrapper"> 
-					<SignUpContainer />
-				</div>
+				<SignUpContainer />
 			</div>
 		);
 	}

@@ -1,23 +1,17 @@
-import React from 'react';
+import React, {Component} from 'react';
+import { browserHistory } from 'react-router';
 
 import NavBar from './Components/Views/NavBar';
 import Footer from './Components/Views/Footer';
 
-
 import LoginFormModal from './Components/Views/LoginFormModal';
 
-
-
-
-// var UserExampleData = require('./UserDataSimple');
-var UserAPIUtils = require('./Utils/UserAPIUtils');
+import UserAPIUtils from './Utils/UserAPIUtils';
 
 // UserExampleData.init();
 UserAPIUtils.getAllUsers();
 
-
-
-class App extends React.Component{
+class App extends Component{
 
 	render() {
 		return (
@@ -26,16 +20,19 @@ class App extends React.Component{
 				<LoginFormModal />
 				{/* this.props.SIDEBAR || '' */}
 				
-					<NavBar />
+				<NavBar />
 
-					
-					<div className="alert alert-danger visible-xs">
+				<div className="App__Container">
+					{ /* <div className="alert alert-danger visible-xs">
 						<h1>Please use desktop to view website during development.</h1>
-					</div>
-
-					{ this.props.children }
-						
-					<Footer />
+					</div> */ }
+					<section className="Main-Content">
+						{ this.props.children }
+					</section>
+				</div>
+				
+					
+				<Footer />
 				
 			</div>
 		);

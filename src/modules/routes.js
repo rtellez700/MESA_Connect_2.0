@@ -15,7 +15,6 @@ import Contact from './Components/Views/Contact'
 import Join from './Components/Views/Join'
 import Signin from './Components/Views/Signin'
 
-import Sidebar from './Components/Views/Sidebar'
 
 // USER
 import User from './Components/User/User'
