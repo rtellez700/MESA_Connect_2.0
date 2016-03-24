@@ -1,12 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { browserHistory } from 'react-router';
-import _ from 'underscore';
-
+import { range } from 'underscore';
 import FormList from '../Form/FormList';
 import Input from '../Form/Item/Input';
 import Select from '../Form/Item/Select';
-
 import UserActions from '../../Actions/UserActions';
 
 // TODO:
@@ -40,11 +38,11 @@ var today = new Date();
 var currentYear = today.getFullYear();
 
 var SUFFIXES = [DEFAULT_VALUE, 'Jr','Sr','II','III','IV','V','VI','VII'];
-var MESA_YEARS = _.range(currentYear, 1999, -1);
-var DOB_MONTH_VALUES = _.range(1,13);
+var MESA_YEARS = range(currentYear, 1999, -1);
+var DOB_MONTH_VALUES = range(1,13);
 var DOB_MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-var DOB_DAYS = _.range(1,32);
-var DOB_YEARS = _.range(currentYear, currentYear - 100, -1);
+var DOB_DAYS = range(1,32);
+var DOB_YEARS = range(currentYear, currentYear - 100, -1);
 
 class SignUpContainer extends React.Component {
 	constructor(){
