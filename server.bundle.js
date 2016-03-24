@@ -4291,8 +4291,6 @@
 
 	var _underscore = __webpack_require__(49);
 
-	var _underscore2 = _interopRequireDefault(_underscore);
-
 	var _FormList = __webpack_require__(44);
 
 	var _FormList2 = _interopRequireDefault(_FormList);
@@ -4347,11 +4345,11 @@
 	var currentYear = today.getFullYear();
 
 	var SUFFIXES = [DEFAULT_VALUE, 'Jr', 'Sr', 'II', 'III', 'IV', 'V', 'VI', 'VII'];
-	var MESA_YEARS = _underscore2.default.range(currentYear, 1999, -1);
-	var DOB_MONTH_VALUES = _underscore2.default.range(1, 13);
+	var MESA_YEARS = (0, _underscore.range)(currentYear, 1999, -1);
+	var DOB_MONTH_VALUES = (0, _underscore.range)(1, 13);
 	var DOB_MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-	var DOB_DAYS = _underscore2.default.range(1, 32);
-	var DOB_YEARS = _underscore2.default.range(currentYear, currentYear - 100, -1);
+	var DOB_DAYS = (0, _underscore.range)(1, 32);
+	var DOB_YEARS = (0, _underscore.range)(currentYear, currentYear - 100, -1);
 
 	var SignUpContainer = function (_React$Component) {
 		_inherits(SignUpContainer, _React$Component);
@@ -4943,7 +4941,7 @@
 						{ className: 'User__Container' },
 						_react2.default.createElement(
 							'aside',
-							{ className: 'User__Left-Panel' },
+							{ className: 'User__Left-Panel User__Left-Panel--Minimize' },
 							_react2.default.createElement(_UserSidebar2.default, null)
 						),
 						_react2.default.createElement(
@@ -4972,6 +4970,12 @@
 	var _react = __webpack_require__(4);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(6);
+
+	var _faker = __webpack_require__(20);
+
+	var _faker2 = _interopRequireDefault(_faker);
 
 	var _ProfileAvatar = __webpack_require__(37);
 
@@ -5029,6 +5033,13 @@
 		}
 
 		_createClass(UserSidebar, [{
+			key: '_ToggleSidebar',
+			value: function _ToggleSidebar(e) {
+				e.preventDefault();
+
+				$('.User__Left-Panel').toggleClass('User__Left-Panel--Minimize');
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
@@ -5037,32 +5048,28 @@
 					_react2.default.createElement(
 						'span',
 						{ className: 'User__Sidebar-Toggle' },
-						_react2.default.createElement('a', { href: '#' })
+						_react2.default.createElement('a', { href: '#', onClick: this._ToggleSidebar.bind(this) })
 					),
 					_react2.default.createElement(
 						'div',
-						{ className: 'profile-box' },
+						{ className: 'Profile__Box' },
 						_react2.default.createElement(
 							'div',
-							{ className: 'Media' },
+							{ className: 'Media__Figure' },
+							_react2.default.createElement(_ProfileAvatar2.default, { name: 'Rodrigo Tellez', className: 'CENTER-NOW', src: _faker2.default.Image.avatar() })
+						),
+						_react2.default.createElement(
+							'div',
+							{ className: 'Media__Body' },
 							_react2.default.createElement(
-								'div',
-								{ className: 'Media__figure' },
-								_react2.default.createElement('img', { src: 'http://placehold.it/40', alt: '' })
+								'h3',
+								null,
+								'Welcome James'
 							),
 							_react2.default.createElement(
-								'div',
-								{ className: 'Media__body' },
-								_react2.default.createElement(
-									'h5',
-									null,
-									'Welcome James'
-								),
-								_react2.default.createElement(
-									'small',
-									null,
-									'UX Designer'
-								)
+								'small',
+								null,
+								'UX Designer'
 							)
 						)
 					),
@@ -5071,14 +5078,14 @@
 						{ className: 'nav Panel-List' },
 						_react2.default.createElement(
 							'li',
-							null,
+							{ className: 'active' },
 							_react2.default.createElement(
-								'a',
-								{ href: '#' },
+								_reactRouter.Link,
+								{ to: 'dashboard' },
 								_react2.default.createElement('i', { className: 'fa fa-user' }),
 								_react2.default.createElement(
 									'span',
-									{ className: 'menut-text' },
+									{ className: 'menu-text' },
 									' Profile'
 								),
 								_react2.default.createElement('span', { className: 'selected' })
@@ -5088,12 +5095,12 @@
 							'li',
 							null,
 							_react2.default.createElement(
-								'a',
-								{ href: '#' },
+								_reactRouter.Link,
+								{ to: 'mail' },
 								_react2.default.createElement('i', { className: 'fa fa-envelope' }),
 								_react2.default.createElement(
 									'span',
-									{ className: 'menut-text' },
+									{ className: 'menu-text' },
 									' Mail'
 								),
 								_react2.default.createElement('span', { className: 'selected' })
@@ -5103,12 +5110,12 @@
 							'li',
 							null,
 							_react2.default.createElement(
-								'a',
-								{ href: '#' },
+								_reactRouter.Link,
+								{ to: 'resources' },
 								_react2.default.createElement('i', { className: 'fa fa-book' }),
 								_react2.default.createElement(
 									'span',
-									{ className: 'menut-text' },
+									{ className: 'menu-text' },
 									' Resources'
 								),
 								_react2.default.createElement('span', { className: 'selected' })
@@ -5118,13 +5125,28 @@
 							'li',
 							null,
 							_react2.default.createElement(
-								'a',
-								{ href: '#' },
+								_reactRouter.Link,
+								{ to: 'settings' },
 								_react2.default.createElement('i', { className: 'fa fa-cogs' }),
 								_react2.default.createElement(
 									'span',
-									{ className: 'menut-text' },
+									{ className: 'menu-text' },
 									' Settings'
+								),
+								_react2.default.createElement('span', { className: 'selected' })
+							)
+						),
+						_react2.default.createElement(
+							'li',
+							null,
+							_react2.default.createElement(
+								_reactRouter.Link,
+								{ to: 'logout' },
+								_react2.default.createElement('i', { className: 'fa fa-sign-out' }),
+								_react2.default.createElement(
+									'span',
+									{ className: 'menu-text' },
+									' Log Out'
 								),
 								_react2.default.createElement('span', { className: 'selected' })
 							)
