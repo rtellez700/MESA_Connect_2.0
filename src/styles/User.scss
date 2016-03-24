@@ -1,0 +1,104 @@
+@import './UserSidebar';
+
+.User{
+	&__Wrapper{
+		background: #eef1f6;
+		color: #7e7e7e;
+		height: 100%;
+		position: relative;
+		direction: ltr;
+		overflow-x: hidden;
+		overflow-y: hidden;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	&__Container{
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		height: 100%;
+		position:relative;
+		clear: both;
+	}
+	&__Left-Panel{
+		position: absolute;
+		background: #FFF none repeat scroll 0 0;
+		color: #7e7e7e;
+		// width: 230px;
+		top: 0;
+		float: left;
+		min-height: 100%;
+		z-index: 100;
+		box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+
+		// Make sure to add this to correct parent
+		&--Minimize{
+			& .User__Sidebar{
+				width: 50px;
+				
+				&-Toggle{
+					// margin-left: 0;
+					& a:after{
+						margin-left: 50px;
+					}
+				}
+
+				& .Profile__Box{
+					transition: all 1s ease;
+					& .Media__Figure >div, & .Media__Figure img{
+						transition: width 1s ease, height 1s ease;
+						width: 40px !important;
+						height: 40px !important;
+					}
+					& .Media__Body{
+						display: none;
+					}
+				}
+				& li{
+					text-indent: 0;
+
+					&:hover, &:focus{
+						& > a{
+							display: block;
+							position: relative;
+							width: 230px;
+							margin-bottom: -1px;
+							border-radius: 0px 4px 4px 0px;
+							box-shadow: 5px 5px 4px rgba(0,0,0,0.3), 0 0 40px rgba(128,128,128,0.1) inset;
+
+							& .menu-text{
+								display: inline-block;
+								position: absolute;
+								left: 52px;
+							}
+							& .selected{display:none;}
+						}
+					}
+				}
+
+				& li > a > i{
+					display: inline;
+					font-size: 15px;
+					padding-left: 6px;
+					padding-right: 6px;
+				}
+
+				& li > a .menu-text{
+					display: none;
+				}
+			}
+
+			// & .User__Main-Content{
+			// 	margin-left: 50px;
+			// }
+		}
+	}
+	&__Main-Content{
+		min-height: 865px;
+
+		// Note: needed if decide to push main-content to the right along with sidebar
+		// margin-left: 230px;
+		position: relative;
+	}
+}

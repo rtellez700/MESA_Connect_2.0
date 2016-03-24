@@ -18,28 +18,13 @@ UserAPIUtils.getAllUsers();
 
 
 class App extends React.Component{
-	constructor(props){
-		super(props);
-		this.state = {
-			sidebar: false
-		}
-	}
-
-	_displayFooter(){
-		return (
-			<Footer />
-		);
-	}
 
 	render() {
-		const sidebarClass = this.state.sidebar ? '' : 'toggled';
 		return (
-			<div id="App_Wrapper" className={ "container-fluid " + sidebarClass }>
+			<div id="App_Wrapper" className="container-fluid">
 
 				<LoginFormModal />
-				{ this.props.SIDEBAR || ''}
-
-				<div className="page-content-wrapper">
+				{/* this.props.SIDEBAR || '' */}
 				
 					<NavBar />
 
@@ -48,11 +33,9 @@ class App extends React.Component{
 						<h1>Please use desktop to view website during development.</h1>
 					</div>
 
-					{ this.props.MAIN || this.props.children }
+					{ this.props.children }
 						
-					{ this._displayFooter() }
-
-				</div>
+					<Footer />
 				
 			</div>
 		);

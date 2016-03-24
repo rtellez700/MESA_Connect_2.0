@@ -50,7 +50,7 @@ module.exports = (
     <Route path="about" component={About} />
     <Route path="contact" component={Contact} />
     <Route path="join" component={Join} />
-    <Route path="user" components={{ MAIN: User, SIDEBAR: Sidebar }} >
+    <Route path="user" components={User} >
         <Route path="/dashboard" component={Dashboard} />
         <Route path="/mail" component={MailBox} />
         <Route path="/resources" component={Resources}>

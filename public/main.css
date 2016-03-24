@@ -1238,7 +1238,7 @@ mark,
 .text-right {
   text-align: right; }
 
-.text-center, .SideBar-nav > .SideBar-brand {
+.text-center {
   text-align: center; }
 
 .text-justify {
@@ -8183,110 +8183,6 @@ button.close {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp; }
 
-/*!
- * Start Bootstrap - Simple SideBar HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
-/* Toggle Styles */
-#App_Wrapper {
-  padding-left: 0;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
-
-#App_Wrapper.toggled {
-  padding-left: 250px; }
-
-#SideBar-wrapper {
-  z-index: 1000;
-  position: fixed;
-  left: 250px;
-  width: 0;
-  height: 100%;
-  padding-top: 10px;
-  margin-left: -250px;
-  overflow-y: auto;
-  background: #414146;
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
-
-#App_Wrapper.toggled #SideBar-wrapper {
-  width: 250px; }
-
-#page-content-wrapper {
-  width: 100%;
-  position: absolute;
-  padding: 15px; }
-
-#App_Wrapper.toggled #page-content-wrapper {
-  position: absolute;
-  margin-right: -250px; }
-
-/* SideBar Styles */
-.SideBar-nav {
-  top: 0;
-  width: 250px;
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-
-.SideBar-nav li {
-  text-indent: 20px;
-  line-height: 40px; }
-  .SideBar-nav li i {
-    margin-right: 20px; }
-
-.SideBar-nav li a {
-  display: block;
-  text-decoration: none;
-  color: #CACACB;
-  font-size: 15px; }
-
-.SideBar-nav li a:hover {
-  text-decoration: none;
-  color: #fff;
-  background: #5C5C63; }
-
-.SideBar-nav li a:active,
-.SideBar-nav li a:focus {
-  text-decoration: none; }
-
-.SideBar-nav > .SideBar-brand {
-  height: 65px;
-  line-height: 60px; }
-
-.SideBar-nav > .SideBar-brand a {
-  font-size: 20px;
-  color: #CACACB; }
-
-.SideBar-nav > .SideBar-brand a:hover {
-  color: #fff;
-  background: none; }
-
-@media (min-width: 768px) {
-  #App_Wrapper {
-    padding-left: 250px; }
-  #App_Wrapper.toggled {
-    padding-left: 0; }
-  #SideBar-wrapper {
-    width: 250px; }
-  #App_Wrapper.toggled #SideBar-wrapper {
-    width: 0; }
-  #page-content-wrapper {
-    padding: 20px;
-    position: relative; }
-  #App_Wrapper.toggled #page-content-wrapper {
-    position: relative;
-    margin-right: 0; } }
-
-@media (max-width: 992px) {
-  #App_Wrapper {
-    padding-left: 0 !important; } }
-
 .MailBox {
   margin-top: 30px; }
   .MailBox .Inbox, .MailBox .Sent, .MailBox .Trash {
@@ -8541,6 +8437,62 @@ button.close {
 
 .login-help {
   font-size: 12px; }
+
+.User__Sidebar {
+  position: absolute;
+  width: 230px;
+  top: 0;
+  float: left;
+  min-height: 100%;
+  z-index: 100;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+  background: #FFF none repeat scroll 0 0;
+  color: #7e7e7e; }
+  .User__Sidebar-Toggle a:after {
+    background: transparent;
+    border: 0px solid #efefef;
+    font-family: FontAwesome;
+    content: "\F0C9"; }
+
+.User__Wrapper {
+  background: #eef1f6;
+  color: #7e7e7e;
+  height: 100%;
+  position: relative;
+  direction: ltr;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+
+.User__Container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  clear: both; }
+
+.User__Left-Panel {
+  position: absolute;
+  background: #FFF none repeat scroll 0 0;
+  color: #7e7e7e;
+  width: 230px;
+  top: 0;
+  float: left;
+  min-height: 100%;
+  z-index: 100;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2); }
+  .User__Left-Panel--Minimize {
+    width: 50px; }
+    .User__Left-Panel--Minimize .User__Main-Content {
+      margin-left: 50px; }
+
+.User__Main-Content {
+  min-height: 865px;
+  margin-left: 230px;
+  position: relative; }
 
 html {
   position: relative;

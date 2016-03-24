@@ -1,0 +1,105 @@
+$User__Sidebar--Width: 230px;
+
+.User__Sidebar{
+	transition: width 1s ease;
+	position: absolute;
+	width: $User__Sidebar--Width;
+	top: 0;
+	float: left;
+	min-height: 100%;
+	z-index: 100;
+	box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+	// background: #FFF none repeat scroll 0 0;
+	background: #414146 none repeat scroll 0 0;
+
+
+	color: #7e7e7e;
+
+	// & .Panel-List{
+
+	// }
+
+	&-Toggle{
+		& a:after{
+			background: transparent;
+			border: 0px solid #efefef;
+			font-family: FontAwesome;
+			content: "\f0c9";
+			font-size: 14px;
+			line-height: 50px;
+			padding: 0px 17px;
+			position:absolute;
+			color: #7e7e7e;
+			z-index: 1000;
+			margin-left: $User__Sidebar--Width;
+		}
+	}
+
+	& li{
+		text-indent: 10px;
+	    line-height: 20px;
+	    border-bottom: 1px solid lighten(#414146,2%);
+
+	    & i{margin-right: 20px;}
+
+	    & a{
+	    	display: block;
+		    text-decoration: none;
+		    color: #CACACB;
+		    font-size: 15px;
+		    &:hover{
+		    	text-decoration: none;
+			    color: #fff;
+			    background: #5C5C63;
+		    }
+		    &:active, a:focus{
+		    	text-decoration: none;
+		    }
+
+		    & .menu-text{
+		    	display: inline-block;
+		    }
+	    }
+
+	    &.active{
+			background: #5C5C63;
+	    	& > a .selected{
+		    	border-bottom: 7px solid transparent;
+		    	border-right: 7px solid #7e7e7e;
+		    	border-top: 7px solid transparent;
+		    	display: inline-block;
+		    	height: 0;
+		    	width: 0;
+		    	position:absolute;
+		    	right: 0;
+		    	top: 13px;
+		    	vertical-align: middle;
+		    }
+	    }
+	}
+
+	& .Profile__Box{
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		padding-bottom: 15px;
+		border-bottom: 1px solid lighten(#414146,5%);
+		transition: all 1s ease;
+
+		& .Media__Figure{
+			& img{transition: width 1s ease, height 1s ease;}
+		}
+		& .Media__Body{
+			color: #CACACB;
+		}
+	}
+
+
+}

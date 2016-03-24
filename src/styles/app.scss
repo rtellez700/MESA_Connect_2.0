@@ -2,7 +2,7 @@
 @import './vendor/animate-css/animate';
 
 @import './CustomVariables.scss';
-@import './SideBar.scss';
+
 @import './MailBox.scss';
 @import './Network.scss';
 @import './Tile.scss';
@@ -10,6 +10,8 @@
 @import './ShowcasePanel';
 @import './Signin';
 @import './LoginFormModal';
+
+@import './User';
 
 @mixin flexbox(){
 	display: -webkit-box;
@@ -25,13 +27,10 @@ html{
 }
 
 body{
-	// padding-top: $navbar-height;
 	font-family: 'Lato', sans-serif;
 	margin-bottom: $footer-height;
 	background-color: #F7F7F7;
 }
-
-// .page-content-wrapper{}
 
 #App{
 }
@@ -55,12 +54,9 @@ img{
 		margin: 0;
 	}
 	&-default{
-		// background-color: white;
-		// border-color: transparent;
 
 		& .navbar-toggle{
 			border-color: black;
-			// color: green;
 			font-weight: bold;
 		}
 		// & .navbar-toggle:hover, & .navbar-toggle:focus{
@@ -114,8 +110,6 @@ img{
 		// add padding
 		&--same-height{
 			@include flexbox();
-			// display: -webkit-flex;
-			// display: flex;
 		}
 	}
 
@@ -141,8 +135,7 @@ img{
 	&__container{
 		@extend .container;
 		@include flexbox();
-		// display: -webkit-flex;
-		// display: flex;
+
 		align-items: center;
 		justify-content: center;
 	}
@@ -151,22 +144,8 @@ img{
 // Form Box
 .FormBox{
 	border: 1px solid black;
-	// background-color: #cccccc;
 	padding-top:6em 3em;
 	max-width: 650px;
-
-	// &:after{
-	// 	position:absolute;
-	// 	top:15px;
-	// 	left:15px;
-	// 	font-size: 12px;
-	// 	font-weight:700;
-	// 	// color:#959595;
-	// 	color:red;
-	// 	text-transform: uppercase;
-	// 	letter-spacing: 1px;
-	// 	content: "Example";
-	// }
 
 	&__btn{
 		&--full-width{
@@ -202,9 +181,6 @@ img{
 // MEDIA
 .Media{
 	@include flexbox();
-	// display: -webkit-flex;
-	// display: flex;
-	// background-color: #dedede;
 	padding: 20px;
 	border-radius: 0px;
 
@@ -254,7 +230,6 @@ img{
 
 // Resources
 .Resources{
-	margin-top: 30px;
 	& .Tile__Content a{
 		color: darken(#F3F5F6,45%);
 	}
@@ -311,8 +286,6 @@ img{
 	&--flex{@include flexbox();}
 	&--in-center{
 		@include flexbox();
-		// display: -webkit-flex;
-		// display: flex;
 		align-items: center;
 		justify-content: center;
 

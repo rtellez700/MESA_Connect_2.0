@@ -1,47 +1,25 @@
 import React from 'react';
 
 import NavBar from '../Views/NavBar';
-// import SideBar from '../Views/SideBar';
+import UserSidebar from './UserSidebar';
 import Footer from '../Views/Footer';
 
 class User extends React.Component {
-	constructor(props){
-		super(props);
-		this.state = {
-			sidebar: true
-		}
-	}
-
-	componentDidMount(){
-		if (this.state.sidebar){
-			this._toggleSidebar();
-		}
-	}
-	componentWillUnmount(){
-		if (this.state.sidebar){
-			this._toggleSidebar();
-		}
-	}
-
-	_onClick(e){
-		e.preventDefault();
-		$('#App_Wrapper').toggleClass("toggled");
-
-	}
-
-	_toggleSidebar(){
-		$('#App_Wrapper').toggleClass("toggled");
-	}
-
 	render() {
 
 		return (
-			<div >
+			<div className="User__Wrapper">
+				{/* Header Goes Here */}
 				
-				<div >
-					{ this.props.children }
+				<div className="User__Container">
+					<aside className="User__Left-Panel User__Left-Panel--Minimize">
+						<UserSidebar />
+					</aside>
+					<section className="User__Main-Content">
+						{ this.props.children }
+					</section>
 				</div>
-				
+
 			</div>
 		);
 	}
